@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+   <PropertyGroup>
+     <TargetFramework>net9.0</TargetFramework>
+     <Nullable>enable</Nullable>
+     <ImplicitUsings>enable</ImplicitUsings>
+
+     <!-- NuGet metadata -->
+     <PackageId>CodiceFiscale</PackageId>
+     <Version>0.1.0</Version>
+     <Authors>Il tuo nome</Authors>
+     <Description>Italian fiscal code, VAT and IBAN validation for .NET</Description>
+     <PackageTags>italy;codicefiscale;fiscalcode;iban;partitaiva;validation</PackageTags>
+     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+     <RepositoryUrl>https://github.com/tuousername/CodiceFiscale</RepositoryUrl>
+     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+   </PropertyGroup>
+
+   <ItemGroup>
+     <EmbeddedResource Include="Resources/belfiore.json" />
+   </ItemGroup>
+
+ </Project>

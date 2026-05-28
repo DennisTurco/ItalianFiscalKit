@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CodiceFiscale.Tests/CodiceFiscale.Tests.csproj" />
+  <Project Path="CodiceFiscale/CodiceFiscale.csproj" />
+</Solution>
