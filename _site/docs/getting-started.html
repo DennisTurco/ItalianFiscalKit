@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Getting Started | CodiceFiscale </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Getting Started | CodiceFiscale ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/DennisTurco/CodiceFiscale/blob/master/docs/getting-started.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CodiceFiscale">
+            CodiceFiscale
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="getting-started">Getting Started</h1>
+
+<h2 id="installation">Installation</h2>
+<pre><code class="lang-bash">dotnet add package CodiceFiscale
+</code></pre>
+<p>Or via the NuGet Package Manager in Visual Studio: search for <strong>CodiceFiscale</strong>.</p>
+<hr>
+<h2 id="validate-a-codice-fiscale">Validate a Codice Fiscale</h2>
+<pre><code class="lang-csharp">using CodiceFiscale;
+
+bool valid = CodiceFiscaleValidator.IsValid(&quot;RSSMRA85T10A562S&quot;);
+// true
+
+// Case-insensitive
+bool valid2 = CodiceFiscaleValidator.IsValid(&quot;rssmra85t10a562s&quot;);
+// true
+
+// Foreign birth place (Z-code)
+bool validForeign = CodiceFiscaleValidator.IsValid(&quot;MRNGRL01P55Z614X&quot;);
+// true
+
+// Invalid check digit
+bool invalid = CodiceFiscaleValidator.IsValid(&quot;RSSMRA85T10A562X&quot;);
+// false
+</code></pre>
+<p><code>IsValid</code> returns <code>false</code> (never throws) for any invalid input including <code>null</code>-equivalent strings, wrong length, bad characters, invalid date, unknown Belfiore code, or wrong check digit.</p>
+<hr>
+<h2 id="parse-a-codice-fiscale">Parse a Codice Fiscale</h2>
+<pre><code class="lang-csharp">using CodiceFiscale;
+using CodiceFiscale.Entities;
+using CodiceFiscale.Enums;
+
+CodiceFiscaleData data = CodiceFiscaleParser.Parse(&quot;RSSMRA85T10A562S&quot;);
+
+Gender gender      = data.Gender;       // Gender.Male
+DateOnly dob       = data.DateOfBirth;  // new DateOnly(1985, 12, 10)
+string belfiore    = data.BelfioreCode; // &quot;A562&quot;
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p><code>Parse</code> throws <code>InvalidCodiceFiscaleException</code> if the input is not valid.
+Always validate first, or wrap in a try/catch.</p>
+</div>
+<pre><code class="lang-csharp">try
+{
+    CodiceFiscaleData data = CodiceFiscaleParser.Parse(userInput);
+}
+catch (InvalidCodiceFiscaleException ex)
+{
+    Console.WriteLine(ex.Message);
+}
+</code></pre>
+<hr>
+<h2 id="validate-an-iban">Validate an IBAN</h2>
+<pre><code class="lang-csharp">using CodiceFiscale;
+
+bool valid = IBANValidator.IsValid(&quot;IT60X0542811101000000123456&quot;); // true
+bool validSpaced = IBANValidator.IsValid(&quot;IT60 X054 2811 1010 0000 0123 456&quot;); // true (spaces ignored)
+
+bool invalid = IBANValidator.IsValid(&quot;IT00X0542811101000000123456&quot;); // false (bad checksum)
+</code></pre>
+<hr>
+<h2 id="validate-a-partita-iva">Validate a Partita IVA</h2>
+<pre><code class="lang-csharp">using CodiceFiscale;
+
+// Standard company VAT
+bool valid = ItalianVatCodeValidator.IsValid(&quot;00484960588&quot;, isConsumer: false, isFiscal: false); // true
+
+// Consumer (natural person) VAT — first digit must be 8 or 9
+bool consumer = ItalianVatCodeValidator.IsValid(&quot;85423511618&quot;, isConsumer: true, isFiscal: false); // true
+
+// Accept a Codice Fiscale as a valid fiscal identifier
+bool fiscal = ItalianVatCodeValidator.IsValid(&quot;RSSMRA85T10A562S&quot;, isConsumer: false, isFiscal: true); // true
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/DennisTurco/CodiceFiscale/blob/master/docs/getting-started.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

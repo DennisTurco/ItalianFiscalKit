@@ -1,0 +1,58 @@
+### YamlMime:TableOfContent
+items:
+- uid: CodiceFiscale
+  name: CodiceFiscale
+  type: Namespace
+  items:
+  - uid: CodiceFiscale.CodiceFiscaleGenerator
+    name: CodiceFiscaleGenerator
+    type: Class
+  - uid: CodiceFiscale.CodiceFiscaleMatcher
+    name: CodiceFiscaleMatcher
+    type: Class
+  - uid: CodiceFiscale.CodiceFiscaleParser
+    name: CodiceFiscaleParser
+    type: Class
+  - uid: CodiceFiscale.CodiceFiscaleValidator
+    name: CodiceFiscaleValidator
+    type: Class
+  - uid: CodiceFiscale.IBANValidator
+    name: IBANValidator
+    type: Class
+  - uid: CodiceFiscale.ItalianVatCodeValidator
+    name: ItalianVatCodeValidator
+    type: Class
+- uid: CodiceFiscale.Entities
+  name: CodiceFiscale.Entities
+  type: Namespace
+  items:
+  - uid: CodiceFiscale.Entities.CodiceFiscaleData
+    name: CodiceFiscaleData
+    type: Class
+  - uid: CodiceFiscale.Entities.Coordinates
+    name: Coordinates
+    type: Class
+  - uid: CodiceFiscale.Entities.ForeignCountry
+    name: ForeignCountry
+    type: Class
+  - uid: CodiceFiscale.Entities.Municipality
+    name: Municipality
+    type: Class
+  - uid: CodiceFiscale.Entities.Province
+    name: Province
+    type: Class
+- uid: CodiceFiscale.Enums
+  name: CodiceFiscale.Enums
+  type: Namespace
+  items:
+  - uid: CodiceFiscale.Enums.Gender
+    name: Gender
+    type: Enum
+- uid: CodiceFiscale.Exceptions
+  name: CodiceFiscale.Exceptions
+  type: Namespace
+  items:
+  - uid: CodiceFiscale.Exceptions.InvalidCodiceFiscaleException
+    name: InvalidCodiceFiscaleException
+    type: Class
+memberLayout: SamePage

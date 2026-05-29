@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodiceFiscale
+  commentId: N:CodiceFiscale
+  id: CodiceFiscale
+  children:
+  - CodiceFiscale.CodiceFiscaleGenerator
+  - CodiceFiscale.CodiceFiscaleMatcher
+  - CodiceFiscale.CodiceFiscaleParser
+  - CodiceFiscale.CodiceFiscaleValidator
+  - CodiceFiscale.IBANValidator
+  - CodiceFiscale.ItalianVatCodeValidator
+  langs:
+  - csharp
+  - vb
+  name: CodiceFiscale
+  nameWithType: CodiceFiscale
+  fullName: CodiceFiscale
+  type: Namespace
+  assemblies:
+  - CodiceFiscale
+references:
+- uid: CodiceFiscale.CodiceFiscaleGenerator
+  commentId: T:CodiceFiscale.CodiceFiscaleGenerator
+  href: CodiceFiscale.CodiceFiscaleGenerator.html
+  name: CodiceFiscaleGenerator
+  nameWithType: CodiceFiscaleGenerator
+  fullName: CodiceFiscale.CodiceFiscaleGenerator
+- uid: CodiceFiscale.CodiceFiscaleMatcher
+  commentId: T:CodiceFiscale.CodiceFiscaleMatcher
+  href: CodiceFiscale.CodiceFiscaleMatcher.html
+  name: CodiceFiscaleMatcher
+  nameWithType: CodiceFiscaleMatcher
+  fullName: CodiceFiscale.CodiceFiscaleMatcher
+- uid: CodiceFiscale.CodiceFiscaleParser
+  commentId: T:CodiceFiscale.CodiceFiscaleParser
+  href: CodiceFiscale.CodiceFiscaleParser.html
+  name: CodiceFiscaleParser
+  nameWithType: CodiceFiscaleParser
+  fullName: CodiceFiscale.CodiceFiscaleParser
+- uid: CodiceFiscale.CodiceFiscaleValidator
+  commentId: T:CodiceFiscale.CodiceFiscaleValidator
+  href: CodiceFiscale.CodiceFiscaleValidator.html
+  name: CodiceFiscaleValidator
+  nameWithType: CodiceFiscaleValidator
+  fullName: CodiceFiscale.CodiceFiscaleValidator
+- uid: CodiceFiscale.IBANValidator
+  commentId: T:CodiceFiscale.IBANValidator
+  href: CodiceFiscale.IBANValidator.html
+  name: IBANValidator
+  nameWithType: IBANValidator
+  fullName: CodiceFiscale.IBANValidator
+- uid: CodiceFiscale.ItalianVatCodeValidator
+  commentId: T:CodiceFiscale.ItalianVatCodeValidator
+  href: CodiceFiscale.ItalianVatCodeValidator.html
+  name: ItalianVatCodeValidator
+  nameWithType: ItalianVatCodeValidator
+  fullName: CodiceFiscale.ItalianVatCodeValidator

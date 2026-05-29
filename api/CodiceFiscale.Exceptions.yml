@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodiceFiscale.Exceptions
+  commentId: N:CodiceFiscale.Exceptions
+  id: CodiceFiscale.Exceptions
+  children:
+  - CodiceFiscale.Exceptions.InvalidCodiceFiscaleException
+  langs:
+  - csharp
+  - vb
+  name: CodiceFiscale.Exceptions
+  nameWithType: CodiceFiscale.Exceptions
+  fullName: CodiceFiscale.Exceptions
+  type: Namespace
+  assemblies:
+  - CodiceFiscale
+references:
+- uid: CodiceFiscale.Exceptions.InvalidCodiceFiscaleException
+  commentId: T:CodiceFiscale.Exceptions.InvalidCodiceFiscaleException
+  href: CodiceFiscale.Exceptions.InvalidCodiceFiscaleException.html
+  name: InvalidCodiceFiscaleException
+  nameWithType: InvalidCodiceFiscaleException
+  fullName: CodiceFiscale.Exceptions.InvalidCodiceFiscaleException

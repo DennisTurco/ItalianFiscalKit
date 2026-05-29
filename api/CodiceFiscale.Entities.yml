@@ -1,0 +1,76 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodiceFiscale.Entities
+  commentId: N:CodiceFiscale.Entities
+  id: CodiceFiscale.Entities
+  children:
+  - CodiceFiscale.Entities.CodiceFiscaleData
+  - CodiceFiscale.Entities.Coordinates
+  - CodiceFiscale.Entities.ForeignCountry
+  - CodiceFiscale.Entities.Municipality
+  - CodiceFiscale.Entities.Province
+  langs:
+  - csharp
+  - vb
+  name: CodiceFiscale.Entities
+  nameWithType: CodiceFiscale.Entities
+  fullName: CodiceFiscale.Entities
+  type: Namespace
+  assemblies:
+  - CodiceFiscale
+references:
+- uid: CodiceFiscale.Entities.CodiceFiscaleData
+  commentId: T:CodiceFiscale.Entities.CodiceFiscaleData
+  parent: CodiceFiscale.Entities
+  href: CodiceFiscale.Entities.CodiceFiscaleData.html
+  name: CodiceFiscaleData
+  nameWithType: CodiceFiscaleData
+  fullName: CodiceFiscale.Entities.CodiceFiscaleData
+- uid: CodiceFiscale.Entities.Coordinates
+  commentId: T:CodiceFiscale.Entities.Coordinates
+  parent: CodiceFiscale.Entities
+  href: CodiceFiscale.Entities.Coordinates.html
+  name: Coordinates
+  nameWithType: Coordinates
+  fullName: CodiceFiscale.Entities.Coordinates
+- uid: CodiceFiscale.Entities.ForeignCountry
+  commentId: T:CodiceFiscale.Entities.ForeignCountry
+  href: CodiceFiscale.Entities.ForeignCountry.html
+  name: ForeignCountry
+  nameWithType: ForeignCountry
+  fullName: CodiceFiscale.Entities.ForeignCountry
+- uid: CodiceFiscale.Entities.Municipality
+  commentId: T:CodiceFiscale.Entities.Municipality
+  href: CodiceFiscale.Entities.Municipality.html
+  name: Municipality
+  nameWithType: Municipality
+  fullName: CodiceFiscale.Entities.Municipality
+- uid: CodiceFiscale.Entities.Province
+  commentId: T:CodiceFiscale.Entities.Province
+  parent: CodiceFiscale.Entities
+  href: CodiceFiscale.Entities.Province.html
+  name: Province
+  nameWithType: Province
+  fullName: CodiceFiscale.Entities.Province
+- uid: CodiceFiscale.Entities
+  commentId: N:CodiceFiscale.Entities
+  href: CodiceFiscale.html
+  name: CodiceFiscale.Entities
+  nameWithType: CodiceFiscale.Entities
+  fullName: CodiceFiscale.Entities
+  spec.csharp:
+  - uid: CodiceFiscale
+    name: CodiceFiscale
+    href: CodiceFiscale.html
+  - name: .
+  - uid: CodiceFiscale.Entities
+    name: Entities
+    href: CodiceFiscale.Entities.html
+  spec.vb:
+  - uid: CodiceFiscale
+    name: CodiceFiscale
+    href: CodiceFiscale.html
+  - name: .
+  - uid: CodiceFiscale.Entities
+    name: Entities
+    href: CodiceFiscale.Entities.html

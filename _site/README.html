@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Codice Fiscale | CodiceFiscale </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Codice Fiscale | CodiceFiscale ">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/DennisTurco/CodiceFiscale/blob/master/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="CodiceFiscale">
+            CodiceFiscale
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="codice-fiscale">Codice Fiscale</h1>
+
+<p>A lightweight, dependency-free .NET library for Italian fiscal code (codice fiscale), VAT number (partita IVA) and IBAN validation.</p>
+<p>All validation logic runs <strong>locally</strong>. No HTTP calls, no external services, no data ever leaves your application.</p>
+<p><a href="https://www.nuget.org/packages/CodiceFiscale"><img src="https://img.shields.io/nuget/v/CodiceFiscale.svg" alt="NuGet"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a></p>
+<h2 id="installation">Installation</h2>
+<pre><code class="lang-bash"> dotnet add package CodiceFiscale
+</code></pre>
+<h2 id="features">Features</h2>
+<ul>
+<li>Fiscal code validation (format + checksum)</li>
+<li>Fiscal code generation from personal data</li>
+<li>Cross-check: does this fiscal code match these personal details?</li>
+<li>Italian VAT number validation (standard, public entity, foreign)</li>
+<li>IBAN validation (mod97, all countries)</li>
+<li>Comuni and codici Belfiore embedded dataset (no external files needed)</li>
+<li>Zero dependencies</li>
+<li>Fully tested</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<ol>
+<li><p>Validate a fiscal code</p>
+<pre><code class="lang-cs">using CodiceFiscale;
+
+bool isValid = CodiceFiscaleValidator.IsValid(&quot;RSSMRA80A01H501U&quot;); // true
+
+Generate a fiscal code
+
+var data = new PersonalData
+{
+    FirstName       = &quot;Mario&quot;,
+    LastName        = &quot;Rossi&quot;,
+    Gender          = Gender.Male,
+    DateOfBirth     = new DateOnly(1980, 1, 1),
+    CityOfBirth     = &quot;Roma&quot;
+};
+
+string cf = CodiceFiscaleGenerator.Generate(data); // &quot;RSSMRA80A01H501U&quot;
+</code></pre>
+</li>
+<li><p>Cross-check fiscal code against personal data</p>
+<pre><code class="lang-cs">bool matches = CodiceFiscaleMatcher.Matches(
+    fiscalCode: &quot;RSSMRA80A01H501U&quot;,
+    firstName:  &quot;Mario&quot;,
+    lastName:   &quot;Rossi&quot;,
+    gender:     Gender.Male,
+    dateOfBirth: new DateOnly(1980, 1, 1),
+    cityOfBirth: &quot;Roma&quot;
+); // true
+</code></pre>
+</li>
+<li><p>Parse a fiscal code</p>
+<pre><code class="lang-cs">CodiceFiscaleData parsed = CodiceFiscaleParser.Parse(&quot;RSSMRA80A01H501U&quot;);
+
+parsed.Gender       // Male
+parsed.DateOfBirth  // 1980-01-01
+parsed.BelfioreCode // &quot;H501&quot;
+parsed.CityOfBirth  // &quot;Roma&quot;
+</code></pre>
+</li>
+<li><p>Validate an Italian VAT number</p>
+<pre><code class="lang-cs">bool isValid = ItalianVatCodeValidator.IsValid(&quot;12345670017&quot;); // true
+</code></pre>
+</li>
+<li><p>Validate an IBAN</p>
+<pre><code class="lang-cs">bool isValid = IBANValidator.IsValid(&quot;IT60X0542811101000000123456&quot;); // true
+</code></pre>
+</li>
+</ol>
+<h2 id="edge-cases-handled">Edge cases handled</h2>
+<ul>
+<li>Names with fewer than 3 consonants (Re, Li, Yu)</li>
+<li>Names with apostrophes and accents (D'Amico, Rosà)</li>
+<li>Foreign-born individuals (Belfiore code Z + country number)</li>
+<li>Omocodia (alternate fiscal codes with letters replacing digits)</li>
+<li>VAT numbers for public entities (starting with 8 or 9)</li>
+<li>Obsolete municipalities (comuni soppressi)</li>
+</ul>
+<h2 id="why-not-an-api">Why not an API?</h2>
+<p>Fiscal codes and VAT numbers are personal data. Sending them to a third-party
+server to validate them raises immediate GDPR concerns. This library validates
+everything locally. The data never leaves your application.</p>
+<h2 id="dataset">Dataset</h2>
+<p>The comuni/Belfiore dataset is sourced from
+ISTAT open data and embedded directly
+in the library binary. No external files are required at runtime.</p>
+<p>The dataset is updated with each minor release to reflect municipality changes
+(merges, renames, new comuni).</p>
+<h2 id="contributing">Contributing</h2>
+<p>Contributions are welcome. If you find a fiscal code that validates incorrectly,
+please open an issue with:</p>
+<ol>
+<li>The fiscal code (you can anonymise it — just keep the structure)</li>
+<li>The personal data it should/should not match</li>
+<li>The expected result</li>
+</ol>
+<h2 id="license">License</h2>
+<p><a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a></p>
+<h2 id="municipalities-data">Municipalities data</h2>
+<p><a href="https://comuni-ita.readme.io/reference/getcomuni">https://comuni-ita.readme.io/reference/getcomuni</a></p>
+<h2 id="build">Build</h2>
+<pre><code class="lang-powershell">dotnet build
+dotnet test
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/DennisTurco/CodiceFiscale/blob/master/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

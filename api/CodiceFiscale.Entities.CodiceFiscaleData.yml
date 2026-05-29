@@ -1,0 +1,576 @@
+### YamlMime:ManagedReference
+items:
+- uid: CodiceFiscale.Entities.CodiceFiscaleData
+  commentId: T:CodiceFiscale.Entities.CodiceFiscaleData
+  id: CodiceFiscaleData
+  parent: CodiceFiscale.Entities
+  children:
+  - CodiceFiscale.Entities.CodiceFiscaleData.#ctor(CodiceFiscale.Enums.Gender,System.DateOnly,System.String)
+  - CodiceFiscale.Entities.CodiceFiscaleData.BelfioreCode
+  - CodiceFiscale.Entities.CodiceFiscaleData.DateOfBirth
+  - CodiceFiscale.Entities.CodiceFiscaleData.Gender
+  langs:
+  - csharp
+  - vb
+  name: CodiceFiscaleData
+  nameWithType: CodiceFiscaleData
+  fullName: CodiceFiscale.Entities.CodiceFiscaleData
+  type: Class
+  source:
+    remote:
+      path: CodiceFiscale/Entities/CodiceFiscaleData.cs
+      branch: master
+      repo: https://github.com/DennisTurco/CodiceFiscale.git
+    id: CodiceFiscaleData
+    path: CodiceFiscale/Entities/CodiceFiscaleData.cs
+    startLine: 10
+  assemblies:
+  - CodiceFiscale
+  namespace: CodiceFiscale.Entities
+  summary: Represents the data required to generate or parse an Italian Codice Fiscale.
+  example: []
+  syntax:
+    content: 'public record CodiceFiscaleData : IEquatable<CodiceFiscaleData>'
+    content.vb: Public Class CodiceFiscaleData Implements IEquatable(Of CodiceFiscaleData)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{CodiceFiscale.Entities.CodiceFiscaleData}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: CodiceFiscale.Entities.CodiceFiscaleData.#ctor(CodiceFiscale.Enums.Gender,System.DateOnly,System.String)
+  commentId: M:CodiceFiscale.Entities.CodiceFiscaleData.#ctor(CodiceFiscale.Enums.Gender,System.DateOnly,System.String)
+  id: '#ctor(CodiceFiscale.Enums.Gender,System.DateOnly,System.String)'
+  parent: CodiceFiscale.Entities.CodiceFiscaleData
+  langs:
+  - csharp
+  - vb
+  name: CodiceFiscaleData(Gender, DateOnly, string)
+  nameWithType: CodiceFiscaleData.CodiceFiscaleData(Gender, DateOnly, string)
+  fullName: CodiceFiscale.Entities.CodiceFiscaleData.CodiceFiscaleData(CodiceFiscale.Enums.Gender, System.DateOnly, string)
+  type: Constructor
+  source:
+    remote:
+      path: CodiceFiscale/Entities/CodiceFiscaleData.cs
+      branch: master
+      repo: https://github.com/DennisTurco/CodiceFiscale.git
+    id: .ctor
+    path: CodiceFiscale/Entities/CodiceFiscaleData.cs
+    startLine: 10
+  assemblies:
+  - CodiceFiscale
+  namespace: CodiceFiscale.Entities
+  summary: Represents the data required to generate or parse an Italian Codice Fiscale.
+  example: []
+  syntax:
+    content: public CodiceFiscaleData(Gender Gender, DateOnly DateOfBirth, string BelfioreCode)
+    parameters:
+    - id: Gender
+      type: CodiceFiscale.Enums.Gender
+      description: The gender of the individual ("Male" for male, "Female" for female).
+    - id: DateOfBirth
+      type: System.DateOnly
+      description: The date of birth of the individual.
+    - id: BelfioreCode
+      type: System.String
+      description: The Belfiore code representing the place of birth.
+    content.vb: Public Sub New(Gender As Gender, DateOfBirth As DateOnly, BelfioreCode As String)
+  overload: CodiceFiscale.Entities.CodiceFiscaleData.#ctor*
+  nameWithType.vb: CodiceFiscaleData.New(Gender, DateOnly, String)
+  fullName.vb: CodiceFiscale.Entities.CodiceFiscaleData.New(CodiceFiscale.Enums.Gender, System.DateOnly, String)
+  name.vb: New(Gender, DateOnly, String)
+- uid: CodiceFiscale.Entities.CodiceFiscaleData.Gender
+  commentId: P:CodiceFiscale.Entities.CodiceFiscaleData.Gender
+  id: Gender
+  parent: CodiceFiscale.Entities.CodiceFiscaleData
+  langs:
+  - csharp
+  - vb
+  name: Gender
+  nameWithType: CodiceFiscaleData.Gender
+  fullName: CodiceFiscale.Entities.CodiceFiscaleData.Gender
+  type: Property
+  source:
+    remote:
+      path: CodiceFiscale/Entities/CodiceFiscaleData.cs
+      branch: master
+      repo: https://github.com/DennisTurco/CodiceFiscale.git
+    id: Gender
+    path: CodiceFiscale/Entities/CodiceFiscaleData.cs
+    startLine: 11
+  assemblies:
+  - CodiceFiscale
+  namespace: CodiceFiscale.Entities
+  summary: The gender of the individual ("Male" for male, "Female" for female).
+  example: []
+  syntax:
+    content: public Gender Gender { get; init; }
+    parameters: []
+    return:
+      type: CodiceFiscale.Enums.Gender
+    content.vb: Public Property Gender As Gender
+  overload: CodiceFiscale.Entities.CodiceFiscaleData.Gender*
+- uid: CodiceFiscale.Entities.CodiceFiscaleData.DateOfBirth
+  commentId: P:CodiceFiscale.Entities.CodiceFiscaleData.DateOfBirth
+  id: DateOfBirth
+  parent: CodiceFiscale.Entities.CodiceFiscaleData
+  langs:
+  - csharp
+  - vb
+  name: DateOfBirth
+  nameWithType: CodiceFiscaleData.DateOfBirth
+  fullName: CodiceFiscale.Entities.CodiceFiscaleData.DateOfBirth
+  type: Property
+  source:
+    remote:
+      path: CodiceFiscale/Entities/CodiceFiscaleData.cs
+      branch: master
+      repo: https://github.com/DennisTurco/CodiceFiscale.git
+    id: DateOfBirth
+    path: CodiceFiscale/Entities/CodiceFiscaleData.cs
+    startLine: 12
+  assemblies:
+  - CodiceFiscale
+  namespace: CodiceFiscale.Entities
+  summary: The date of birth of the individual.
+  example: []
+  syntax:
+    content: public DateOnly DateOfBirth { get; init; }
+    parameters: []
+    return:
+      type: System.DateOnly
+    content.vb: Public Property DateOfBirth As DateOnly
+  overload: CodiceFiscale.Entities.CodiceFiscaleData.DateOfBirth*
+- uid: CodiceFiscale.Entities.CodiceFiscaleData.BelfioreCode
+  commentId: P:CodiceFiscale.Entities.CodiceFiscaleData.BelfioreCode
+  id: BelfioreCode
+  parent: CodiceFiscale.Entities.CodiceFiscaleData
+  langs:
+  - csharp
+  - vb
+  name: BelfioreCode
+  nameWithType: CodiceFiscaleData.BelfioreCode
+  fullName: CodiceFiscale.Entities.CodiceFiscaleData.BelfioreCode
+  type: Property
+  source:
+    remote:
+      path: CodiceFiscale/Entities/CodiceFiscaleData.cs
+      branch: master
+      repo: https://github.com/DennisTurco/CodiceFiscale.git
+    id: BelfioreCode
+    path: CodiceFiscale/Entities/CodiceFiscaleData.cs
+    startLine: 13
+  assemblies:
+  - CodiceFiscale
+  namespace: CodiceFiscale.Entities
+  summary: The Belfiore code representing the place of birth.
+  example: []
+  syntax:
+    content: public string BelfioreCode { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property BelfioreCode As String
+  overload: CodiceFiscale.Entities.CodiceFiscaleData.BelfioreCode*
+references:
+- uid: CodiceFiscale.Entities
+  commentId: N:CodiceFiscale.Entities
+  href: CodiceFiscale.html
+  name: CodiceFiscale.Entities
+  nameWithType: CodiceFiscale.Entities
+  fullName: CodiceFiscale.Entities
+  spec.csharp:
+  - uid: CodiceFiscale
+    name: CodiceFiscale
+    href: CodiceFiscale.html
+  - name: .
+  - uid: CodiceFiscale.Entities
+    name: Entities
+    href: CodiceFiscale.Entities.html
+  spec.vb:
+  - uid: CodiceFiscale
+    name: CodiceFiscale
+    href: CodiceFiscale.html
+  - name: .
+  - uid: CodiceFiscale.Entities
+    name: Entities
+    href: CodiceFiscale.Entities.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{CodiceFiscale.Entities.CodiceFiscaleData}
+  commentId: T:System.IEquatable{CodiceFiscale.Entities.CodiceFiscaleData}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<CodiceFiscaleData>
+  nameWithType: IEquatable<CodiceFiscaleData>
+  fullName: System.IEquatable<CodiceFiscale.Entities.CodiceFiscaleData>
+  nameWithType.vb: IEquatable(Of CodiceFiscaleData)
+  fullName.vb: System.IEquatable(Of CodiceFiscale.Entities.CodiceFiscaleData)
+  name.vb: IEquatable(Of CodiceFiscaleData)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: CodiceFiscale.Entities.CodiceFiscaleData
+    name: CodiceFiscaleData
+    href: CodiceFiscale.Entities.CodiceFiscaleData.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CodiceFiscale.Entities.CodiceFiscaleData
+    name: CodiceFiscaleData
+    href: CodiceFiscale.Entities.CodiceFiscaleData.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: CodiceFiscale.Entities.CodiceFiscaleData.#ctor*
+  commentId: Overload:CodiceFiscale.Entities.CodiceFiscaleData.#ctor
+  href: CodiceFiscale.Entities.CodiceFiscaleData.html#CodiceFiscale_Entities_CodiceFiscaleData__ctor_CodiceFiscale_Enums_Gender_System_DateOnly_System_String_
+  name: CodiceFiscaleData
+  nameWithType: CodiceFiscaleData.CodiceFiscaleData
+  fullName: CodiceFiscale.Entities.CodiceFiscaleData.CodiceFiscaleData
+  nameWithType.vb: CodiceFiscaleData.New
+  fullName.vb: CodiceFiscale.Entities.CodiceFiscaleData.New
+  name.vb: New
+- uid: CodiceFiscale.Enums.Gender
+  commentId: T:CodiceFiscale.Enums.Gender
+  parent: CodiceFiscale.Enums
+  href: CodiceFiscale.Enums.Gender.html
+  name: Gender
+  nameWithType: Gender
+  fullName: CodiceFiscale.Enums.Gender
+- uid: System.DateOnly
+  commentId: T:System.DateOnly
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.dateonly
+  name: DateOnly
+  nameWithType: DateOnly
+  fullName: System.DateOnly
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: CodiceFiscale.Enums
+  commentId: N:CodiceFiscale.Enums
+  href: CodiceFiscale.html
+  name: CodiceFiscale.Enums
+  nameWithType: CodiceFiscale.Enums
+  fullName: CodiceFiscale.Enums
+  spec.csharp:
+  - uid: CodiceFiscale
+    name: CodiceFiscale
+    href: CodiceFiscale.html
+  - name: .
+  - uid: CodiceFiscale.Enums
+    name: Enums
+    href: CodiceFiscale.Enums.html
+  spec.vb:
+  - uid: CodiceFiscale
+    name: CodiceFiscale
+    href: CodiceFiscale.html
+  - name: .
+  - uid: CodiceFiscale.Enums
+    name: Enums
+    href: CodiceFiscale.Enums.html
+- uid: CodiceFiscale.Entities.CodiceFiscaleData.Gender*
+  commentId: Overload:CodiceFiscale.Entities.CodiceFiscaleData.Gender
+  href: CodiceFiscale.Entities.CodiceFiscaleData.html#CodiceFiscale_Entities_CodiceFiscaleData_Gender
+  name: Gender
+  nameWithType: CodiceFiscaleData.Gender
+  fullName: CodiceFiscale.Entities.CodiceFiscaleData.Gender
+- uid: CodiceFiscale.Entities.CodiceFiscaleData.DateOfBirth*
+  commentId: Overload:CodiceFiscale.Entities.CodiceFiscaleData.DateOfBirth
+  href: CodiceFiscale.Entities.CodiceFiscaleData.html#CodiceFiscale_Entities_CodiceFiscaleData_DateOfBirth
+  name: DateOfBirth
+  nameWithType: CodiceFiscaleData.DateOfBirth
+  fullName: CodiceFiscale.Entities.CodiceFiscaleData.DateOfBirth
+- uid: CodiceFiscale.Entities.CodiceFiscaleData.BelfioreCode*
+  commentId: Overload:CodiceFiscale.Entities.CodiceFiscaleData.BelfioreCode
+  href: CodiceFiscale.Entities.CodiceFiscaleData.html#CodiceFiscale_Entities_CodiceFiscaleData_BelfioreCode
+  name: BelfioreCode
+  nameWithType: CodiceFiscaleData.BelfioreCode
+  fullName: CodiceFiscale.Entities.CodiceFiscaleData.BelfioreCode
