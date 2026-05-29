@@ -2,7 +2,7 @@ using CodiceFiscale.Entities;
 
 namespace CodiceFiscale.Utils;
 
-internal class DataStore
+internal static class DataStore
 {
     private static readonly Lazy<IReadOnlyList<Municipality>> _municipalities =
         new (() => JsonParser.DeserializeMunicipalities()?.ToList().AsReadOnly()

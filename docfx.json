@@ -1,0 +1,46 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "CodiceFiscale",
+          "files": [
+            "**/*.csproj"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "_site/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "CodiceFiscale",
+      "_appTitle": "CodiceFiscale",
+      "_enableSearch": true,
+      "pdf": true
+    }
+  }
+}

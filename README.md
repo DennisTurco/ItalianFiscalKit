@@ -5,7 +5,7 @@ A lightweight, dependency-free .NET library for Italian fiscal code (codice fisc
 All validation logic runs **locally**. No HTTP calls, no external services, no data ever leaves your application.
 
 [![NuGet](https://img.shields.io/nuget/v/CodiceFiscale.svg)](https://www.nuget.org/packages/CodiceFiscale)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Installation
 
@@ -118,7 +118,7 @@ please open an issue with:
 
 ## License
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Municipalities data
 
@@ -129,4 +129,10 @@ please open an issue with:
 ```powershell
 dotnet build
 dotnet test
+```
+
+## Launch DocFX locally
+
+```powershell
+docfx .\docfx.json --serve
 ```

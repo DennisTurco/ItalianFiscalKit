@@ -51,44 +51,44 @@ public class CodiceFiscaleValidatorTests
     }
 
     [Theory]
-    [InlineData("RSSMRA85B29A562?")] // 29 febbraio anno non bisestile (1985)
-    [InlineData("RSSMRA04B69A562?")] // femmina, 29 febbraio anno non bisestile (2004... 2004 è bisestile, usa 1985→85)
-    [InlineData("RSSMRA85D31A562?")] // 31 aprile (aprile ha 30 giorni)
-    [InlineData("RSSMRA85H31A562?")] // 31 giugno (giugno ha 30 giorni)
-    [InlineData("RSSMRA85P31A562?")] // 31 settembre (settembre ha 30 giorni)
-    [InlineData("RSSMRA85S31A562?")] // 31 novembre (novembre ha 30 giorni)
-    [InlineData("RSSMRA85T72A562?")] // giorno 72 femmina (40+32, non esiste)
-    [InlineData("RSSMRA85T00A562?")] // giorno 00, invalido
-    [InlineData("RSSMRA85T40A562?")] // giorno 40, né maschio né femmina (buco tra 31 e 41)
+    [InlineData("RSSMRA85B29A562X")] // February 29, 1985 (non-leap year)
+    [InlineData("RSSMRA04B69A562X")] // female, February 29 in a non-leap year (2004... 2004 is a leap year, use 1985->85)
+    [InlineData("RSSMRA85D31A562X")] // April 31 (April has 30 days)
+    [InlineData("RSSMRA85H31A562X")] // 31 giugno (giugno ha 30 giorni)
+    [InlineData("RSSMRA85P31A562X")] // June 31 (June has 30 days)
+    [InlineData("RSSMRA85S31A562X")] // November 31 (November has 30 days)
+    [InlineData("RSSMRA85T72A562X")] // Day 72, female (40+32, does not exist)
+    [InlineData("RSSMRA85T00A562X")] // Day 00, invalid
+    [InlineData("RSSMRA85T40A562X")] // Day 40, neither male nor female (gap between 31 and 41)
     public void CheckInvalidDay_ShouldBeFalse(string cf)
     {
         Assert.False(CodiceFiscaleValidator.IsValid(cf));
     }
 
     [Theory]
-    [InlineData("RSSMRA85T10A562S\t")]  // tab in coda
-    [InlineData("\nRSSMRA85T10A562S")]  // newline in testa
-    [InlineData("RSSMRA85T10A562S ")]  // spazio in coda
-    [InlineData(" RSSMRA85T10A562S")]  // spazio in testa
-    [InlineData("RSSMRA85T10A562 S")]  // spazio nel mezzo
+    [InlineData("RSSMRA85T10A562S\t")]
+    [InlineData("\nRSSMRA85T10A562S")]
+    [InlineData("RSSMRA85T10A562S ")]
+    [InlineData(" RSSMRA85T10A562S")]
+    [InlineData("RSSMRA85T10A562 S")]
     public void CheckCFWithWhitespace_ShouldBeFalse(string cf)
     {
         Assert.False(CodiceFiscaleValidator.IsValid(cf));
     }
 
     [Theory]
-    [InlineData("RSSMRA85T10A562$")]  // carattere speciale come check char
-    [InlineData("RSS1RA85T10A562S")]  // cifra al posto di lettera nel cognome
-    [InlineData("RSSMRA8XT10A562S")]  // lettera al posto di cifra nell'anno
-    [InlineData("RSSMRA85110A562S")]  // cifra al posto della lettera mese
-    [InlineData("RSSMRA85TAA562S1")]  // lettere al posto del giorno
+    [InlineData("RSSMRA85T10A562$")]
+    [InlineData("RSS1RA85T10A562S")]
+    [InlineData("RSSMRA8XT10A562S")]
+    [InlineData("RSSMRA85110A562S")]
+    [InlineData("RSSMRA85TAA562S1")]
     public void CheckCFWithWrongCharacterTypes_ShouldBeFalse(string cf)
     {
         Assert.False(CodiceFiscaleValidator.IsValid(cf));
     }
 
     [Theory]
-    [InlineData("RSSMRA85T10A562S")] // stesso CF due volte di fila, verifica no side effects
+    [InlineData("RSSMRA85T10A562S")] // check for side effects
     public void CheckValidCF_CalledTwice_ShouldBeConsistent(string cf)
     {
         Assert.True(CodiceFiscaleValidator.IsValid(cf));

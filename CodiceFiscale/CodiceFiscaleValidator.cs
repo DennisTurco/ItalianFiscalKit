@@ -18,25 +18,20 @@ public class CodiceFiscaleValidator
         if (string.IsNullOrEmpty(cf) || cf.Length != 16 || cf.Contains(' '))
             return false;
 
-        cf = cf.ToUpper();
-
-        // 3char -> name; 3char -> surname; 2int -> year; 1char -> month; 2int -> day; 4char -> belfiore (catastal code); 1char -> check code
-        string pattern = @"([A-Z]{3})([A-Z]{3})([0-9]{2})([ABCDEHILMPRST]{1})([0-9]{2})(\S{4})([A-Z]{1})";
-        Match match = Regex.Match(cf, pattern);
-
-        if (!Regex.IsMatch(cf, pattern))
+        if (!Regex.IsMatch(cf.ToUpper(), CodiceFiscaleTokenizer.RegexPattern))
             return false;
 
-        int year = int.Parse(match.Groups[3].Value);
-        char month = char.Parse(match.Groups[4].Value);
-        int day = int.Parse(match.Groups[5].Value);
-        string catastalCode = match.Groups[6].Value;
-        char checkCode = char.Parse(match.Groups[7].Value);
+        CodiceFiscaleTokenizer cfHelper = new(cf);
+        int year = cfHelper.GetYear();
+        char month = cfHelper.GetMonthChar();
+        int day = cfHelper.GetDay();
+        string catastalCode = cfHelper.GetBelfiore();
+        char checkCode = cfHelper.GetCheckCode();
 
         return
             IsDayValid(year, month, day) &&
             IsCatastalCodeValid(catastalCode) &&
-            IsCheckCodeValid(cf, checkCode);
+            IsCheckCodeValid(cf.ToUpper(), checkCode);
     }
 
     private static bool IsCatastalCodeValid(string catastalCode)
@@ -82,8 +77,7 @@ public class CodiceFiscaleValidator
 
     private static bool IsLeapYear(int year)
     {
-        int fullYear = year <= DateTime.Now.Year % 100 ? 2000 + year : 1900 + year;
-        return (fullYear % 4 == 0 && fullYear % 100 != 0) || (fullYear % 400 == 0);
+        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
     }
 
     private static bool IsCheckCodeValid(string cf, char checkCode)
@@ -92,7 +86,7 @@ public class CodiceFiscaleValidator
         for (int i = 0; i < cf.Length - 1; i++)
         {
             var entry = DataStore.CheckCodeMap
-            .First(e => e.Chars.Any(c => c.Contains(cf[i])));
+                .First(e => e.Chars.Any(c => c.Contains(cf[i])));
 
             total += i % 2 == 0 ? entry.Odd : entry.Even;
         }
