@@ -1,0 +1,1568 @@
+[
+  {
+    "codiceCatastale": "Z100",
+    "nome": "Albania",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z101",
+    "nome": "Andorra",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z102",
+    "nome": "Austria",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z103",
+    "nome": "Belgio",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z104",
+    "nome": "Bulgaria",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z105",
+    "nome": "CECOSLOVACCHIA",
+    "continente": "EUROPA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z106",
+    "nome": "Stato della Città del Vaticano",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z107",
+    "nome": "Danimarca",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z108",
+    "nome": "Isole Fær Øer",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z109",
+    "nome": "Finlandia",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z110",
+    "nome": "Francia",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z111",
+    "nome": "GERMANIA REPUBBLICA DEMOCRATICA",
+    "continente": "EUROPA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z112",
+    "nome": "Germania",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z113",
+    "nome": "Gibilterra",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z114",
+    "nome": "Regno Unito",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z115",
+    "nome": "Grecia",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z116",
+    "nome": "Irlanda",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z117",
+    "nome": "Islanda",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z118",
+    "nome": "IUGOSLAVIA",
+    "continente": "EUROPA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z119",
+    "nome": "Liechtenstein",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z120",
+    "nome": "Lussemburgo",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z121",
+    "nome": "Malta",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z122",
+    "nome": "Isola di Man",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z123",
+    "nome": "Monaco",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z125",
+    "nome": "Norvegia",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z126",
+    "nome": "Paesi Bassi",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z127",
+    "nome": "Polonia",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z128",
+    "nome": "Portogallo",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z129",
+    "nome": "Romania",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z130",
+    "nome": "San Marino",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z131",
+    "nome": "Spagna",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z132",
+    "nome": "Svezia",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z133",
+    "nome": "Svizzera",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z134",
+    "nome": "Ungheria",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z135",
+    "nome": "UNIONE REPUBBLICHE SOCIALISTE SOVIETICHE",
+    "continente": "EUROPA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z136",
+    "nome": "GEORGIA",
+    "continente": "EUROPA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z137",
+    "nome": "ARMENIA",
+    "continente": "EUROPA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z138",
+    "nome": "Ucraina",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z139",
+    "nome": "Bielorussia",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z140",
+    "nome": "Moldova",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z141",
+    "nome": "AZERBAIGIAN",
+    "continente": "EUROPA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z142",
+    "nome": "KIRGHIZISTAN",
+    "continente": "EUROPA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z143",
+    "nome": "UZBEKISTAN",
+    "continente": "EUROPA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z144",
+    "nome": "Estonia",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z145",
+    "nome": "Lettonia",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z146",
+    "nome": "Lituania",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z147",
+    "nome": "TAGIKISTAN",
+    "continente": "EUROPA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z148",
+    "nome": "Macedonia del Nord",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z149",
+    "nome": "Croazia",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z150",
+    "nome": "Slovenia",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z151",
+    "nome": "TURKMENISTAN",
+    "continente": "EUROPA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z152",
+    "nome": "KAZAKHSTAN",
+    "continente": "EUROPA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z153",
+    "nome": "Bosnia-Erzegovina",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z154",
+    "nome": "Federazione russa",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z155",
+    "nome": "Slovacchia",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z156",
+    "nome": "Repubblica ceca",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z157",
+    "nome": "SERBIA E MONTENEGRO",
+    "continente": "EUROPA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z158",
+    "nome": "Serbia",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z159",
+    "nome": "Montenegro",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z160",
+    "nome": "Kosovo",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z161",
+    "nome": "Palestina",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z200",
+    "nome": "Afghanistan",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z201",
+    "nome": "ARABIA MERIDIONALE FEDERAZIONE",
+    "continente": "ASIA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z202",
+    "nome": "ARABIA MERIDIONALE PROTETTORATO",
+    "continente": "ASIA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z203",
+    "nome": "Arabia Saudita",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z204",
+    "nome": "Bahrein",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z205",
+    "nome": "Bhutan",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z206",
+    "nome": "Myanmar/Birmania",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z207",
+    "nome": "Brunei Darussalam",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z208",
+    "nome": "Cambogia",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z209",
+    "nome": "Sri Lanka",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z210",
+    "nome": "Cina",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z211",
+    "nome": "Cipro",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z213",
+    "nome": "Corea del Sud",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z214",
+    "nome": "Corea del Nord",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z215",
+    "nome": "Emirati Arabi Uniti",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z216",
+    "nome": "Filippine",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z217",
+    "nome": "Taiwan",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z219",
+    "nome": "Giappone",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z220",
+    "nome": "Giordania",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z221",
+    "nome": "HONG KONG",
+    "continente": "ASIA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z222",
+    "nome": "India",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z223",
+    "nome": "Indonesia",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z224",
+    "nome": "Iran",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z225",
+    "nome": "Iraq",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z226",
+    "nome": "Israele",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z227",
+    "nome": "Kuwait",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z228",
+    "nome": "Laos",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z229",
+    "nome": "Libano",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z230",
+    "nome": "MALAYSIA",
+    "continente": "ASIA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z232",
+    "nome": "Maldive",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z233",
+    "nome": "Mongolia",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z234",
+    "nome": "Nepal",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z235",
+    "nome": "Oman",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z236",
+    "nome": "Pakistan",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z237",
+    "nome": "Qatar",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z238",
+    "nome": "RYUKYU (ISOLE)",
+    "continente": "ASIA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z239",
+    "nome": "SIKKIM",
+    "continente": "ASIA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z240",
+    "nome": "Siria",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z241",
+    "nome": "Thailandia",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z242",
+    "nome": "Timor Leste",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z243",
+    "nome": "Turchia",
+    "continente": "Europa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z244",
+    "nome": "VIETNAM DEL SUD",
+    "continente": "ASIA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z245",
+    "nome": "VIETNAM DEL NORD",
+    "continente": "ASIA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z246",
+    "nome": "Yemen",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z247",
+    "nome": "Malaysia",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z248",
+    "nome": "Singapore",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z249",
+    "nome": "Bangladesh",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z250",
+    "nome": "YEMEN REPUBBLICA DEMOCRATICA POPOLARE",
+    "continente": "ASIA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z251",
+    "nome": "Vietnam",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z252",
+    "nome": "Armenia",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z253",
+    "nome": "Azerbaigian",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z254",
+    "nome": "Georgia",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z255",
+    "nome": "Kazakhstan",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z256",
+    "nome": "Kirghizistan",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z257",
+    "nome": "Tagikistan",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z258",
+    "nome": "Turkmenistan",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z259",
+    "nome": "Uzbekistan",
+    "continente": "Asia",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z300",
+    "nome": "Namibia",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z301",
+    "nome": "Algeria",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z302",
+    "nome": "Angola",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z303",
+    "nome": "BASUTOLAND-SUD AFRICA BRITANNICO",
+    "continente": "AFRICA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z304",
+    "nome": "BECIUANIA-SUD AFRICA BRITANNICO",
+    "continente": "AFRICA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z305",
+    "nome": "Burundi",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z306",
+    "nome": "Camerun",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z307",
+    "nome": "Capo Verde",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z308",
+    "nome": "Repubblica Centrafricana",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z309",
+    "nome": "Ciad",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z310",
+    "nome": "Comore",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z311",
+    "nome": "Congo",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z312",
+    "nome": "Repubblica Democratica del Congo",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z313",
+    "nome": "Costa d'Avorio",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z314",
+    "nome": "Benin",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z315",
+    "nome": "Etiopia",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z316",
+    "nome": "Gabon",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z317",
+    "nome": "Gambia",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z318",
+    "nome": "Ghana",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z319",
+    "nome": "Guinea",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z320",
+    "nome": "Guinea-Bissau",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z321",
+    "nome": "Guinea equatoriale",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z322",
+    "nome": "Kenya",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z323",
+    "nome": "IFNI",
+    "continente": "AFRICA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z325",
+    "nome": "Liberia",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z326",
+    "nome": "Libia",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z327",
+    "nome": "Madagascar",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z328",
+    "nome": "Malawi",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z329",
+    "nome": "Mali",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z330",
+    "nome": "Marocco",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z331",
+    "nome": "Mauritania",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z332",
+    "nome": "Maurizio",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z333",
+    "nome": "Mozambico",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z334",
+    "nome": "Niger",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z335",
+    "nome": "Nigeria",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z336",
+    "nome": "Egitto",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z337",
+    "nome": "Zimbabwe",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z338",
+    "nome": "Ruanda",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z339",
+    "nome": "Sahara occidentale",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z340",
+    "nome": "Sant'Elena",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z341",
+    "nome": "Sao Tomé e Principe",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z342",
+    "nome": "Seychelles",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z343",
+    "nome": "Senegal",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z344",
+    "nome": "Sierra Leone",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z345",
+    "nome": "Somalia",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z346",
+    "nome": "TERRITORIO FRANCESE DEGLI AFAR E DEGLI ISSA",
+    "continente": "AFRICA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z347",
+    "nome": "Sudafrica",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z348",
+    "nome": "Sudan",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z349",
+    "nome": "Eswatini",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z350",
+    "nome": "TANGANICA",
+    "continente": "AFRICA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z351",
+    "nome": "Togo",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z352",
+    "nome": "Tunisia",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z353",
+    "nome": "Uganda",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z354",
+    "nome": "Burkina Faso",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z355",
+    "nome": "Zambia",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z356",
+    "nome": "ZANZIBAR",
+    "continente": "AFRICA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z357",
+    "nome": "Tanzania",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z358",
+    "nome": "Botswana",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z359",
+    "nome": "Lesotho",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z361",
+    "nome": "Gibuti",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z362",
+    "nome": "SAHARA MERIDIONALE",
+    "continente": "AFRICA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z363",
+    "nome": "SAHARA SETTENTRIONALE",
+    "continente": "AFRICA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z364",
+    "nome": "BOPHUTHATSWANA",
+    "continente": "AFRICA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z365",
+    "nome": "TRANSKEI",
+    "continente": "AFRICA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z366",
+    "nome": "VENDA",
+    "continente": "AFRICA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z367",
+    "nome": "CISKEI",
+    "continente": "AFRICA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z368",
+    "nome": "Eritrea",
+    "continente": "Africa",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z369",
+    "nome": "NYASALAND",
+    "continente": "AFRICA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z370",
+    "nome": "CONGO BELGA",
+    "continente": "AFRICA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z400",
+    "nome": "Bermuda",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z401",
+    "nome": "Canada",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z402",
+    "nome": "Groenlandia",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z403",
+    "nome": "Saint Pierre e Miquelon",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z404",
+    "nome": "Stati Uniti d'America",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z500",
+    "nome": "ANTILLE BRITANNICHE",
+    "continente": "AMERICA CENTRALE",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z501",
+    "nome": "Aruba",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z502",
+    "nome": "Bahamas",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z503",
+    "nome": "Costa Rica",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z504",
+    "nome": "Cuba",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z505",
+    "nome": "Repubblica Dominicana",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z506",
+    "nome": "El Salvador",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z507",
+    "nome": "Giamaica",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z509",
+    "nome": "Guatemala",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z510",
+    "nome": "Haiti",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z511",
+    "nome": "Honduras",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z512",
+    "nome": "Belize",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z514",
+    "nome": "Messico",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z515",
+    "nome": "Nicaragua",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z516",
+    "nome": "Panama",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z519",
+    "nome": "Isole Turks e Caicos",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z521",
+    "nome": "ANTILLE BRITANNICHE",
+    "continente": "AMERICA CENTRALE",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z522",
+    "nome": "Barbados",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z523",
+    "nome": "ANTILLE BRITANNICHE",
+    "continente": "AMERICA CENTRALE",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z524",
+    "nome": "Grenada",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z525",
+    "nome": "Isole Vergini britanniche",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z526",
+    "nome": "Dominica",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z527",
+    "nome": "Santa Lucia",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z528",
+    "nome": "Saint Vincent e Grenadine",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z529",
+    "nome": "Anguilla",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z530",
+    "nome": "Isole Cayman",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z531",
+    "nome": "Montserrat",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z532",
+    "nome": "Antigua e Barbuda",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z533",
+    "nome": "Saint Kitts e Nevis",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z600",
+    "nome": "Argentina",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z601",
+    "nome": "Bolivia",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z602",
+    "nome": "Brasile",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z603",
+    "nome": "Cile",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z604",
+    "nome": "Colombia",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z605",
+    "nome": "Ecuador",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z606",
+    "nome": "Guyana",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z608",
+    "nome": "Suriname",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z609",
+    "nome": "Isole Falkland (Malvine)",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z610",
+    "nome": "Paraguay",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z611",
+    "nome": "Perù",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z612",
+    "nome": "Trinidad e Tobago",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z613",
+    "nome": "Uruguay",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z614",
+    "nome": "Venezuela",
+    "continente": "America",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z700",
+    "nome": "Australia",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z701",
+    "nome": "CAROLINE (ISOLE)=STATI FEDERATI DI MICRONESIA",
+    "continente": "OCEANIA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z703",
+    "nome": "Isole Cook (NZ)",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z704",
+    "nome": "Figi",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z705",
+    "nome": "GILBERT E ELLICE (ISOLE)",
+    "continente": "OCEANIA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z709",
+    "nome": "MARCUS (ISOLE)",
+    "continente": "OCEANIA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z711",
+    "nome": "Isole Marshall",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z713",
+    "nome": "Nauru",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z716",
+    "nome": "Nuova Caledonia",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z717",
+    "nome": "NUOVE EBRIDI (ISOLE CONDOMINIO FRANCO-INGLESE)",
+    "continente": "OCEANIA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z718",
+    "nome": "NUOVA GUINEA",
+    "continente": "OCEANIA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z719",
+    "nome": "Nuova Zelanda",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z720",
+    "nome": "PAPUASIA",
+    "continente": "OCEANIA",
+    "soppresso": true
+  },
+  {
+    "codiceCatastale": "Z722",
+    "nome": "Isole Pitcairn",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z723",
+    "nome": "Polinesia francese",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z724",
+    "nome": "Isole Salomone",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z726",
+    "nome": "Samoa",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z728",
+    "nome": "Tonga",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z729",
+    "nome": "Wallis e Futuna",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z730",
+    "nome": "Papua Nuova Guinea",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z731",
+    "nome": "Kiribati",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z732",
+    "nome": "Tuvalu",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z733",
+    "nome": "Vanuatu",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z734",
+    "nome": "Palau",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z735",
+    "nome": "Stati Federati di Micronesia",
+    "continente": "Oceania",
+    "soppresso": false
+  },
+  {
+    "codiceCatastale": "Z907",
+    "nome": "Sud Sudan",
+    "continente": "Africa",
+    "soppresso": false
+  }
+]

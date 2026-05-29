@@ -120,6 +120,10 @@ please open an issue with:
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+## Municipalities data
+
+[https://comuni-ita.readme.io/reference/getcomuni](https://comuni-ita.readme.io/reference/getcomuni)
+
 ## Build
 
 ```powershell

@@ -7,16 +7,22 @@
      <!-- NuGet metadata -->
      <PackageId>CodiceFiscale</PackageId>
      <Version>0.1.0</Version>
-     <Authors>Il tuo nome</Authors>
+     <Authors>DennisTurco</Authors>
      <Description>Italian fiscal code, VAT and IBAN validation for .NET</Description>
      <PackageTags>italy;codicefiscale;fiscalcode;iban;partitaiva;validation</PackageTags>
      <PackageLicenseExpression>MIT</PackageLicenseExpression>
-     <RepositoryUrl>https://github.com/tuousername/CodiceFiscale</RepositoryUrl>
+     <RepositoryUrl>https://github.com/DennisTurco/CodiceFiscale</RepositoryUrl>
      <GenerateDocumentationFile>true</GenerateDocumentationFile>
    </PropertyGroup>
 
    <ItemGroup>
-     <EmbeddedResource Include="Resources/belfiore.json" />
+     <EmbeddedResource Include="Resources/municipalities.json" />
+     <EmbeddedResource Include="Resources/foreign_countries.json" />
+     <EmbeddedResource Include="Resources/check_code_map.json" />
+   </ItemGroup>
+
+   <ItemGroup>
+     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
    </ItemGroup>
 
  </Project>
