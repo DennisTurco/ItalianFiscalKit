@@ -34,4 +34,10 @@ public class CodiceFiscaleParser()
 
         return new CodiceFiscaleData(gender, date, catastalCode);
     }
+
+    //TODO: to implement
+    public static CodiceFiscaleData TryParse()
+    {
+        return null;
+    }
 }

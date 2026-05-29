@@ -402,4 +402,6 @@ FodyWeavers.xsd
 # End of https://www.toptal.com/developers/gitignore/api/csharp
 
 ### DocFX ###
+/_site/
+api/
 xrefmap.yml

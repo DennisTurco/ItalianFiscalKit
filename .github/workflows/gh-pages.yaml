@@ -1,7 +1,9 @@
+name: Deploy DocFX to GitHub Pages
+
 on:
   push:
     branches:
-      - main
+      - master
 
 permissions:
   actions: read
