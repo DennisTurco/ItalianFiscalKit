@@ -5,7 +5,7 @@ items:
   id: CodiceFiscaleGenerator
   parent: CodiceFiscale
   children:
-  - CodiceFiscale.CodiceFiscaleGenerator.Generate(System.String,System.String,System.DateOnly,CodiceFiscale.Enums.Gender)
+  - CodiceFiscale.CodiceFiscaleGenerator.Generate(System.String,System.String,System.DateOnly,CodiceFiscale.Enums.Gender,System.String)
   langs:
   - csharp
   - vb
@@ -20,7 +20,7 @@ items:
       repo: https://github.com/DennisTurco/CodiceFiscale.git
     id: CodiceFiscaleGenerator
     path: CodiceFiscale/CodiceFiscaleGenerator.cs
-    startLine: 8
+    startLine: 9
   assemblies:
   - CodiceFiscale
   namespace: CodiceFiscale
@@ -39,16 +39,16 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: CodiceFiscale.CodiceFiscaleGenerator.Generate(System.String,System.String,System.DateOnly,CodiceFiscale.Enums.Gender)
-  commentId: M:CodiceFiscale.CodiceFiscaleGenerator.Generate(System.String,System.String,System.DateOnly,CodiceFiscale.Enums.Gender)
-  id: Generate(System.String,System.String,System.DateOnly,CodiceFiscale.Enums.Gender)
+- uid: CodiceFiscale.CodiceFiscaleGenerator.Generate(System.String,System.String,System.DateOnly,CodiceFiscale.Enums.Gender,System.String)
+  commentId: M:CodiceFiscale.CodiceFiscaleGenerator.Generate(System.String,System.String,System.DateOnly,CodiceFiscale.Enums.Gender,System.String)
+  id: Generate(System.String,System.String,System.DateOnly,CodiceFiscale.Enums.Gender,System.String)
   parent: CodiceFiscale.CodiceFiscaleGenerator
   langs:
   - csharp
   - vb
-  name: Generate(string, string, DateOnly, Gender)
-  nameWithType: CodiceFiscaleGenerator.Generate(string, string, DateOnly, Gender)
-  fullName: CodiceFiscale.CodiceFiscaleGenerator.Generate(string, string, System.DateOnly, CodiceFiscale.Enums.Gender)
+  name: Generate(string, string, DateOnly, Gender, string)
+  nameWithType: CodiceFiscaleGenerator.Generate(string, string, DateOnly, Gender, string)
+  fullName: CodiceFiscale.CodiceFiscaleGenerator.Generate(string, string, System.DateOnly, CodiceFiscale.Enums.Gender, string)
   type: Method
   source:
     remote:
@@ -57,14 +57,14 @@ items:
       repo: https://github.com/DennisTurco/CodiceFiscale.git
     id: Generate
     path: CodiceFiscale/CodiceFiscaleGenerator.cs
-    startLine: 18
+    startLine: 23
   assemblies:
   - CodiceFiscale
   namespace: CodiceFiscale
   summary: Generates a Codice Fiscale based on the provided personal information.
   example: []
   syntax:
-    content: public static string Generate(string name, string surname, DateOnly dateOfBirth, Gender gender)
+    content: public static string Generate(string name, string surname, DateOnly dateOfBirth, Gender gender, string belfioreCode)
     parameters:
     - id: name
       type: System.String
@@ -77,15 +77,22 @@ items:
       description: The person's date of birth.
     - id: gender
       type: CodiceFiscale.Enums.Gender
-      description: The person's gender ('M' or 'F').
+      description: The person's gender.
+    - id: belfioreCode
+      type: System.String
+      description: The Belfiore (cadastral) code of the person's place of birth.
     return:
       type: System.String
-      description: The generated Codice Fiscale string.
-    content.vb: Public Shared Function Generate(name As String, surname As String, dateOfBirth As DateOnly, gender As Gender) As String
+      description: The generated 16-character Codice Fiscale string.
+    content.vb: Public Shared Function Generate(name As String, surname As String, dateOfBirth As DateOnly, gender As Gender, belfioreCode As String) As String
   overload: CodiceFiscale.CodiceFiscaleGenerator.Generate*
-  nameWithType.vb: CodiceFiscaleGenerator.Generate(String, String, DateOnly, Gender)
-  fullName.vb: CodiceFiscale.CodiceFiscaleGenerator.Generate(String, String, System.DateOnly, CodiceFiscale.Enums.Gender)
-  name.vb: Generate(String, String, DateOnly, Gender)
+  exceptions:
+  - type: CodiceFiscale.Exceptions.InvalidCodiceFiscaleDataException
+    commentId: T:CodiceFiscale.Exceptions.InvalidCodiceFiscaleDataException
+    description: Thrown when <code class="paramref">name</code>, <code class="paramref">surname</code>, or <code class="paramref">belfioreCode</code> is not valid.
+  nameWithType.vb: CodiceFiscaleGenerator.Generate(String, String, DateOnly, Gender, String)
+  fullName.vb: CodiceFiscale.CodiceFiscaleGenerator.Generate(String, String, System.DateOnly, CodiceFiscale.Enums.Gender, String)
+  name.vb: Generate(String, String, DateOnly, Gender, String)
 references:
 - uid: CodiceFiscale
   commentId: N:CodiceFiscale
@@ -330,9 +337,15 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: CodiceFiscale.Exceptions.InvalidCodiceFiscaleDataException
+  commentId: T:CodiceFiscale.Exceptions.InvalidCodiceFiscaleDataException
+  href: CodiceFiscale.Exceptions.InvalidCodiceFiscaleDataException.html
+  name: InvalidCodiceFiscaleDataException
+  nameWithType: InvalidCodiceFiscaleDataException
+  fullName: CodiceFiscale.Exceptions.InvalidCodiceFiscaleDataException
 - uid: CodiceFiscale.CodiceFiscaleGenerator.Generate*
   commentId: Overload:CodiceFiscale.CodiceFiscaleGenerator.Generate
-  href: CodiceFiscale.CodiceFiscaleGenerator.html#CodiceFiscale_CodiceFiscaleGenerator_Generate_System_String_System_String_System_DateOnly_CodiceFiscale_Enums_Gender_
+  href: CodiceFiscale.CodiceFiscaleGenerator.html#CodiceFiscale_CodiceFiscaleGenerator_Generate_System_String_System_String_System_DateOnly_CodiceFiscale_Enums_Gender_System_String_
   name: Generate
   nameWithType: CodiceFiscaleGenerator.Generate
   fullName: CodiceFiscale.CodiceFiscaleGenerator.Generate

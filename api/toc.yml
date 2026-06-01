@@ -4,11 +4,17 @@ items:
   name: CodiceFiscale
   type: Namespace
   items:
+  - uid: CodiceFiscale.CodiceFiscaleExtensions
+    name: CodiceFiscaleExtensions
+    type: Class
   - uid: CodiceFiscale.CodiceFiscaleGenerator
     name: CodiceFiscaleGenerator
     type: Class
   - uid: CodiceFiscale.CodiceFiscaleMatcher
     name: CodiceFiscaleMatcher
+    type: Class
+  - uid: CodiceFiscale.CodiceFiscaleNormalizer
+    name: CodiceFiscaleNormalizer
     type: Class
   - uid: CodiceFiscale.CodiceFiscaleParser
     name: CodiceFiscaleParser
@@ -41,6 +47,9 @@ items:
   - uid: CodiceFiscale.Entities.Province
     name: Province
     type: Class
+  - uid: CodiceFiscale.Entities.ValidationResult
+    name: ValidationResult
+    type: Class
 - uid: CodiceFiscale.Enums
   name: CodiceFiscale.Enums
   type: Namespace
@@ -52,6 +61,9 @@ items:
   name: CodiceFiscale.Exceptions
   type: Namespace
   items:
+  - uid: CodiceFiscale.Exceptions.InvalidCodiceFiscaleDataException
+    name: InvalidCodiceFiscaleDataException
+    type: Class
   - uid: CodiceFiscale.Exceptions.InvalidCodiceFiscaleException
     name: InvalidCodiceFiscaleException
     type: Class

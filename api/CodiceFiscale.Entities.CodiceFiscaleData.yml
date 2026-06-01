@@ -23,11 +23,11 @@ items:
       repo: https://github.com/DennisTurco/CodiceFiscale.git
     id: CodiceFiscaleData
     path: CodiceFiscale/Entities/CodiceFiscaleData.cs
-    startLine: 10
+    startLine: 9
   assemblies:
   - CodiceFiscale
   namespace: CodiceFiscale.Entities
-  summary: Represents the data required to generate or parse an Italian Codice Fiscale.
+  summary: Represents the personal data extracted from or used to generate an Italian Codice Fiscale.
   example: []
   syntax:
     content: 'public record CodiceFiscaleData : IEquatable<CodiceFiscaleData>'
@@ -44,6 +44,9 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+  extensionMethods:
+  - CodiceFiscale.Entities.CodiceFiscaleData.CodiceFiscale.CodiceFiscaleExtensions.GetAge
+  - CodiceFiscale.Entities.CodiceFiscaleData.CodiceFiscale.CodiceFiscaleExtensions.IsAdult
 - uid: CodiceFiscale.Entities.CodiceFiscaleData.#ctor(CodiceFiscale.Enums.Gender,System.DateOnly,System.String)
   commentId: M:CodiceFiscale.Entities.CodiceFiscaleData.#ctor(CodiceFiscale.Enums.Gender,System.DateOnly,System.String)
   id: '#ctor(CodiceFiscale.Enums.Gender,System.DateOnly,System.String)'
@@ -62,24 +65,24 @@ items:
       repo: https://github.com/DennisTurco/CodiceFiscale.git
     id: .ctor
     path: CodiceFiscale/Entities/CodiceFiscaleData.cs
-    startLine: 10
+    startLine: 9
   assemblies:
   - CodiceFiscale
   namespace: CodiceFiscale.Entities
-  summary: Represents the data required to generate or parse an Italian Codice Fiscale.
+  summary: Represents the personal data extracted from or used to generate an Italian Codice Fiscale.
   example: []
   syntax:
     content: public CodiceFiscaleData(Gender Gender, DateOnly DateOfBirth, string BelfioreCode)
     parameters:
     - id: Gender
       type: CodiceFiscale.Enums.Gender
-      description: The gender of the individual ("Male" for male, "Female" for female).
+      description: The gender of the individual.
     - id: DateOfBirth
       type: System.DateOnly
       description: The date of birth of the individual.
     - id: BelfioreCode
       type: System.String
-      description: The Belfiore code representing the place of birth.
+      description: The 4-character Belfiore (cadastral) code representing the place of birth.
     content.vb: Public Sub New(Gender As Gender, DateOfBirth As DateOnly, BelfioreCode As String)
   overload: CodiceFiscale.Entities.CodiceFiscaleData.#ctor*
   nameWithType.vb: CodiceFiscaleData.New(Gender, DateOnly, String)
@@ -103,11 +106,11 @@ items:
       repo: https://github.com/DennisTurco/CodiceFiscale.git
     id: Gender
     path: CodiceFiscale/Entities/CodiceFiscaleData.cs
-    startLine: 11
+    startLine: 10
   assemblies:
   - CodiceFiscale
   namespace: CodiceFiscale.Entities
-  summary: The gender of the individual ("Male" for male, "Female" for female).
+  summary: The gender of the individual.
   example: []
   syntax:
     content: public Gender Gender { get; init; }
@@ -134,7 +137,7 @@ items:
       repo: https://github.com/DennisTurco/CodiceFiscale.git
     id: DateOfBirth
     path: CodiceFiscale/Entities/CodiceFiscaleData.cs
-    startLine: 12
+    startLine: 11
   assemblies:
   - CodiceFiscale
   namespace: CodiceFiscale.Entities
@@ -165,11 +168,11 @@ items:
       repo: https://github.com/DennisTurco/CodiceFiscale.git
     id: BelfioreCode
     path: CodiceFiscale/Entities/CodiceFiscaleData.cs
-    startLine: 13
+    startLine: 12
   assemblies:
   - CodiceFiscale
   namespace: CodiceFiscale.Entities
-  summary: The Belfiore code representing the place of birth.
+  summary: The 4-character Belfiore (cadastral) code representing the place of birth.
   example: []
   syntax:
     content: public string BelfioreCode { get; init; }
@@ -464,6 +467,58 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
+- uid: CodiceFiscale.Entities.CodiceFiscaleData.CodiceFiscale.CodiceFiscaleExtensions.GetAge
+  commentId: M:CodiceFiscale.CodiceFiscaleExtensions.GetAge(CodiceFiscale.Entities.CodiceFiscaleData)
+  parent: CodiceFiscale.CodiceFiscaleExtensions
+  definition: CodiceFiscale.CodiceFiscaleExtensions.GetAge(CodiceFiscale.Entities.CodiceFiscaleData)
+  href: CodiceFiscale.CodiceFiscaleExtensions.html#CodiceFiscale_CodiceFiscaleExtensions_GetAge_CodiceFiscale_Entities_CodiceFiscaleData_
+  name: GetAge(CodiceFiscaleData)
+  nameWithType: CodiceFiscaleExtensions.GetAge(CodiceFiscaleData)
+  fullName: CodiceFiscale.CodiceFiscaleExtensions.GetAge(CodiceFiscale.Entities.CodiceFiscaleData)
+  spec.csharp:
+  - uid: CodiceFiscale.CodiceFiscaleExtensions.GetAge(CodiceFiscale.Entities.CodiceFiscaleData)
+    name: GetAge
+    href: CodiceFiscale.CodiceFiscaleExtensions.html#CodiceFiscale_CodiceFiscaleExtensions_GetAge_CodiceFiscale_Entities_CodiceFiscaleData_
+  - name: (
+  - uid: CodiceFiscale.Entities.CodiceFiscaleData
+    name: CodiceFiscaleData
+    href: CodiceFiscale.Entities.CodiceFiscaleData.html
+  - name: )
+  spec.vb:
+  - uid: CodiceFiscale.CodiceFiscaleExtensions.GetAge(CodiceFiscale.Entities.CodiceFiscaleData)
+    name: GetAge
+    href: CodiceFiscale.CodiceFiscaleExtensions.html#CodiceFiscale_CodiceFiscaleExtensions_GetAge_CodiceFiscale_Entities_CodiceFiscaleData_
+  - name: (
+  - uid: CodiceFiscale.Entities.CodiceFiscaleData
+    name: CodiceFiscaleData
+    href: CodiceFiscale.Entities.CodiceFiscaleData.html
+  - name: )
+- uid: CodiceFiscale.Entities.CodiceFiscaleData.CodiceFiscale.CodiceFiscaleExtensions.IsAdult
+  commentId: M:CodiceFiscale.CodiceFiscaleExtensions.IsAdult(CodiceFiscale.Entities.CodiceFiscaleData)
+  parent: CodiceFiscale.CodiceFiscaleExtensions
+  definition: CodiceFiscale.CodiceFiscaleExtensions.IsAdult(CodiceFiscale.Entities.CodiceFiscaleData)
+  href: CodiceFiscale.CodiceFiscaleExtensions.html#CodiceFiscale_CodiceFiscaleExtensions_IsAdult_CodiceFiscale_Entities_CodiceFiscaleData_
+  name: IsAdult(CodiceFiscaleData)
+  nameWithType: CodiceFiscaleExtensions.IsAdult(CodiceFiscaleData)
+  fullName: CodiceFiscale.CodiceFiscaleExtensions.IsAdult(CodiceFiscale.Entities.CodiceFiscaleData)
+  spec.csharp:
+  - uid: CodiceFiscale.CodiceFiscaleExtensions.IsAdult(CodiceFiscale.Entities.CodiceFiscaleData)
+    name: IsAdult
+    href: CodiceFiscale.CodiceFiscaleExtensions.html#CodiceFiscale_CodiceFiscaleExtensions_IsAdult_CodiceFiscale_Entities_CodiceFiscaleData_
+  - name: (
+  - uid: CodiceFiscale.Entities.CodiceFiscaleData
+    name: CodiceFiscaleData
+    href: CodiceFiscale.Entities.CodiceFiscaleData.html
+  - name: )
+  spec.vb:
+  - uid: CodiceFiscale.CodiceFiscaleExtensions.IsAdult(CodiceFiscale.Entities.CodiceFiscaleData)
+    name: IsAdult
+    href: CodiceFiscale.CodiceFiscaleExtensions.html#CodiceFiscale_CodiceFiscaleExtensions_IsAdult_CodiceFiscale_Entities_CodiceFiscaleData_
+  - name: (
+  - uid: CodiceFiscale.Entities.CodiceFiscaleData
+    name: CodiceFiscaleData
+    href: CodiceFiscale.Entities.CodiceFiscaleData.html
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -499,6 +554,67 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: CodiceFiscale.CodiceFiscaleExtensions.GetAge(CodiceFiscale.Entities.CodiceFiscaleData)
+  commentId: M:CodiceFiscale.CodiceFiscaleExtensions.GetAge(CodiceFiscale.Entities.CodiceFiscaleData)
+  href: CodiceFiscale.CodiceFiscaleExtensions.html#CodiceFiscale_CodiceFiscaleExtensions_GetAge_CodiceFiscale_Entities_CodiceFiscaleData_
+  name: GetAge(CodiceFiscaleData)
+  nameWithType: CodiceFiscaleExtensions.GetAge(CodiceFiscaleData)
+  fullName: CodiceFiscale.CodiceFiscaleExtensions.GetAge(CodiceFiscale.Entities.CodiceFiscaleData)
+  spec.csharp:
+  - uid: CodiceFiscale.CodiceFiscaleExtensions.GetAge(CodiceFiscale.Entities.CodiceFiscaleData)
+    name: GetAge
+    href: CodiceFiscale.CodiceFiscaleExtensions.html#CodiceFiscale_CodiceFiscaleExtensions_GetAge_CodiceFiscale_Entities_CodiceFiscaleData_
+  - name: (
+  - uid: CodiceFiscale.Entities.CodiceFiscaleData
+    name: CodiceFiscaleData
+    href: CodiceFiscale.Entities.CodiceFiscaleData.html
+  - name: )
+  spec.vb:
+  - uid: CodiceFiscale.CodiceFiscaleExtensions.GetAge(CodiceFiscale.Entities.CodiceFiscaleData)
+    name: GetAge
+    href: CodiceFiscale.CodiceFiscaleExtensions.html#CodiceFiscale_CodiceFiscaleExtensions_GetAge_CodiceFiscale_Entities_CodiceFiscaleData_
+  - name: (
+  - uid: CodiceFiscale.Entities.CodiceFiscaleData
+    name: CodiceFiscaleData
+    href: CodiceFiscale.Entities.CodiceFiscaleData.html
+  - name: )
+- uid: CodiceFiscale.CodiceFiscaleExtensions
+  commentId: T:CodiceFiscale.CodiceFiscaleExtensions
+  parent: CodiceFiscale
+  href: CodiceFiscale.CodiceFiscaleExtensions.html
+  name: CodiceFiscaleExtensions
+  nameWithType: CodiceFiscaleExtensions
+  fullName: CodiceFiscale.CodiceFiscaleExtensions
+- uid: CodiceFiscale.CodiceFiscaleExtensions.IsAdult(CodiceFiscale.Entities.CodiceFiscaleData)
+  commentId: M:CodiceFiscale.CodiceFiscaleExtensions.IsAdult(CodiceFiscale.Entities.CodiceFiscaleData)
+  href: CodiceFiscale.CodiceFiscaleExtensions.html#CodiceFiscale_CodiceFiscaleExtensions_IsAdult_CodiceFiscale_Entities_CodiceFiscaleData_
+  name: IsAdult(CodiceFiscaleData)
+  nameWithType: CodiceFiscaleExtensions.IsAdult(CodiceFiscaleData)
+  fullName: CodiceFiscale.CodiceFiscaleExtensions.IsAdult(CodiceFiscale.Entities.CodiceFiscaleData)
+  spec.csharp:
+  - uid: CodiceFiscale.CodiceFiscaleExtensions.IsAdult(CodiceFiscale.Entities.CodiceFiscaleData)
+    name: IsAdult
+    href: CodiceFiscale.CodiceFiscaleExtensions.html#CodiceFiscale_CodiceFiscaleExtensions_IsAdult_CodiceFiscale_Entities_CodiceFiscaleData_
+  - name: (
+  - uid: CodiceFiscale.Entities.CodiceFiscaleData
+    name: CodiceFiscaleData
+    href: CodiceFiscale.Entities.CodiceFiscaleData.html
+  - name: )
+  spec.vb:
+  - uid: CodiceFiscale.CodiceFiscaleExtensions.IsAdult(CodiceFiscale.Entities.CodiceFiscaleData)
+    name: IsAdult
+    href: CodiceFiscale.CodiceFiscaleExtensions.html#CodiceFiscale_CodiceFiscaleExtensions_IsAdult_CodiceFiscale_Entities_CodiceFiscaleData_
+  - name: (
+  - uid: CodiceFiscale.Entities.CodiceFiscaleData
+    name: CodiceFiscaleData
+    href: CodiceFiscale.Entities.CodiceFiscaleData.html
+  - name: )
+- uid: CodiceFiscale
+  commentId: N:CodiceFiscale
+  href: CodiceFiscale.html
+  name: CodiceFiscale
+  nameWithType: CodiceFiscale
+  fullName: CodiceFiscale
 - uid: CodiceFiscale.Entities.CodiceFiscaleData.#ctor*
   commentId: Overload:CodiceFiscale.Entities.CodiceFiscaleData.#ctor
   href: CodiceFiscale.Entities.CodiceFiscaleData.html#CodiceFiscale_Entities_CodiceFiscaleData__ctor_CodiceFiscale_Enums_Gender_System_DateOnly_System_String_

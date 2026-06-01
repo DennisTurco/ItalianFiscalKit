@@ -5,7 +5,6 @@ items:
   id: CodiceFiscaleParser
   parent: CodiceFiscale
   children:
-  - CodiceFiscale.CodiceFiscaleParser.#ctor
   - CodiceFiscale.CodiceFiscaleParser.Parse(System.String)
   - CodiceFiscale.CodiceFiscaleParser.TryParse(System.String,CodiceFiscale.Entities.CodiceFiscaleData@)
   langs:
@@ -41,37 +40,6 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: CodiceFiscale.CodiceFiscaleParser.#ctor
-  commentId: M:CodiceFiscale.CodiceFiscaleParser.#ctor
-  id: '#ctor'
-  parent: CodiceFiscale.CodiceFiscaleParser
-  langs:
-  - csharp
-  - vb
-  name: CodiceFiscaleParser()
-  nameWithType: CodiceFiscaleParser.CodiceFiscaleParser()
-  fullName: CodiceFiscale.CodiceFiscaleParser.CodiceFiscaleParser()
-  type: Constructor
-  source:
-    remote:
-      path: CodiceFiscale/CodiceFiscaleParser.cs
-      branch: master
-      repo: https://github.com/DennisTurco/CodiceFiscale.git
-    id: .ctor
-    path: CodiceFiscale/CodiceFiscaleParser.cs
-    startLine: 10
-  assemblies:
-  - CodiceFiscale
-  namespace: CodiceFiscale
-  summary: Provides methods to parse an Italian Codice Fiscale into its constituent data.
-  example: []
-  syntax:
-    content: public CodiceFiscaleParser()
-    content.vb: Public Sub New()
-  overload: CodiceFiscale.CodiceFiscaleParser.#ctor*
-  nameWithType.vb: CodiceFiscaleParser.New()
-  fullName.vb: CodiceFiscale.CodiceFiscaleParser.New()
-  name.vb: New()
 - uid: CodiceFiscale.CodiceFiscaleParser.Parse(System.String)
   commentId: M:CodiceFiscale.CodiceFiscaleParser.Parse(System.String)
   id: Parse(System.String)
@@ -142,7 +110,7 @@ items:
   summary: Attempts to parse the specified Codice Fiscale without throwing an exception.
   example:
   - >-
-    <pre><code class="lang-csharp">if (CodiceFiscaleParser.TryParse("RSSMRA85M01H501Z", out CodiceFiscaleData? data))
+    <pre><code class="lang-csharp">if (CodiceFiscaleParser.TryParse("RSSMRA85T10A562S", out CodiceFiscaleData? data))
 
     {
         Console.WriteLine($"Gender: {data.Gender}, Born: {data.DateOfBirth}");
@@ -416,15 +384,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: CodiceFiscale.CodiceFiscaleParser.#ctor*
-  commentId: Overload:CodiceFiscale.CodiceFiscaleParser.#ctor
-  href: CodiceFiscale.CodiceFiscaleParser.html#CodiceFiscale_CodiceFiscaleParser__ctor
-  name: CodiceFiscaleParser
-  nameWithType: CodiceFiscaleParser.CodiceFiscaleParser
-  fullName: CodiceFiscale.CodiceFiscaleParser.CodiceFiscaleParser
-  nameWithType.vb: CodiceFiscaleParser.New
-  fullName.vb: CodiceFiscale.CodiceFiscaleParser.New
-  name.vb: New
 - uid: CodiceFiscale.Entities.CodiceFiscaleData
   commentId: T:CodiceFiscale.Entities.CodiceFiscaleData
   parent: CodiceFiscale.Entities

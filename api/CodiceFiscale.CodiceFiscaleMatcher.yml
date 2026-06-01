@@ -4,7 +4,8 @@ items:
   commentId: T:CodiceFiscale.CodiceFiscaleMatcher
   id: CodiceFiscaleMatcher
   parent: CodiceFiscale
-  children: []
+  children:
+  - CodiceFiscale.CodiceFiscaleMatcher.Matches(System.String,System.String,System.String,System.DateOnly,CodiceFiscale.Enums.Gender,System.String)
   langs:
   - csharp
   - vb
@@ -19,11 +20,11 @@ items:
       repo: https://github.com/DennisTurco/CodiceFiscale.git
     id: CodiceFiscaleMatcher
     path: CodiceFiscale/CodiceFiscaleMatcher.cs
-    startLine: 5
+    startLine: 7
   assemblies:
   - CodiceFiscale
   namespace: CodiceFiscale
-  summary: Provides methods to match and compare Italian Codice Fiscale strings.
+  summary: Provides methods to match and compare Italian Codice Fiscale strings against personal data.
   example: []
   syntax:
     content: public class CodiceFiscaleMatcher
@@ -38,6 +39,67 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: CodiceFiscale.CodiceFiscaleMatcher.Matches(System.String,System.String,System.String,System.DateOnly,CodiceFiscale.Enums.Gender,System.String)
+  commentId: M:CodiceFiscale.CodiceFiscaleMatcher.Matches(System.String,System.String,System.String,System.DateOnly,CodiceFiscale.Enums.Gender,System.String)
+  id: Matches(System.String,System.String,System.String,System.DateOnly,CodiceFiscale.Enums.Gender,System.String)
+  parent: CodiceFiscale.CodiceFiscaleMatcher
+  langs:
+  - csharp
+  - vb
+  name: Matches(string, string, string, DateOnly, Gender, string)
+  nameWithType: CodiceFiscaleMatcher.Matches(string, string, string, DateOnly, Gender, string)
+  fullName: CodiceFiscale.CodiceFiscaleMatcher.Matches(string, string, string, System.DateOnly, CodiceFiscale.Enums.Gender, string)
+  type: Method
+  source:
+    remote:
+      path: CodiceFiscale/CodiceFiscaleMatcher.cs
+      branch: master
+      repo: https://github.com/DennisTurco/CodiceFiscale.git
+    id: Matches
+    path: CodiceFiscale/CodiceFiscaleMatcher.cs
+    startLine: 24
+  assemblies:
+  - CodiceFiscale
+  namespace: CodiceFiscale
+  summary: >-
+    Determines whether the specified Codice Fiscale matches the provided personal data.
+
+    The comparison is case-insensitive. Omocodia variants of the CF are normalized before
+
+    comparison.
+  example: []
+  syntax:
+    content: public static bool Matches(string cf, string name, string surname, DateOnly dateOfBirth, Gender gender, string belfioreCode)
+    parameters:
+    - id: cf
+      type: System.String
+      description: The Codice Fiscale to check.
+    - id: name
+      type: System.String
+      description: The person''s first name (minimum 3 characters).
+    - id: surname
+      type: System.String
+      description: The person''s surname (minimum 3 characters).
+    - id: dateOfBirth
+      type: System.DateOnly
+      description: The person''s date of birth.
+    - id: gender
+      type: CodiceFiscale.Enums.Gender
+      description: The person''s gender.
+    - id: belfioreCode
+      type: System.String
+      description: The 4-character Belfiore code of the person''s place of birth.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the Codice Fiscale is valid and matches the generated CF for the
+
+        provided personal data; otherwise, <code>false</code>.
+    content.vb: Public Shared Function Matches(cf As String, name As String, surname As String, dateOfBirth As DateOnly, gender As Gender, belfioreCode As String) As Boolean
+  overload: CodiceFiscale.CodiceFiscaleMatcher.Matches*
+  nameWithType.vb: CodiceFiscaleMatcher.Matches(String, String, String, DateOnly, Gender, String)
+  fullName.vb: CodiceFiscale.CodiceFiscaleMatcher.Matches(String, String, String, System.DateOnly, CodiceFiscale.Enums.Gender, String)
+  name.vb: Matches(String, String, String, DateOnly, Gender, String)
 references:
 - uid: CodiceFiscale
   commentId: N:CodiceFiscale
@@ -282,3 +344,68 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: CodiceFiscale.CodiceFiscaleMatcher.Matches*
+  commentId: Overload:CodiceFiscale.CodiceFiscaleMatcher.Matches
+  href: CodiceFiscale.CodiceFiscaleMatcher.html#CodiceFiscale_CodiceFiscaleMatcher_Matches_System_String_System_String_System_String_System_DateOnly_CodiceFiscale_Enums_Gender_System_String_
+  name: Matches
+  nameWithType: CodiceFiscaleMatcher.Matches
+  fullName: CodiceFiscale.CodiceFiscaleMatcher.Matches
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.DateOnly
+  commentId: T:System.DateOnly
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.dateonly
+  name: DateOnly
+  nameWithType: DateOnly
+  fullName: System.DateOnly
+- uid: CodiceFiscale.Enums.Gender
+  commentId: T:CodiceFiscale.Enums.Gender
+  parent: CodiceFiscale.Enums
+  href: CodiceFiscale.Enums.Gender.html
+  name: Gender
+  nameWithType: Gender
+  fullName: CodiceFiscale.Enums.Gender
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: CodiceFiscale.Enums
+  commentId: N:CodiceFiscale.Enums
+  href: CodiceFiscale.html
+  name: CodiceFiscale.Enums
+  nameWithType: CodiceFiscale.Enums
+  fullName: CodiceFiscale.Enums
+  spec.csharp:
+  - uid: CodiceFiscale
+    name: CodiceFiscale
+    href: CodiceFiscale.html
+  - name: .
+  - uid: CodiceFiscale.Enums
+    name: Enums
+    href: CodiceFiscale.Enums.html
+  spec.vb:
+  - uid: CodiceFiscale
+    name: CodiceFiscale
+    href: CodiceFiscale.html
+  - name: .
+  - uid: CodiceFiscale.Enums
+    name: Enums
+    href: CodiceFiscale.Enums.html

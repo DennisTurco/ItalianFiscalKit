@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class CodiceFiscaleMatcher | CodiceFiscale ">
       
-      <meta name="description" content="Provides methods to match and compare Italian Codice Fiscale strings.">
+      <meta name="description" content="Provides methods to match and compare Italian Codice Fiscale strings against personal data.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CodiceFiscale_CodiceFiscaleMatcher" data-uid="CodiceFiscale.CodiceFiscaleMatcher" class="text-break">
-Class CodiceFiscaleMatcher  <a class="header-action link-secondary" title="View source" href="https://github.com/DennisTurco/CodiceFiscale/blob/master/CodiceFiscale/CodiceFiscaleMatcher.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class CodiceFiscaleMatcher  <a class="header-action link-secondary" title="View source" href="https://github.com/DennisTurco/CodiceFiscale/blob/master/CodiceFiscale/CodiceFiscaleMatcher.cs/#L8"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class CodiceFiscaleMatcher  <a class="header-action link-secondary" title="View 
   <dl><dt>Assembly</dt><dd>CodiceFiscale.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Provides methods to match and compare Italian Codice Fiscale strings.</p>
+  <div class="markdown summary"><p>Provides methods to match and compare Italian Codice Fiscale strings against personal data.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -149,11 +149,72 @@ Class CodiceFiscaleMatcher  <a class="header-action link-secondary" title="View 
 
 
 
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CodiceFiscale_CodiceFiscaleMatcher_Matches_" data-uid="CodiceFiscale.CodiceFiscaleMatcher.Matches*"></a>
+
+  <h3 id="CodiceFiscale_CodiceFiscaleMatcher_Matches_System_String_System_String_System_String_System_DateOnly_CodiceFiscale_Enums_Gender_System_String_" data-uid="CodiceFiscale.CodiceFiscaleMatcher.Matches(System.String,System.String,System.String,System.DateOnly,CodiceFiscale.Enums.Gender,System.String)">
+  Matches(string, string, string, DateOnly, Gender, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/DennisTurco/CodiceFiscale/blob/master/CodiceFiscale/CodiceFiscaleMatcher.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified Codice Fiscale matches the provided personal data.
+The comparison is case-insensitive. Omocodia variants of the CF are normalized before
+comparison.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Matches(string cf, string name, string surname, DateOnly dateOfBirth, Gender gender, string belfioreCode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cf</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The Codice Fiscale to check.</p>
+</dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The person''s first name (minimum 3 characters).</p>
+</dd>
+    <dt><code>surname</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The person''s surname (minimum 3 characters).</p>
+</dd>
+    <dt><code>dateOfBirth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dateonly">DateOnly</a></dt>
+    <dd><p>The person''s date of birth.</p>
+</dd>
+    <dt><code>gender</code> <a class="xref" href="CodiceFiscale.Enums.Gender.html">Gender</a></dt>
+    <dd><p>The person''s gender.</p>
+</dd>
+    <dt><code>belfioreCode</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The 4-character Belfiore code of the person''s place of birth.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the Codice Fiscale is valid and matches the generated CF for the
+provided personal data; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/DennisTurco/CodiceFiscale/blob/master/CodiceFiscale/CodiceFiscaleMatcher.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/DennisTurco/CodiceFiscale/blob/master/CodiceFiscale/CodiceFiscaleMatcher.cs/#L8" class="edit-link">Edit this page</a>
         </div>
 
 

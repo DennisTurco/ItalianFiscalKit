@@ -149,37 +149,6 @@ Class CodiceFiscaleParser  <a class="header-action link-secondary" title="View s
 
 
 
-  <h2 class="section" id="constructors">Constructors
-</h2>
-
-
-  <a id="CodiceFiscale_CodiceFiscaleParser__ctor_" data-uid="CodiceFiscale.CodiceFiscaleParser.#ctor*"></a>
-
-  <h3 id="CodiceFiscale_CodiceFiscaleParser__ctor" data-uid="CodiceFiscale.CodiceFiscaleParser.#ctor">
-  CodiceFiscaleParser()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/DennisTurco/CodiceFiscale/blob/master/CodiceFiscale/CodiceFiscaleParser.cs/#L11"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Provides methods to parse an Italian Codice Fiscale into its constituent data.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CodiceFiscaleParser()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -271,7 +240,7 @@ otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
 
 
   <h4 class="section" id="CodiceFiscale_CodiceFiscaleParser_TryParse_System_String_CodiceFiscale_Entities_CodiceFiscaleData___examples">Examples</h4>
-  <pre><code class="lang-csharp">if (CodiceFiscaleParser.TryParse("RSSMRA85M01H501Z", out CodiceFiscaleData? data))
+  <pre><code class="lang-csharp">if (CodiceFiscaleParser.TryParse("RSSMRA85T10A562S", out CodiceFiscaleData? data))
 {
     Console.WriteLine($"Gender: {data.Gender}, Born: {data.DateOfBirth}");
 }</code></pre>

@@ -4,8 +4,10 @@ items:
   commentId: N:CodiceFiscale
   id: CodiceFiscale
   children:
+  - CodiceFiscale.CodiceFiscaleExtensions
   - CodiceFiscale.CodiceFiscaleGenerator
   - CodiceFiscale.CodiceFiscaleMatcher
+  - CodiceFiscale.CodiceFiscaleNormalizer
   - CodiceFiscale.CodiceFiscaleParser
   - CodiceFiscale.CodiceFiscaleValidator
   - CodiceFiscale.IBANValidator
@@ -20,6 +22,13 @@ items:
   assemblies:
   - CodiceFiscale
 references:
+- uid: CodiceFiscale.CodiceFiscaleExtensions
+  commentId: T:CodiceFiscale.CodiceFiscaleExtensions
+  parent: CodiceFiscale
+  href: CodiceFiscale.CodiceFiscaleExtensions.html
+  name: CodiceFiscaleExtensions
+  nameWithType: CodiceFiscaleExtensions
+  fullName: CodiceFiscale.CodiceFiscaleExtensions
 - uid: CodiceFiscale.CodiceFiscaleGenerator
   commentId: T:CodiceFiscale.CodiceFiscaleGenerator
   href: CodiceFiscale.CodiceFiscaleGenerator.html
@@ -32,6 +41,12 @@ references:
   name: CodiceFiscaleMatcher
   nameWithType: CodiceFiscaleMatcher
   fullName: CodiceFiscale.CodiceFiscaleMatcher
+- uid: CodiceFiscale.CodiceFiscaleNormalizer
+  commentId: T:CodiceFiscale.CodiceFiscaleNormalizer
+  href: CodiceFiscale.CodiceFiscaleNormalizer.html
+  name: CodiceFiscaleNormalizer
+  nameWithType: CodiceFiscaleNormalizer
+  fullName: CodiceFiscale.CodiceFiscaleNormalizer
 - uid: CodiceFiscale.CodiceFiscaleParser
   commentId: T:CodiceFiscale.CodiceFiscaleParser
   href: CodiceFiscale.CodiceFiscaleParser.html
@@ -56,3 +71,9 @@ references:
   name: ItalianVatCodeValidator
   nameWithType: ItalianVatCodeValidator
   fullName: CodiceFiscale.ItalianVatCodeValidator
+- uid: CodiceFiscale
+  commentId: N:CodiceFiscale
+  href: CodiceFiscale.html
+  name: CodiceFiscale
+  nameWithType: CodiceFiscale
+  fullName: CodiceFiscale

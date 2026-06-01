@@ -9,6 +9,7 @@ items:
   - CodiceFiscale.Entities.ForeignCountry
   - CodiceFiscale.Entities.Municipality
   - CodiceFiscale.Entities.Province
+  - CodiceFiscale.Entities.ValidationResult
   langs:
   - csharp
   - vb
@@ -52,6 +53,13 @@ references:
   name: Province
   nameWithType: Province
   fullName: CodiceFiscale.Entities.Province
+- uid: CodiceFiscale.Entities.ValidationResult
+  commentId: T:CodiceFiscale.Entities.ValidationResult
+  parent: CodiceFiscale.Entities
+  href: CodiceFiscale.Entities.ValidationResult.html
+  name: ValidationResult
+  nameWithType: ValidationResult
+  fullName: CodiceFiscale.Entities.ValidationResult
 - uid: CodiceFiscale.Entities
   commentId: N:CodiceFiscale.Entities
   href: CodiceFiscale.html

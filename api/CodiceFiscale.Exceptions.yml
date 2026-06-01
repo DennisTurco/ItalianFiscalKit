@@ -4,6 +4,7 @@ items:
   commentId: N:CodiceFiscale.Exceptions
   id: CodiceFiscale.Exceptions
   children:
+  - CodiceFiscale.Exceptions.InvalidCodiceFiscaleDataException
   - CodiceFiscale.Exceptions.InvalidCodiceFiscaleException
   langs:
   - csharp
@@ -15,6 +16,12 @@ items:
   assemblies:
   - CodiceFiscale
 references:
+- uid: CodiceFiscale.Exceptions.InvalidCodiceFiscaleDataException
+  commentId: T:CodiceFiscale.Exceptions.InvalidCodiceFiscaleDataException
+  href: CodiceFiscale.Exceptions.InvalidCodiceFiscaleDataException.html
+  name: InvalidCodiceFiscaleDataException
+  nameWithType: InvalidCodiceFiscaleDataException
+  fullName: CodiceFiscale.Exceptions.InvalidCodiceFiscaleDataException
 - uid: CodiceFiscale.Exceptions.InvalidCodiceFiscaleException
   commentId: T:CodiceFiscale.Exceptions.InvalidCodiceFiscaleException
   href: CodiceFiscale.Exceptions.InvalidCodiceFiscaleException.html
