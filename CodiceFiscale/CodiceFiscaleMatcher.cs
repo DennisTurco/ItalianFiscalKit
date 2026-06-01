@@ -30,8 +30,7 @@ public class CodiceFiscaleMatcher
         try
         {
             string expected = CodiceFiscaleGenerator.Generate(name, surname, dateOfBirth, gender, belfioreCode);
-            string normalized = CodiceFiscaleNormalizer.NormalizeOmocodia(cf.Trim());
-            return string.Equals(normalized, expected, StringComparison.OrdinalIgnoreCase);
+            return string.Equals(cf, expected, StringComparison.OrdinalIgnoreCase);
         }
         catch
         {

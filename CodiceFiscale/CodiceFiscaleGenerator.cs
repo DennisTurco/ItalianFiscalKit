@@ -106,4 +106,3 @@ public class CodiceFiscaleGenerator
             _  => throw new InvalidCodiceFiscaleDataException($"The provided Month '{month}' is not valid"),
         };
 }
-
