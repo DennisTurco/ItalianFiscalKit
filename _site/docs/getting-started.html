@@ -126,17 +126,28 @@ string belfiore    = data.BelfioreCode; // &quot;A562&quot;
 <div class="WARNING">
 <h5>Warning</h5>
 <p><code>Parse</code> throws <code>InvalidCodiceFiscaleException</code> if the input is not valid.
-Always validate first, or wrap in a try/catch.</p>
+Use <code>TryParse</code> to avoid try/catch:</p>
 </div>
-<pre><code class="lang-csharp">try
+<pre><code class="lang-csharp">if (CodiceFiscaleParser.TryParse(userInput, out CodiceFiscaleData? data))
 {
-    CodiceFiscaleData data = CodiceFiscaleParser.Parse(userInput);
-}
-catch (InvalidCodiceFiscaleException ex)
-{
-    Console.WriteLine(ex.Message);
+    Console.WriteLine($&quot;Born: {data.DateOfBirth}, Gender: {data.Gender}&quot;);
 }
 </code></pre>
+<hr>
+<h2 id="generate-a-codice-fiscale">Generate a Codice Fiscale</h2>
+<pre><code class="lang-csharp">using CodiceFiscale;
+using CodiceFiscale.Enums;
+
+string cf = CodiceFiscaleGenerator.Generate(
+    name:         &quot;Luigi&quot;,
+    surname:      &quot;Verdi&quot;,
+    dateOfBirth:  new DateOnly(1970, 5, 30),
+    gender:       Gender.Male,
+    belfioreCode: &quot;F839&quot;
+);
+// &quot;VRDLGU70E30F839C&quot;
+</code></pre>
+<p><code>Generate</code> throws <code>InvalidCodiceFiscaleDataException</code> if name/surname are shorter than 3 characters or the Belfiore code is not found in the embedded dataset. The generated CF always passes <code>CodiceFiscaleValidator.IsValid</code>.</p>
 <hr>
 <h2 id="validate-an-iban">Validate an IBAN</h2>
 <pre><code class="lang-csharp">using CodiceFiscale;

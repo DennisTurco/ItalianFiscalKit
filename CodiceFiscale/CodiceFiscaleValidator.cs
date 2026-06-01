@@ -1,6 +1,8 @@
 using System.Text.RegularExpressions;
 using CodiceFiscale.Utils;
 
+uusing CodiceFiscale.Utils;
+
 namespace CodiceFiscale;
 
 /// <summary>
@@ -82,20 +84,7 @@ public class CodiceFiscaleValidator
 
     private static bool IsCheckCodeValid(string cf, char checkCode)
     {
-        int total = 0;
-        for (int i = 0; i < cf.Length - 1; i++)
-        {
-            var entry = DataStore.CheckCodeMap
-                .First(e => e.Chars.Any(c => c.Contains(cf[i])));
-
-            total += i % 2 == 0 ? entry.Odd : entry.Even;
-        }
-
-        int rest = total % 26;
-
-        // convert to char (ascii table)
-        char value = (char)(rest + 65);
-
-        return checkCode == value;
+        string partialCF = cf[..(cf.Length-1)];
+        return CodiceFiscaleTokenizer.CalculateCheckCharacter(partialCF) == checkCode;
     }
 }

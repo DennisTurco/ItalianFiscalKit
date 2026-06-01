@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class IBANValidator | CodiceFiscale ">
       
-      <meta name="description" content="Provides methods to validate IBAN (International Bank Account Number) strings.">
+      <meta name="description" content="Provides methods to validate IBAN (International Bank Account Number) strings. Only SEPA countries are supported (EU27 + UK, Switzerland, Norway, Iceland, Liechtenstein, Monaco, San Marino, Andorra, Vatican City).">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CodiceFiscale_IBANValidator" data-uid="CodiceFiscale.IBANValidator" class="text-break">
-Class IBANValidator  <a class="header-action link-secondary" title="View source" href="https://github.com/DennisTurco/CodiceFiscale/blob/master/CodiceFiscale/IBANValidator.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class IBANValidator  <a class="header-action link-secondary" title="View source" href="https://github.com/DennisTurco/CodiceFiscale/blob/master/CodiceFiscale/IBANValidator.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Class IBANValidator  <a class="header-action link-secondary" title="View source"
   <dl><dt>Assembly</dt><dd>CodiceFiscale.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Provides methods to validate IBAN (International Bank Account Number) strings.</p>
+  <div class="markdown summary"><p>Provides methods to validate IBAN (International Bank Account Number) strings.
+Only SEPA countries are supported (EU27 + UK, Switzerland, Norway, Iceland, Liechtenstein, Monaco, San Marino, Andorra, Vatican City).</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -157,10 +158,11 @@ Class IBANValidator  <a class="header-action link-secondary" title="View source"
 
   <h3 id="CodiceFiscale_IBANValidator_IsValid_System_String_" data-uid="CodiceFiscale.IBANValidator.IsValid(System.String)">
   IsValid(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/DennisTurco/CodiceFiscale/blob/master/CodiceFiscale/IBANValidator.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/DennisTurco/CodiceFiscale/blob/master/CodiceFiscale/IBANValidator.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Determines whether the specified IBAN string is valid.</p>
+  <div class="markdown level1 summary"><p>Determines whether the specified IBAN string is valid.
+Spaces are ignored. Only SEPA country codes are accepted.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -171,14 +173,14 @@ Class IBANValidator  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>iban</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The IBAN string to validate.</p>
+    <dd><p>The IBAN string to validate. Spaces are allowed and will be stripped.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><code>true</code> if the IBAN is valid; otherwise, <code>false</code>.</p>
+    <dd><p><code>true</code> if the IBAN is valid and belongs to a SEPA country; otherwise, <code>false</code>.</p>
 </dd>
   </dl>
 
@@ -196,7 +198,7 @@ Class IBANValidator  <a class="header-action link-secondary" title="View source"
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/DennisTurco/CodiceFiscale/blob/master/CodiceFiscale/IBANValidator.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/DennisTurco/CodiceFiscale/blob/master/CodiceFiscale/IBANValidator.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
 

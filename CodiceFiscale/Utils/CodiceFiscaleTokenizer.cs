@@ -6,7 +6,7 @@ namespace CodiceFiscale.Utils;
 internal class CodiceFiscaleTokenizer
 {
     // 3char -> name; 3char -> surname; 2int -> year; 1char -> month; 2int -> day; 4char -> belfiore (catastal code); 1char -> check code
-    internal static readonly string RegexPattern = @"([A-Z]{3})([A-Z]{3})([0-9]{2})([ABCDEHILMPRST]{1})([0-9]{2})(\S{4})([A-Z]{1})";
+    internal const string RegexPattern = @"([A-Z]{3})([A-Z]{3})([0-9]{2})([ABCDEHILMPRST]{1})([0-9]{2})(\S{4})([A-Z]{1})";
     private readonly string _cf;
     private readonly Match _match;
 
@@ -49,20 +49,38 @@ internal class CodiceFiscaleTokenizer
             _ => -1,
         };
 
-    internal int GetDay()
-        => int.Parse(_match.Groups[5].Value);
-
     internal int GetStandardDay()
     {
         int day = GetDay();
         return GetGenderFromBirthDay(day) == Gender.Male ? day : day - 40;
     }
 
+    internal int GetDay()
+        => int.Parse(_match.Groups[5].Value);
+
     internal string GetBelfiore()
         => _match.Groups[6].Value;
 
     internal char GetCheckCode()
         => char.Parse(_match.Groups[7].Value);
+
+    internal static char CalculateCheckCharacter(string partialCF)
+    {
+        int total = 0;
+        for (int i = 0; i < partialCF.Length; i++)
+        {
+            var entry = DataStore.CheckCodeMap
+                .First(e => e.Chars.Any(c => c.Contains(partialCF[i])));
+
+            total += i % 2 == 0 ? entry.Odd : entry.Even;
+        }
+
+        int rest = total % 26;
+
+        // convert to char (ascii table)
+        char value = (char)(rest + 65);
+        return value;
+    }
 
     private static int CalculateFullYear(int shortYear)
         => shortYear <= DateTime.Now.Year % 100 ? 2000 + shortYear : 1900 + shortYear;

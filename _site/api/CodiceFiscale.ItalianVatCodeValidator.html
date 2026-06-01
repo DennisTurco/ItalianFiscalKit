@@ -171,7 +171,7 @@ Class ItalianVatCodeValidator  <a class="header-action link-secondary" title="Vi
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>vat</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The code to validate. Can be an 11-digit Partita IVA or a 16-character Codice Fiscale.</p>
+    <dd><p>The code to validate. Can be an 11-digit Partita IVA or, if <code class="paramref">isFiscal</code> is <code>true</code>, a 16-character Codice Fiscale.</p>
 </dd>
     <dt><code>isConsumer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p><code>true</code> if the code belongs to a natural person (consumer); the first digit must be 8 or 9.

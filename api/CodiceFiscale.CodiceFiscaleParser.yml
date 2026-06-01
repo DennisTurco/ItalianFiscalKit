@@ -7,6 +7,7 @@ items:
   children:
   - CodiceFiscale.CodiceFiscaleParser.#ctor
   - CodiceFiscale.CodiceFiscaleParser.Parse(System.String)
+  - CodiceFiscale.CodiceFiscaleParser.TryParse(System.String,CodiceFiscale.Entities.CodiceFiscaleData@)
   langs:
   - csharp
   - vb
@@ -116,6 +117,61 @@ items:
   nameWithType.vb: CodiceFiscaleParser.Parse(String)
   fullName.vb: CodiceFiscale.CodiceFiscaleParser.Parse(String)
   name.vb: Parse(String)
+- uid: CodiceFiscale.CodiceFiscaleParser.TryParse(System.String,CodiceFiscale.Entities.CodiceFiscaleData@)
+  commentId: M:CodiceFiscale.CodiceFiscaleParser.TryParse(System.String,CodiceFiscale.Entities.CodiceFiscaleData@)
+  id: TryParse(System.String,CodiceFiscale.Entities.CodiceFiscaleData@)
+  parent: CodiceFiscale.CodiceFiscaleParser
+  langs:
+  - csharp
+  - vb
+  name: TryParse(string, out CodiceFiscaleData?)
+  nameWithType: CodiceFiscaleParser.TryParse(string, out CodiceFiscaleData?)
+  fullName: CodiceFiscale.CodiceFiscaleParser.TryParse(string, out CodiceFiscale.Entities.CodiceFiscaleData?)
+  type: Method
+  source:
+    remote:
+      path: CodiceFiscale/CodiceFiscaleParser.cs
+      branch: master
+      repo: https://github.com/DennisTurco/CodiceFiscale.git
+    id: TryParse
+    path: CodiceFiscale/CodiceFiscaleParser.cs
+    startLine: 57
+  assemblies:
+  - CodiceFiscale
+  namespace: CodiceFiscale
+  summary: Attempts to parse the specified Codice Fiscale without throwing an exception.
+  example:
+  - >-
+    <pre><code class="lang-csharp">if (CodiceFiscaleParser.TryParse("RSSMRA85M01H501Z", out CodiceFiscaleData? data))
+
+    {
+        Console.WriteLine($"Gender: {data.Gender}, Born: {data.DateOfBirth}");
+    }</code></pre>
+  syntax:
+    content: public static bool TryParse(string cf, out CodiceFiscaleData? data)
+    parameters:
+    - id: cf
+      type: System.String
+      description: The Codice Fiscale string to parse. Case-insensitive.
+    - id: data
+      type: CodiceFiscale.Entities.CodiceFiscaleData
+      description: >-
+        When this method returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, contains a <xref href="CodiceFiscale.Entities.CodiceFiscaleData" data-throw-if-not-resolved="false"></xref>
+
+        instance with the gender, date of birth, and Belfiore code extracted from the Codice Fiscale;
+
+        otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+    return:
+      type: System.Boolean
+      description: >-
+        <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">cf</code> was parsed successfully;
+
+        otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Shared Function TryParse(cf As String, data As CodiceFiscaleData) As Boolean
+  overload: CodiceFiscale.CodiceFiscaleParser.TryParse*
+  nameWithType.vb: CodiceFiscaleParser.TryParse(String, CodiceFiscaleData)
+  fullName.vb: CodiceFiscale.CodiceFiscaleParser.TryParse(String, CodiceFiscale.Entities.CodiceFiscaleData)
+  name.vb: TryParse(String, CodiceFiscaleData)
 references:
 - uid: CodiceFiscale
   commentId: N:CodiceFiscale
@@ -421,3 +477,20 @@ references:
   - uid: CodiceFiscale.Entities
     name: Entities
     href: CodiceFiscale.Entities.html
+- uid: CodiceFiscale.CodiceFiscaleParser.TryParse*
+  commentId: Overload:CodiceFiscale.CodiceFiscaleParser.TryParse
+  href: CodiceFiscale.CodiceFiscaleParser.html#CodiceFiscale_CodiceFiscaleParser_TryParse_System_String_CodiceFiscale_Entities_CodiceFiscaleData__
+  name: TryParse
+  nameWithType: CodiceFiscaleParser.TryParse
+  fullName: CodiceFiscale.CodiceFiscaleParser.TryParse
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

@@ -21,7 +21,7 @@ public class ItalianVatCodeValidatorTests
 
     [Theory]
     [InlineData("RSSMRA85T10A562S", false, true)] // CF ok
-    [InlineData("BNCSFN91P65F205X", false, true)] // CF ok
+    [InlineData("BNCSFN91P65F205Z", false, true)] // CF ok
     [InlineData("00484960588", false, true)] // vat code ok
     public void CheckVAT_ShouldReturnValidFiscalCode(string vat, bool isConsumer, bool isFiscal)
     {

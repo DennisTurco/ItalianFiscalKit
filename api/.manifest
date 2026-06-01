@@ -6,6 +6,7 @@
   "CodiceFiscale.CodiceFiscaleParser": "CodiceFiscale.CodiceFiscaleParser.yml",
   "CodiceFiscale.CodiceFiscaleParser.#ctor": "CodiceFiscale.CodiceFiscaleParser.yml",
   "CodiceFiscale.CodiceFiscaleParser.Parse(System.String)": "CodiceFiscale.CodiceFiscaleParser.yml",
+  "CodiceFiscale.CodiceFiscaleParser.TryParse(System.String,CodiceFiscale.Entities.CodiceFiscaleData@)": "CodiceFiscale.CodiceFiscaleParser.yml",
   "CodiceFiscale.CodiceFiscaleValidator": "CodiceFiscale.CodiceFiscaleValidator.yml",
   "CodiceFiscale.CodiceFiscaleValidator.IsValid(System.String)": "CodiceFiscale.CodiceFiscaleValidator.yml",
   "CodiceFiscale.Entities": "CodiceFiscale.Entities.yml",

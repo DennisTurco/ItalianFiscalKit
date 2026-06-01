@@ -8,7 +8,7 @@ namespace CodiceFiscale;
 /// <summary>
 /// Provides methods to parse an Italian Codice Fiscale into its constituent data.
 /// </summary>
-public class CodiceFiscaleParser()
+public class CodiceFiscaleParser
 {
     /// <summary>
     /// Parses the specified Codice Fiscale and returns the decoded personal data.
@@ -49,7 +49,7 @@ public class CodiceFiscaleParser()
     /// </returns>
     /// <example>
     /// <code>
-    /// if (CodiceFiscaleParser.TryParse("RSSMRA85M01H501Z", out CodiceFiscaleData? data))
+    /// if (CodiceFiscaleParser.TryParse("RSSMRA85T10A562S", out CodiceFiscaleData? data))
     /// {
     ///     Console.WriteLine($"Gender: {data.Gender}, Born: {data.DateOfBirth}");
     /// }

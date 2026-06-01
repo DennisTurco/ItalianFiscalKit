@@ -230,6 +230,57 @@ and Belfiore code extracted from the Codice Fiscale.</p>
 
 
 
+  <a id="CodiceFiscale_CodiceFiscaleParser_TryParse_" data-uid="CodiceFiscale.CodiceFiscaleParser.TryParse*"></a>
+
+  <h3 id="CodiceFiscale_CodiceFiscaleParser_TryParse_System_String_CodiceFiscale_Entities_CodiceFiscaleData__" data-uid="CodiceFiscale.CodiceFiscaleParser.TryParse(System.String,CodiceFiscale.Entities.CodiceFiscaleData@)">
+  TryParse(string, out CodiceFiscaleData?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/DennisTurco/CodiceFiscale/blob/master/CodiceFiscale/CodiceFiscaleParser.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Attempts to parse the specified Codice Fiscale without throwing an exception.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParse(string cf, out CodiceFiscaleData? data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cf</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The Codice Fiscale string to parse. Case-insensitive.</p>
+</dd>
+    <dt><code>data</code> <a class="xref" href="CodiceFiscale.Entities.CodiceFiscaleData.html">CodiceFiscaleData</a></dt>
+    <dd><p>When this method returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, contains a <a class="xref" href="CodiceFiscale.Entities.CodiceFiscaleData.html">CodiceFiscaleData</a>
+instance with the gender, date of birth, and Belfiore code extracted from the Codice Fiscale;
+otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">cf</code> was parsed successfully;
+otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CodiceFiscale_CodiceFiscaleParser_TryParse_System_String_CodiceFiscale_Entities_CodiceFiscaleData___examples">Examples</h4>
+  <pre><code class="lang-csharp">if (CodiceFiscaleParser.TryParse("RSSMRA85M01H501Z", out CodiceFiscaleData? data))
+{
+    Console.WriteLine($"Gender: {data.Gender}, Born: {data.DateOfBirth}");
+}</code></pre>
+
+
+
+
+
+
 
 </article>
 

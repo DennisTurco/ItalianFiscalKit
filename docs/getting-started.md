@@ -51,18 +51,34 @@ string belfiore    = data.BelfioreCode; // "A562"
 
 > [!WARNING]
 > `Parse` throws `InvalidCodiceFiscaleException` if the input is not valid.
-> Always validate first, or wrap in a try/catch.
+> Use `TryParse` to avoid try/catch:
 
 ```csharp
-try
+if (CodiceFiscaleParser.TryParse(userInput, out CodiceFiscaleData? data))
 {
-    CodiceFiscaleData data = CodiceFiscaleParser.Parse(userInput);
-}
-catch (InvalidCodiceFiscaleException ex)
-{
-    Console.WriteLine(ex.Message);
+    Console.WriteLine($"Born: {data.DateOfBirth}, Gender: {data.Gender}");
 }
 ```
+
+---
+
+## Generate a Codice Fiscale
+
+```csharp
+using CodiceFiscale;
+using CodiceFiscale.Enums;
+
+string cf = CodiceFiscaleGenerator.Generate(
+    name:         "Luigi",
+    surname:      "Verdi",
+    dateOfBirth:  new DateOnly(1970, 5, 30),
+    gender:       Gender.Male,
+    belfioreCode: "F839"
+);
+// "VRDLGU70E30F839C"
+```
+
+`Generate` throws `InvalidCodiceFiscaleDataException` if name/surname are shorter than 3 characters or the Belfiore code is not found in the embedded dataset. The generated CF always passes `CodiceFiscaleValidator.IsValid`.
 
 ---
 

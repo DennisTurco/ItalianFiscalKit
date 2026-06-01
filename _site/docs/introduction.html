@@ -109,17 +109,22 @@
 <td>✅ Available</td>
 </tr>
 <tr>
+<td>Non-throwing parse (TryParse pattern)</td>
+<td><code>CodiceFiscaleParser.TryParse</code></td>
+<td>✅ Available</td>
+</tr>
+<tr>
 <td>Generate a Codice Fiscale from personal data</td>
 <td><code>CodiceFiscaleGenerator</code></td>
-<td>🔜 Coming soon</td>
+<td>✅ Available</td>
 </tr>
 <tr>
 <td>Match a Codice Fiscale against personal data</td>
 <td><code>CodiceFiscaleMatcher</code></td>
-<td>🔜 Coming soon</td>
+<td>✅ Available</td>
 </tr>
 <tr>
-<td>Validate an IBAN</td>
+<td>Validate an IBAN (SEPA countries)</td>
 <td><code>IBANValidator</code></td>
 <td>✅ Available</td>
 </tr>
@@ -133,9 +138,10 @@
 <h2 id="design-principles">Design principles</h2>
 <ul>
 <li><strong>Local-only</strong> — all logic runs in-process. No HTTP calls, no external services. Personal data never leaves your application.</li>
-<li><strong>Embedded datasets</strong> — the municipality/Belfiore dataset (~7 800 comuni) and the foreign country codes (~260 countries) are compiled directly into the DLL as embedded resources. No files to deploy, no database to configure.</li>
+<li><strong>Embedded datasets</strong> — the municipality/Belfiore dataset (~7 800 comuni) and the foreign country codes (261 countries including historical ones) are compiled directly into the DLL as embedded resources. No files to deploy, no database to configure.</li>
 <li><strong>Lazy loading</strong> — datasets are deserialized once on first use and cached for the lifetime of the process. Repeated calls are fast.</li>
-<li><strong>Immutable results</strong> — all output types are C# <code>record</code>s with <code>init</code>-only properties.</li>
+<li><strong>Immutable results</strong> — all output types are C# <code>record</code>s.</li>
+<li><strong>Never throws on invalid input</strong> — <code>IsValid</code> methods always return <code>bool</code>. Only <code>Parse</code> throws; use <code>TryParse</code> for exception-free parsing.</li>
 </ul>
 <h2 id="supported-platforms">Supported platforms</h2>
 <ul>

@@ -68,7 +68,7 @@ items:
     parameters:
     - id: vat
       type: System.String
-      description: The code to validate. Can be an 11-digit Partita IVA or a 16-character Codice Fiscale.
+      description: The code to validate. Can be an 11-digit Partita IVA or, if <code class="paramref">isFiscal</code> is <code>true</code>, a 16-character Codice Fiscale.
     - id: isConsumer
       type: System.Boolean
       description: >-

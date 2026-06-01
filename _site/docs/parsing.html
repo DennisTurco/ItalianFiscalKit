@@ -88,12 +88,49 @@
 <h1 id="parsing">Parsing</h1>
 
 <h2 id="overview">Overview</h2>
-<p><code>CodiceFiscaleParser.Parse(string cf)</code> decodes a valid Codice Fiscale into its constituent personal data.</p>
+<p><code>CodiceFiscaleParser</code> provides two methods to decode a valid Codice Fiscale into its constituent personal data:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Throws on invalid?</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Parse(string cf)</code></td>
+<td>✅ Yes — <code>InvalidCodiceFiscaleException</code></td>
+<td><code>CodiceFiscaleData</code></td>
+</tr>
+<tr>
+<td><code>TryParse(string cf, out CodiceFiscaleData? data)</code></td>
+<td>❌ No</td>
+<td><code>bool</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="parse">Parse</h2>
 <pre><code class="lang-csharp">using CodiceFiscale;
 using CodiceFiscale.Entities;
 using CodiceFiscale.Enums;
 
 CodiceFiscaleData data = CodiceFiscaleParser.Parse(&quot;RSSMRA85T10A562S&quot;);
+</code></pre>
+<hr>
+<h2 id="tryparse">TryParse</h2>
+<p>Use <code>TryParse</code> when you want to avoid try/catch blocks — for example, in form validation or batch processing:</p>
+<pre><code class="lang-csharp">if (CodiceFiscaleParser.TryParse(&quot;RSSMRA85T10A562S&quot;, out CodiceFiscaleData? data))
+{
+    Console.WriteLine($&quot;Gender:      {data.Gender}&quot;);       // Male
+    Console.WriteLine($&quot;DateOfBirth: {data.DateOfBirth}&quot;);  // 1985-12-10
+    Console.WriteLine($&quot;Belfiore:    {data.BelfioreCode}&quot;); // A562
+}
+else
+{
+    Console.WriteLine(&quot;Invalid CF&quot;);
+}
 </code></pre>
 <hr>
 <h2 id="return-type-codicefiscaledata">Return type: <code>CodiceFiscaleData</code></h2>
@@ -151,14 +188,20 @@ CodiceFiscaleData data = CodiceFiscaleParser.Parse(&quot;RSSMRA85T10A562S&quot;)
 <p><code>Parse</code> runs <code>CodiceFiscaleValidator.IsValid</code> internally. If the input is not valid, it throws:</p>
 <pre><code class="lang-csharp">throw new InvalidCodiceFiscaleException($&quot;The provided Codice Fiscale '{cf}' is not valid&quot;);
 </code></pre>
-<p>Always validate before parsing, or handle the exception:</p>
-<pre><code class="lang-csharp">// Option 1 — validate first
+<p>Always validate before parsing, use <code>TryParse</code>, or handle the exception:</p>
+<pre><code class="lang-csharp">// Option 1 — TryParse (recommended)
+if (CodiceFiscaleParser.TryParse(input, out var data))
+{
+    // use data
+}
+
+// Option 2 — validate first
 if (CodiceFiscaleValidator.IsValid(input))
 {
     CodiceFiscaleData data = CodiceFiscaleParser.Parse(input);
 }
 
-// Option 2 — try/catch
+// Option 3 — try/catch
 try
 {
     CodiceFiscaleData data = CodiceFiscaleParser.Parse(input);
@@ -177,10 +220,15 @@ CodiceFiscaleData mario = CodiceFiscaleParser.Parse(&quot;RSSMRA85T10A562S&quot;
 // BelfioreCode: A562  (Rome)
 
 // Female, born abroad (Venezuela)
-CodiceFiscaleData gabriella = CodiceFiscaleParser.Parse(&quot;MRNGRL01P55Z614X&quot;);
+CodiceFiscaleData gabriella = CodiceFiscaleParser.Parse(&quot;MRNGRL01P55Z614K&quot;);
 // Gender:       Female  (55 - 40 = day 15)
 // DateOfBirth:  2001-09-15
 // BelfioreCode: Z614  (Venezuela)
+
+// TryParse on invalid input
+bool ok = CodiceFiscaleParser.TryParse(&quot;INVALID&quot;, out CodiceFiscaleData? result);
+// ok:     false
+// result: null
 </code></pre>
 
 </article>

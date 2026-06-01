@@ -20,11 +20,14 @@ items:
       repo: https://github.com/DennisTurco/CodiceFiscale.git
     id: IBANValidator
     path: CodiceFiscale/IBANValidator.cs
-    startLine: 5
+    startLine: 10
   assemblies:
   - CodiceFiscale
   namespace: CodiceFiscale
-  summary: Provides methods to validate IBAN (International Bank Account Number) strings.
+  summary: >-
+    Provides methods to validate IBAN (International Bank Account Number) strings.
+
+    Only SEPA countries are supported (EU27 + UK, Switzerland, Norway, Iceland, Liechtenstein, Monaco, San Marino, Andorra, Vatican City).
   example: []
   syntax:
     content: public class IBANValidator
@@ -57,21 +60,24 @@ items:
       repo: https://github.com/DennisTurco/CodiceFiscale.git
     id: IsValid
     path: CodiceFiscale/IBANValidator.cs
-    startLine: 12
+    startLine: 35
   assemblies:
   - CodiceFiscale
   namespace: CodiceFiscale
-  summary: Determines whether the specified IBAN string is valid.
+  summary: >-
+    Determines whether the specified IBAN string is valid.
+
+    Spaces are ignored. Only SEPA country codes are accepted.
   example: []
   syntax:
     content: public static bool IsValid(string iban)
     parameters:
     - id: iban
       type: System.String
-      description: The IBAN string to validate.
+      description: The IBAN string to validate. Spaces are allowed and will be stripped.
     return:
       type: System.Boolean
-      description: <code>true</code> if the IBAN is valid; otherwise, <code>false</code>.
+      description: <code>true</code> if the IBAN is valid and belongs to a SEPA country; otherwise, <code>false</code>.
     content.vb: Public Shared Function IsValid(iban As String) As Boolean
   overload: CodiceFiscale.IBANValidator.IsValid*
   nameWithType.vb: IBANValidator.IsValid(String)

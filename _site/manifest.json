@@ -11,6 +11,16 @@
       }
     },
     {
+      "type": "Conceptual",
+      "source_relative_path": "CHANGELOG.md",
+      "output": {
+        ".html": {
+          "relative_path": "CHANGELOG.html"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "ManagedReference",
       "source_relative_path": "api/CodiceFiscale.CodiceFiscaleGenerator.yml",
       "output": {
@@ -218,7 +228,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CodiceFiscale.IBANValidator",
-      "Summary": "<p sourcefile=\"api/CodiceFiscale.IBANValidator.yml\" sourcestartlinenumber=\"1\">Provides methods to validate IBAN (International Bank Account Number) strings.</p>\n"
+      "Summary": "<p sourcefile=\"api/CodiceFiscale.IBANValidator.yml\" sourcestartlinenumber=\"1\">Provides methods to validate IBAN (International Bank Account Number) strings.\nOnly SEPA countries are supported (EU27 + UK, Switzerland, Norway, Iceland, Liechtenstein, Monaco, San Marino, Andorra, Vatican City).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -273,6 +283,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/generation.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/generation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/getting-started.md",
       "output": {
         ".html": {
@@ -297,6 +317,16 @@
       "output": {
         ".html": {
           "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/matching.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/matching.html"
         }
       },
       "version": ""

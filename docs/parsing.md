@@ -2,7 +2,16 @@
 
 ## Overview
 
-`CodiceFiscaleParser.Parse(string cf)` decodes a valid Codice Fiscale into its constituent personal data.
+`CodiceFiscaleParser` provides two methods to decode a valid Codice Fiscale into its constituent personal data:
+
+| Method | Throws on invalid? | Returns |
+|---|---|---|
+| `Parse(string cf)` | ✅ Yes — `InvalidCodiceFiscaleException` | `CodiceFiscaleData` |
+| `TryParse(string cf, out CodiceFiscaleData? data)` | ❌ No | `bool` |
+
+---
+
+## Parse
 
 ```csharp
 using CodiceFiscale;
@@ -10,6 +19,25 @@ using CodiceFiscale.Entities;
 using CodiceFiscale.Enums;
 
 CodiceFiscaleData data = CodiceFiscaleParser.Parse("RSSMRA85T10A562S");
+```
+
+---
+
+## TryParse
+
+Use `TryParse` when you want to avoid try/catch blocks — for example, in form validation or batch processing:
+
+```csharp
+if (CodiceFiscaleParser.TryParse("RSSMRA85T10A562S", out CodiceFiscaleData? data))
+{
+    Console.WriteLine($"Gender:      {data.Gender}");       // Male
+    Console.WriteLine($"DateOfBirth: {data.DateOfBirth}");  // 1985-12-10
+    Console.WriteLine($"Belfiore:    {data.BelfioreCode}"); // A562
+}
+else
+{
+    Console.WriteLine("Invalid CF");
+}
 ```
 
 ---
@@ -55,16 +83,22 @@ The raw 4-character code is returned as-is. Italian municipality codes start wit
 throw new InvalidCodiceFiscaleException($"The provided Codice Fiscale '{cf}' is not valid");
 ```
 
-Always validate before parsing, or handle the exception:
+Always validate before parsing, use `TryParse`, or handle the exception:
 
 ```csharp
-// Option 1 — validate first
+// Option 1 — TryParse (recommended)
+if (CodiceFiscaleParser.TryParse(input, out var data))
+{
+    // use data
+}
+
+// Option 2 — validate first
 if (CodiceFiscaleValidator.IsValid(input))
 {
     CodiceFiscaleData data = CodiceFiscaleParser.Parse(input);
 }
 
-// Option 2 — try/catch
+// Option 3 — try/catch
 try
 {
     CodiceFiscaleData data = CodiceFiscaleParser.Parse(input);
@@ -87,8 +121,13 @@ CodiceFiscaleData mario = CodiceFiscaleParser.Parse("RSSMRA85T10A562S");
 // BelfioreCode: A562  (Rome)
 
 // Female, born abroad (Venezuela)
-CodiceFiscaleData gabriella = CodiceFiscaleParser.Parse("MRNGRL01P55Z614X");
+CodiceFiscaleData gabriella = CodiceFiscaleParser.Parse("MRNGRL01P55Z614K");
 // Gender:       Female  (55 - 40 = day 15)
 // DateOfBirth:  2001-09-15
 // BelfioreCode: Z614  (Venezuela)
+
+// TryParse on invalid input
+bool ok = CodiceFiscaleParser.TryParse("INVALID", out CodiceFiscaleData? result);
+// ok:     false
+// result: null
 ```
