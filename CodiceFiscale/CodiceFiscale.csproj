@@ -8,7 +8,7 @@
      <PackageId>DennisTurco.CodiceFiscale</PackageId>
      <Version>1.0.1</Version>
      <Authors>DennisTurco</Authors>
-     <Description>A .NET library for Italian fiscal compliance: validate, parse and generate Codice Fiscale; validate Partita IVA and IBAN; query a built-in database of Italian municipalities and foreign countries (Belfiore codes). All logic runs locally — no HTTP calls, no external services.</Description>
+     <Description>A .NET library for Italian fiscal compliance: validate, parse and generate Codice Fiscale; validate Partita IVA and IBAN; query a built-in database of Italian municipalities and foreign countries (Belfiore codes). All logic runs locally, no HTTP calls.</Description>
      <PackageTags>italy;codicefiscale;fiscalcode;iban;partitaiva;validation;parsing;generation;municipalities;belfiore</PackageTags>
      <PackageLicenseExpression>MIT</PackageLicenseExpression>
      <PackageProjectUrl>https://github.com/DennisTurco/CodiceFiscale</PackageProjectUrl>
