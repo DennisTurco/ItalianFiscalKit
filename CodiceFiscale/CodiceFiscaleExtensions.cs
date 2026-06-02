@@ -14,7 +14,11 @@ public static class CodiceFiscaleExtensions
     /// <returns>The age in full years as of today.</returns>
     public static int GetAge(this CodiceFiscaleData data)
     {
-        return 0;
+        DateTime date = new(data.DateOfBirth.Year, data.DateOfBirth.Month, data.DateOfBirth.Day);
+        int years = DateTime.Now.Year - date.Year;
+        if (DateTime.Now.Month < date.Month)
+            years--;
+        return years;
     }
 
     /// <summary>

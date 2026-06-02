@@ -1,30 +1,32 @@
 # Introduction
 
-**CodiceFiscale** is a .NET 9 library for working with Italian personal identifiers.
+**CodiceFiscale** is a .NET 9 library that makes working with Italian personal identifiers straightforward — no HTTP calls, no external services, no configuration files. Everything runs locally inside your app.
 
-## What it does
+## What you can do with it
 
-| Feature | Class | Status |
+| What | Class | |
 |---|---|---|
-| Validate a Codice Fiscale | `CodiceFiscaleValidator` | ✅ Available |
-| Parse a Codice Fiscale into personal data | `CodiceFiscaleParser` | ✅ Available |
-| Non-throwing parse (TryParse pattern) | `CodiceFiscaleParser.TryParse` | ✅ Available |
-| Generate a Codice Fiscale from personal data | `CodiceFiscaleGenerator` | ✅ Available |
-| Match a Codice Fiscale against personal data | `CodiceFiscaleMatcher` | ✅ Available |
-| Validate an IBAN (SEPA countries) | `IBANValidator` | ✅ Available |
-| Validate an Italian VAT code (Partita IVA) | `ItalianVatCodeValidator` | ✅ Available |
+| Validate a Codice Fiscale | `CodiceFiscaleValidator` | ✅ |
+| Decode a CF into gender, date of birth and birthplace | `CodiceFiscaleParser` | ✅ |
+| Parse without try/catch | `CodiceFiscaleParser.TryParse` | ✅ |
+| Generate a CF from personal data | `CodiceFiscaleGenerator` | ✅ |
+| Check whether a CF matches a person | `CodiceFiscaleMatcher` | ✅ |
+| Get age and adult-status from parsed data | `CodiceFiscaleExtensions` | ✅ |
+| Search municipalities by name, CAP, Belfiore code or province | `MunicipalityExtensions` | ✅ |
+| Validate an IBAN (all SEPA countries) | `IBANValidator` | ✅ |
+| Validate an Italian VAT number (Partita IVA) | `ItalianVatCodeValidator` | ✅ |
 
-## Design principles
+## How it''s designed
 
-- **Local-only** — all logic runs in-process. No HTTP calls, no external services. Personal data never leaves your application.
-- **Embedded datasets** — the municipality/Belfiore dataset (~7 800 comuni) and the foreign country codes (261 countries including historical ones) are compiled directly into the DLL as embedded resources. No files to deploy, no database to configure.
-- **Lazy loading** — datasets are deserialized once on first use and cached for the lifetime of the process. Repeated calls are fast.
-- **Immutable results** — all output types are C# `record`s.
-- **Never throws on invalid input** — `IsValid` methods always return `bool`. Only `Parse` throws; use `TryParse` for exception-free parsing.
+- **Everything stays local** — validation runs entirely in-process. Fiscal codes and VAT numbers are personal data; they never leave your application.
+- **No files to ship** — the municipality/Belfiore dataset (~7 800 comuni) and 261 foreign country codes are baked directly into the DLL as embedded resources.
+- **Fast after the first call** — datasets are loaded once on first use and kept in memory. Subsequent calls are just in-memory lookups.
+- **Results are immutable** — all output types are C# `record`s, so you can safely pass them around without defensive copies.
+- **`IsValid` never throws** — validation always returns a `bool`. Only `Parse` throws; if you''d rather avoid exceptions, `TryParse` has you covered.
 
-## Supported platforms
+## Requirements
 
-- .NET 9.0+
+.NET 9.0 or later.
 
 ## License
 

@@ -6,11 +6,13 @@
 dotnet add package CodiceFiscale
 ```
 
-Or via the NuGet Package Manager in Visual Studio: search for **CodiceFiscale**.
+Or search for **CodiceFiscale** in the NuGet Package Manager inside Visual Studio.
 
 ---
 
 ## Validate a Codice Fiscale
+
+Pass any string — valid or not — and get back a plain `bool`. The method accepts lowercase input, handles all edge cases, and never throws.
 
 ```csharp
 using CodiceFiscale;
@@ -18,24 +20,26 @@ using CodiceFiscale;
 bool valid = CodiceFiscaleValidator.IsValid("RSSMRA85T10A562S");
 // true
 
-// Case-insensitive
+// lowercase is fine
 bool valid2 = CodiceFiscaleValidator.IsValid("rssmra85t10a562s");
 // true
 
-// Foreign birth place (Z-code)
+// foreign birthplace (Z-code)
 bool validForeign = CodiceFiscaleValidator.IsValid("MRNGRL01P55Z614X");
 // true
 
-// Invalid check digit
+// wrong check digit
 bool invalid = CodiceFiscaleValidator.IsValid("RSSMRA85T10A562X");
 // false
 ```
 
-`IsValid` returns `false` (never throws) for any invalid input including `null`-equivalent strings, wrong length, bad characters, invalid date, unknown Belfiore code, or wrong check digit.
+`IsValid` returns `false` for anything invalid: `null`, wrong length, bad characters, impossible date, unknown Belfiore code, wrong check digit.
 
 ---
 
 ## Parse a Codice Fiscale
+
+Use `TryParse` whenever the input comes from outside your app — it''s the safest option because it never throws.
 
 ```csharp
 using CodiceFiscale;
@@ -44,14 +48,14 @@ using CodiceFiscale.Enums;
 
 CodiceFiscaleData data = CodiceFiscaleParser.Parse("RSSMRA85T10A562S");
 
-Gender gender      = data.Gender;       // Gender.Male
-DateOnly dob       = data.DateOfBirth;  // new DateOnly(1985, 12, 10)
-string belfiore    = data.BelfioreCode; // "A562"
+Gender gender   = data.Gender;       // Gender.Male
+DateOnly dob    = data.DateOfBirth;  // new DateOnly(1985, 12, 10)
+string belfiore = data.BelfioreCode; // "A562"
 ```
 
 > [!WARNING]
-> `Parse` throws `InvalidCodiceFiscaleException` if the input is not valid.
-> Use `TryParse` to avoid try/catch:
+> `Parse` throws `InvalidCodiceFiscaleException` if the input is invalid.
+> Prefer `TryParse` to avoid try/catch:
 
 ```csharp
 if (CodiceFiscaleParser.TryParse(userInput, out CodiceFiscaleData? data))
@@ -63,6 +67,8 @@ if (CodiceFiscaleParser.TryParse(userInput, out CodiceFiscaleData? data))
 ---
 
 ## Generate a Codice Fiscale
+
+Provide the personal data and the Belfiore code of the birthplace, and you get back a fully valid CF.
 
 ```csharp
 using CodiceFiscale;
@@ -78,19 +84,20 @@ string cf = CodiceFiscaleGenerator.Generate(
 // "VRDLGU70E30F839C"
 ```
 
-`Generate` throws `InvalidCodiceFiscaleDataException` if name/surname are shorter than 3 characters or the Belfiore code is not found in the embedded dataset. The generated CF always passes `CodiceFiscaleValidator.IsValid`.
+`Generate` throws `InvalidCodiceFiscaleDataException` if the name or surname is shorter than 3 characters, or if the Belfiore code doesn''t exist in the embedded dataset. The generated CF always passes `CodiceFiscaleValidator.IsValid`.
 
 ---
 
 ## Validate an IBAN
 
+Spaces in the input are ignored, so both compact and formatted IBANs work.
+
 ```csharp
 using CodiceFiscale;
 
-bool valid = IBANValidator.IsValid("IT60X0542811101000000123456"); // true
-bool validSpaced = IBANValidator.IsValid("IT60 X054 2811 1010 0000 0123 456"); // true (spaces ignored)
-
-bool invalid = IBANValidator.IsValid("IT00X0542811101000000123456"); // false (bad checksum)
+bool valid        = IBANValidator.IsValid("IT60X0542811101000000123456");          // true
+bool validSpaced  = IBANValidator.IsValid("IT60 X054 2811 1010 0000 0123 456");    // true
+bool invalid      = IBANValidator.IsValid("IT00X0542811101000000123456");           // false
 ```
 
 ---
@@ -100,13 +107,12 @@ bool invalid = IBANValidator.IsValid("IT00X0542811101000000123456"); // false (b
 ```csharp
 using CodiceFiscale;
 
-// Standard company VAT
-bool valid = ItalianVatCodeValidator.IsValid("00484960588", isConsumer: false, isFiscal: false); // true
+// standard company VAT
+bool valid    = ItalianVatCodeValidator.IsValid("00484960588", isConsumer: false, isFiscal: false); // true
 
-// Consumer (natural person) VAT — first digit must be 8 or 9
-bool consumer = ItalianVatCodeValidator.IsValid("85423511618", isConsumer: true, isFiscal: false); // true
+// natural person (first digit must be 8 or 9)
+bool consumer = ItalianVatCodeValidator.IsValid("85423511618", isConsumer: true,  isFiscal: false); // true
 
-// Accept a Codice Fiscale as a valid fiscal identifier
-bool fiscal = ItalianVatCodeValidator.IsValid("RSSMRA85T10A562S", isConsumer: false, isFiscal: true); // true
+// also accept a Codice Fiscale as fiscal identifier
+bool fiscal   = ItalianVatCodeValidator.IsValid("RSSMRA85T10A562S", isConsumer: false, isFiscal: true); // true
 ```
-

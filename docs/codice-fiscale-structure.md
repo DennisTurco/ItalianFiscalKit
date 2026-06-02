@@ -1,6 +1,6 @@
 # Codice Fiscale Structure
 
-The Italian *Codice Fiscale* is a 16-character alphanumeric string that uniquely identifies a natural person for tax purposes.
+The Italian *Codice Fiscale* is a 16-character alphanumeric string that uniquely identifies a person for tax purposes. Once you understand how it''s built, you can read gender, date of birth and birthplace directly from the string itself.
 
 ## Layout
 
@@ -14,19 +14,19 @@ surname    name   year  month  day   belfiore  check
 
 | Position | Length | Content | Example |
 |---|---|---|---|
-| 1–3 | 3 chars | Surname consonants/vowels | `RSS` |
-| 4–6 | 3 chars | Name consonants/vowels | `MRA` |
-| 7–8 | 2 digits | Year of birth (last 2 digits) | `85` → 1985 |
+| 1–3 | 3 chars | Surname (consonants, then vowels) | `RSS` |
+| 4–6 | 3 chars | Name (consonants, then vowels) | `MRA` |
+| 7–8 | 2 digits | Year of birth — last 2 digits | `85` → 1985 |
 | 9 | 1 char | Month of birth (letter code) | `T` → December |
-| 10–11 | 2 digits | Day of birth (female: day + 40) | `10` → day 10 |
-| 12–15 | 4 chars | Belfiore catastal code | `A562` |
+| 10–11 | 2 digits | Day of birth (females: day + 40) | `10` → day 10 |
+| 12–15 | 4 chars | Belfiore cadastral code of birthplace | `A562` |
 | 16 | 1 char | Check character | `S` |
 
 ---
 
-## Surname encoding (positions 1–3)
+## Surname — positions 1–3
 
-Consonants are taken first (in order), then vowels. If fewer than 3 characters are available, `X` is used as padding.
+Consonants come first (in order), then vowels. If there aren''t enough characters to fill three positions, `X` is used as padding.
 
 | Surname | Consonants | Vowels | Code |
 |---|---|---|---|
@@ -36,10 +36,9 @@ Consonants are taken first (in order), then vowels. If fewer than 3 characters a
 
 ---
 
-## Name encoding (positions 4–6)
+## Name — positions 4–6
 
-If the name has **4 or more consonants**, the 1st, 3rd, and 4th are taken.
-Otherwise, the same consonants-then-vowels-then-X rule applies as for the surname.
+Names with **4 or more consonants** follow a special rule: take the 1st, 3rd, and 4th consonant. For all other names, the same consonants → vowels → X padding rule applies.
 
 | Name | Consonants | Code |
 |---|---|---|
@@ -49,7 +48,9 @@ Otherwise, the same consonants-then-vowels-then-X rule applies as for the surnam
 
 ---
 
-## Month encoding (position 9)
+## Month — position 9
+
+Each month is mapped to a fixed letter to keep the field purely alphabetic.
 
 | Letter | Month |
 |---|---|
@@ -68,41 +69,41 @@ Otherwise, the same consonants-then-vowels-then-X rule applies as for the surnam
 
 ---
 
-## Day encoding (positions 10–11)
+## Day — positions 10–11
 
-- **Male**: actual day of birth (`01`–`31`)
-- **Female**: day of birth + 40 (`41`–`71`)
+- **Male**: the actual day of birth, zero-padded (`01`–`31`)
+- **Female**: day of birth plus 40 (`41`–`71`)
 
-This allows unambiguous gender determination from the two-digit day field.
+This trick lets you determine gender unambiguously just from two digits.
 
 ---
 
-## Belfiore code (positions 12–15)
+## Belfiore code — positions 12–15
 
-A 4-character code identifying the place of birth:
+A 4-character code that identifies the birthplace:
 
-- **Italian municipality**: one letter (A–Z, excluding certain letters) + 3 digits, e.g. `A562` (Rome)
+- **Italian municipality**: one letter + 3 digits, e.g. `A562` (Rome) or `H501` (also Rome, different district)
 - **Foreign country**: always starts with `Z` + 3 digits, e.g. `Z614` (Venezuela)
 
-The full dataset (~7 800 Italian municipalities + ~260 foreign countries) is embedded in the library.
+The full dataset — ~7 800 Italian municipalities plus ~260 foreign countries (including historical ones like the USSR and Yugoslavia) — is embedded in the library. No external lookup needed.
 
 ---
 
-## Check character (position 16)
+## Check character — position 16
 
-Computed from the first 15 characters using a weighted sum algorithm:
+The final character is a checksum computed from the first 15 characters:
 
-1. Characters at **odd positions** (1, 3, 5, …) use a non-linear lookup table
+1. Characters at **odd positions** (1, 3, 5, …) are mapped through a non-linear lookup table
 2. Characters at **even positions** (2, 4, 6, …) use their ordinal value (0–25 for letters, 0–9 for digits)
-3. Sum all values, take modulo 26, convert to letter (`A`=0, `B`=1, …)
+3. Sum all values, take modulo 26, and convert to a letter (`A` = 0, `B` = 1, …)
 
-This library validates the check character automatically inside `CodiceFiscaleValidator.IsValid`.
+`CodiceFiscaleValidator.IsValid` always verifies this character automatically — you don''t need to compute it yourself.
 
 ---
 
 ## Omocodia
 
-When two people would share the same Codice Fiscale (same name, birthdate, and birthplace), one or more of the numeric digits (positions 7–8, 10–11) are replaced with letters according to a fixed substitution table:
+When two people would share the exact same CF — same name, same birthdate, same birthplace — one or more of the numeric digits in positions 7–8 and 10–11 are replaced with a letter using a fixed substitution table:
 
 | Digit | Letter |
 |---|---|
@@ -118,4 +119,4 @@ When two people would share the same Codice Fiscale (same name, birthdate, and b
 | 9 | V |
 
 > [!NOTE]
-> Omocodia support is not yet implemented in this library. Standard Codici Fiscali (all digits in numeric positions) are fully supported.
+> Omocodia variants are not yet supported by this library. Standard Codici Fiscali (with digits in all numeric positions) are fully handled.

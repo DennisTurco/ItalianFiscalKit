@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2026-06-01
+## [1.0.0] - 2026-06-02
 
 ### Added
 
@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Foreign-born support** — Belfiore codes starting with `Z` (e.g. `Z614` = Venezuela) are validated against a dataset of 261 foreign countries (active + historical/soppresso)
 - `CodiceFiscaleData` — immutable `record` with `Gender`, `DateOfBirth`, `BelfioreCode`
 - `Gender` enum with `Male` and `Female` values
+- `CodiceFiscaleMatcher.Matches(string cf, string name, string surname, DateOnly dateOfBirth, Gender gender, string belfioreCode)` — verifies whether a CF corresponds to the given personal data by generating the expected CF and comparing case-insensitively
+- `CodiceFiscaleGenerator.Generate(string name, string surname, DateOnly dateOfBirth, Gender gender, string belfioreCode)` — generates a valid 16-character Codice Fiscale from personal data, including foreign-born individuals (Belfiore code `Z…`)
 
 #### IBAN
 
@@ -38,6 +40,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Resources/foreign_countries.json` — 261 foreign country codes (active + historical soppresso states: Czechoslovakia, East Germany, USSR, Yugoslavia, …)
 - `Resources/check_code_map.json` — odd/even value table for the Codice Fiscale check digit algorithm
 
+#### Extension Methods
+
+- `CodiceFiscaleExtensions` — extension methods on `CodiceFiscaleData`:
+  - `GetAge()` — returns the current age in full years
+  - `IsAdult()` — returns `true` if the person is 18 or older
+- `MunicipalityExtensions` — query helpers over the embedded municipality dataset:
+  - `GetMunicipalityByBelfiore(string)` — lookup by Belfiore (cadastral) code
+  - `GetMunicipalityByName(string)` — case-insensitive lookup by name
+  - `GetMunicipalityByCAP(string)` — lookup by CAP (postal code)
+  - `GetMunicipalityByCode(string)` — lookup by ISTAT code
+  - `GetAllByProvince(string)` — all comuni in a province (case-insensitive)
+  - `GetAll()` — full dataset (~7 896 comuni)
+
 #### Infrastructure
 
 - `DataStore` — internal `Lazy<T>` singleton cache; all three datasets are deserialized once on first use and cached for the lifetime of the process (thread-safe, no locks required)
@@ -56,13 +71,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - No HTTP calls, no external services — all validation runs locally in-process
 - Targets **.NET 9.0**
 
-## [0.1.0] - 2026-05-22
+<!-- ## [0.1.0] - 2026-05-22
 
 ### Added
 
 - Initial project structure
 - Basic Codice Fiscale validation (Italian municipalities only)
-- Basic IBAN and VAT stubs (not yet implemented)
+- Basic IBAN and VAT stubs (not yet implemented) -->
 
 [1.0.0]: https://github.com/DennisTurco/CodiceFiscale/releases/tag/v1.0.0
-[0.1.0]: https://github.com/DennisTurco/CodiceFiscale/releases/tag/v0.1.0
+<!-- [0.1.0]: https://github.com/DennisTurco/CodiceFiscale/releases/tag/v0.1.0 -->

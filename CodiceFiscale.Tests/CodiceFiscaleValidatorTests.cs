@@ -25,8 +25,8 @@ public class CodiceFiscaleValidatorTests
     }
 
     [Theory]
-    [InlineData("")]          // Empty string
-    [InlineData("   ")]       // Whitespace only
+    [InlineData("")] // Empty string
+    [InlineData("   ")] // Whitespace only
     [InlineData("123456789012345")] // All digits, no letters
     [InlineData("AAAAAA00A00A000A")] // All placeholder characters
     public void CheckNullOrMalformedCF_ShouldBeFalse(string cf)
@@ -54,8 +54,8 @@ public class CodiceFiscaleValidatorTests
     [InlineData("RSSMRA85B29A562X")] // February 29, 1985 (non-leap year)
     [InlineData("RSSMRA04B69A562X")] // female, February 29 in a non-leap year (2004... 2004 is a leap year, use 1985->85)
     [InlineData("RSSMRA85D31A562X")] // April 31 (April has 30 days)
-    [InlineData("RSSMRA85H31A562X")] // 31 giugno (giugno ha 30 giorni)
-    [InlineData("RSSMRA85P31A562X")] // June 31 (June has 30 days)
+    [InlineData("RSSMRA85H31A562X")] // June 31 (has 30 days)
+    [InlineData("RSSMRA85P31A562X")] // June 31 (has 30 days)
     [InlineData("RSSMRA85S31A562X")] // November 31 (November has 30 days)
     [InlineData("RSSMRA85T72A562X")] // Day 72, female (40+32, does not exist)
     [InlineData("RSSMRA85T00A562X")] // Day 00, invalid

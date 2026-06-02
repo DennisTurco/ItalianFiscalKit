@@ -40,6 +40,8 @@
     "globalMetadata": {
       "_appName": "CodiceFiscale",
       "_appTitle": "CodiceFiscale",
+      "_appLogoPath": "images/icon.svg",
+      "_appFaviconPath": "images/icon.png",
       "_enableSearch": true,
       "pdf": true
     }

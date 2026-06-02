@@ -1,3 +1,7 @@
+using System.Text;
+using System.Text.RegularExpressions;
+using CodiceFiscale.Utils;
+
 namespace CodiceFiscale;
 
 /// <summary>
@@ -5,6 +9,8 @@ namespace CodiceFiscale;
 /// </summary>
 public class ItalianVatCodeValidator
 {
+    private const string VatRegexPattern = @"^(\d{7})(\d{3})(\d{1})$";
+
     /// <summary>
     /// Validates the specified Italian VAT or fiscal code string.
     /// </summary>
@@ -20,6 +26,63 @@ public class ItalianVatCodeValidator
     /// <returns><c>true</c> if the code is valid according to the specified rules; otherwise, <c>false</c>.</returns>
     public static bool IsValid(string vat, bool isConsumer, bool isFiscal)
     {
-       return true; //TODO: add it
+        if (string.IsNullOrEmpty(vat))
+            return false;
+
+        if (isFiscal && vat.Length == 16)
+            return CodiceFiscaleValidator.IsValid(vat);
+
+        if (vat.Length != 11)
+            return false;
+
+        vat = vat.Trim().Replace(" ", "");
+
+        if (!Regex.IsMatch(vat, VatRegexPattern))
+            return false;
+
+        int firstDigit = int.Parse(vat[0].ToString());
+        if (isConsumer && (firstDigit != 8 && firstDigit != 9))
+            return false;
+        if (!isConsumer && firstDigit > 7)
+            return false;
+
+        Match match = Regex.Match(vat, VatRegexPattern);
+        string serialNumber = match.Groups[1].Value;
+        string postalCode = match.Groups[2].Value;
+        string checkCode = match.Groups[3].Value;
+
+        return
+            IsPostalCodeValid(postalCode) &&
+            LuhnAlgorithm(serialNumber+postalCode) == int.Parse(checkCode);
+    }
+
+    private static bool IsPostalCodeValid(string postalCode)
+        => DataStore.Municipalities.Any(x => x.Province.Code == postalCode);
+
+    // to calculate the check code it is necessary calculate it using the Luhn algorithm
+    private static int LuhnAlgorithm(string value)
+    {
+        StringBuilder builder = new();
+
+        bool even = value.Length % 2 == 0;
+
+        for (int i = 0; i < value.Length; i++)
+        {
+            int v = int.Parse(value[i].ToString());
+            if (even && i % 2 == 1)
+            {
+                v *= 2;
+                if (v > 9)
+                {
+                    string vString = v.ToString();
+                    v = int.Parse(vString[0].ToString()) + int.Parse(vString[1].ToString());
+                }
+            }
+            builder.Append(v);
+        }
+
+        int totalSum = builder.ToString().Sum(x => int.Parse(x.ToString()));
+        int rest = totalSum % 10;
+        return rest == 0 ? rest : 10 - rest;
     }
 }

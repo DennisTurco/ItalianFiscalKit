@@ -15,7 +15,7 @@ namespace CodiceFiscale.Entities;
 /// <c>true</c> if the country code has been abolished (e.g. former states such as Czechoslovakia);
 /// <c>false</c> for currently active countries.
 /// </param>
-public record ForeignCountry(
+internal record ForeignCountry(
     [property: JsonProperty("codiceCatastale")] string CatastalCode,
     [property: JsonProperty("nome")] string Name,
     [property: JsonProperty("continente")] string Continent,

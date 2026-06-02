@@ -12,6 +12,8 @@
   href: generation.md
 - name: Matching
   href: matching.md
+- name: Extensions
+  href: extensions.md
 - name: IBAN Validation
   href: iban.md
 - name: VAT Validation

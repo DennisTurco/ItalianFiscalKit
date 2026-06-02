@@ -11,15 +11,17 @@
      <Description>Italian fiscal code (Codice Fiscale), VAT (Partita IVA) and IBAN validation and parsing for .NET 9. All validation runs locally — no HTTP calls, no external services.</Description>
      <PackageTags>italy;codicefiscale;fiscalcode;iban;partitaiva;validation;parsing</PackageTags>
      <PackageLicenseExpression>MIT</PackageLicenseExpression>
-     <PackageProjectUrl>https://dennisturco.github.io/CodiceFiscale/</PackageProjectUrl>
+     <PackageProjectUrl>https://github.com/DennisTurco/CodiceFiscale</PackageProjectUrl>
      <RepositoryUrl>https://github.com/DennisTurco/CodiceFiscale</RepositoryUrl>
      <RepositoryType>git</RepositoryType>
      <PackageReadmeFile>README.md</PackageReadmeFile>
+     <PackageIcon>icon.png</PackageIcon>
      <GenerateDocumentationFile>true</GenerateDocumentationFile>
    </PropertyGroup>
 
    <ItemGroup>
-     <None Include="..\README.md" Pack="true" PackagePath="\" />
+     <None Include="..\README.md"      Pack="true" PackagePath="\" />
+     <None Include="..\assets\icon.png" Pack="true" PackagePath="\" />
    </ItemGroup>
 
    <ItemGroup>

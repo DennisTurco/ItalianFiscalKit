@@ -30,7 +30,7 @@ public class CodiceFiscaleMatcher
         try
         {
             string expected = CodiceFiscaleGenerator.Generate(name, surname, dateOfBirth, gender, belfioreCode);
-            return string.Equals(cf, expected, StringComparison.OrdinalIgnoreCase);
+            return string.Equals(cf.Trim().Replace(" ", ""), expected, StringComparison.OrdinalIgnoreCase);
         }
         catch
         {

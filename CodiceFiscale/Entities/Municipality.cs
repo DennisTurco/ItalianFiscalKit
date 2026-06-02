@@ -11,13 +11,13 @@ public record Municipality
     /// Gets the unique code of the municipality.
     /// </summary>
     [JsonProperty("codice")]
-    public string? Code { get; init; }
+    public required string Code { get; init; }
 
     /// <summary>
     /// Gets the name of the municipality.
     /// </summary>
     [JsonProperty("nome")]
-    public string? Name { get; init; }
+    public required string Name { get; init; }
 
     /// <summary>
     /// Gets the foreign name of the municipality, if available.
@@ -35,7 +35,7 @@ public record Municipality
     /// Gets the ZIP code of the municipality.
     /// </summary>
     [JsonProperty("cap")]
-    public string? ZipCode { get; init; }
+    public required string ZipCode { get; init; }
 
     /// <summary>
     /// Gets the telephone prefix of the municipality.
@@ -47,7 +47,7 @@ public record Municipality
     /// Gets the province to which the municipality belongs.
     /// </summary>
     [JsonProperty("provincia")]
-    public Province? Province { get; init; }
+    public required Province Province { get; init; }
 
     /// <summary>
     /// Gets the email address of the municipality.
@@ -77,5 +77,5 @@ public record Municipality
     /// Gets the geographical coordinates of the municipality.
     /// </summary>
     [JsonProperty("coordinate")]
-    public Coordinates? Coordinates { get; init; }
+    public required Coordinates Coordinates { get; init; }
 }

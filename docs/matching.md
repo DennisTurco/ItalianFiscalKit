@@ -1,10 +1,6 @@
 # Matching
 
-## Overview
-
-`CodiceFiscaleMatcher.Matches` verifies whether a given Codice Fiscale corresponds to a specific
-person''s data. It generates the expected CF from the provided inputs and compares it to the
-supplied string — returning `true` only if they are identical.
+`CodiceFiscaleMatcher.Matches` answers a very practical question: *does this CF actually belong to this person?* It generates the expected CF from the provided data and compares it to the one you supply — returning `true` only when they match.
 
 ```csharp
 using CodiceFiscale;
@@ -21,12 +17,11 @@ bool match = CodiceFiscaleMatcher.Matches(
 // true
 ```
 
-The method is **case-insensitive** and trims surrounding whitespace from the CF before
-comparing. It **never throws** — invalid or null inputs return `false`.
+The comparison is case-insensitive and ignores surrounding whitespace in the CF. The method never throws — any invalid or null input returns `false`.
 
 ---
 
-## Signature
+## Parameters
 
 ```csharp
 public static bool Matches(
@@ -39,37 +34,35 @@ public static bool Matches(
 )
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
-| `cf` | `string` | The Codice Fiscale to verify |
-| `name` | `string` | Person''s first name (≥ 3 characters) |
-| `surname` | `string` | Person''s surname (≥ 3 characters) |
-| `dateOfBirth` | `DateOnly` | Date of birth |
-| `gender` | `Gender` | `Gender.Male` or `Gender.Female` |
-| `belfioreCode` | `string` | 4-character Belfiore code of place of birth |
+| Parameter | Notes |
+|---|---|
+| `cf` | The Codice Fiscale to verify |
+| `name` | First name (at least 3 characters) |
+| `surname` | Surname (at least 3 characters) |
+| `dateOfBirth` | Date of birth |
+| `gender` | `Gender.Male` or `Gender.Female` |
+| `belfioreCode` | 4-character Belfiore code of the birthplace |
 
 ---
 
 ## How it works
 
-1. **Validate inputs** — if `cf` is null or empty, or if `name`/`surname`/`belfioreCode` would
-   cause `CodiceFiscaleGenerator` to throw, `Matches` returns `false` immediately.
-2. **Generate** the expected CF with `CodiceFiscaleGenerator.Generate(...)`.
-3. **Normalize** the supplied `cf` with `CodiceFiscaleNormalizer.NormalizeOmocodia` to handle
-   omocodia variants.
-4. **Compare** the two strings (case-insensitive).
+1. If `cf` is null or empty, returns `false` immediately.
+2. Calls `CodiceFiscaleGenerator.Generate(...)` with the provided personal data to build the expected CF.
+3. Compares the two strings, case-insensitively.
+4. If `Generate` throws (e.g. invalid Belfiore code), the exception is caught internally and `false` is returned.
 
 ---
 
 ## Return value
 
-| Condition | Returns |
+| Situation | Returns |
 |---|---|
 | CF matches the generated code | `true` |
 | `cf` is null, empty, or whitespace | `false` |
-| `name` or `surname` shorter than 3 characters | `false` |
+| `name` or `surname` is shorter than 3 characters | `false` |
 | `belfioreCode` not found in the dataset | `false` |
-| Any personal data field does not match the CF | `false` |
+| Any field doesn''t match | `false` |
 
 ---
 
@@ -106,7 +99,6 @@ CodiceFiscaleMatcher.Matches(null!, "Luigi", "Verdi",
 ```
 
 > [!NOTE]
-> `Matches` generates the CF internally using `CodiceFiscaleGenerator`. The same encoding
-> rules apply (surname consonants, name 1st/3rd/4th consonant rule, month letter, etc.).
-> If the person''s name produces a different encoding than the one encoded in the CF
-> (e.g. due to a hyphenated name or accent), `Matches` will return `false`.
+> The matching is purely algorithmic — it re-encodes the name according to the official rules.
+> If a person''s name has a hyphen, an accent, or any non-standard character that changes
+> how it would be encoded, `Matches` may return `false` even if the CF is genuinely theirs.

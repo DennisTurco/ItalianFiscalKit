@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="32">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2e4a"/>
+      <stop offset="100%" stop-color="#0d1e33"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Card background -->
+  <rect width="512" height="512" rx="72" ry="72" fill="url(#bg)"/>
+
+  <!-- Subtle top shine -->
+  <rect width="512" height="220" rx="72" ry="72" fill="url(#shine)"/>
+
+  <!-- Italian tricolor bar (bottom accent) -->
+  <clipPath id="card-clip">
+    <rect width="512" height="512" rx="72" ry="72"/>
+  </clipPath>
+  <g clip-path="url(#card-clip)">
+    <rect x="0"     y="448" width="170" height="64" fill="#009246"/>
+    <rect x="170"   y="448" width="172" height="64" fill="#ffffff"/>
+    <rect x="342"   y="448" width="170" height="64" fill="#ce2b37"/>
+  </g>
+
+  <!-- Decorative dot grid (top-right corner) -->
+  <g fill="#ffffff" opacity="0.08">
+    <circle cx="390" cy="80"  r="5"/><circle cx="416" cy="80"  r="5"/><circle cx="442" cy="80"  r="5"/>
+    <circle cx="390" cy="106" r="5"/><circle cx="416" cy="106" r="5"/><circle cx="442" cy="106" r="5"/>
+    <circle cx="390" cy="132" r="5"/><circle cx="416" cy="132" r="5"/><circle cx="442" cy="132" r="5"/>
+  </g>
+
+  <!-- "CF" main letters -->
+  <text
+    x="256" y="310"
+    font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+    font-weight="900"
+    font-size="220"
+    text-anchor="middle"
+    fill="#ffffff"
+    letter-spacing="-8"
+  >CF</text>
+
+  <!-- Subtle code line below letters -->
+  <text
+    x="256" y="388"
+    font-family="'Courier New', Courier, monospace"
+    font-size="28"
+    text-anchor="middle"
+    fill="#ffffff"
+    opacity="0.35"
+    letter-spacing="4"
+  >RSSMRA80A01H501U</text>
+</svg>

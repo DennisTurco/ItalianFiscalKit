@@ -1,13 +1,11 @@
 # Parsing
 
-## Overview
+Once you have a valid Codice Fiscale, you can decode it into its three pieces of personal data: gender, date of birth, and birthplace code. `CodiceFiscaleParser` gives you two ways to do that depending on how you want to handle invalid input.
 
-`CodiceFiscaleParser` provides two methods to decode a valid Codice Fiscale into its constituent personal data:
-
-| Method | Throws on invalid? | Returns |
+| Method | What happens with invalid input | Returns |
 |---|---|---|
-| `Parse(string cf)` | ✅ Yes — `InvalidCodiceFiscaleException` | `CodiceFiscaleData` |
-| `TryParse(string cf, out CodiceFiscaleData? data)` | ❌ No | `bool` |
+| `Parse(string cf)` | Throws `InvalidCodiceFiscaleException` | `CodiceFiscaleData` |
+| `TryParse(string cf, out CodiceFiscaleData? data)` | Returns `false`, sets `data` to `null` | `bool` |
 
 ---
 
@@ -21,11 +19,13 @@ using CodiceFiscale.Enums;
 CodiceFiscaleData data = CodiceFiscaleParser.Parse("RSSMRA85T10A562S");
 ```
 
+Use `Parse` when you''re confident the input is already valid — for example, after running `IsValid` yourself — and you prefer a direct return value over an out parameter.
+
 ---
 
 ## TryParse
 
-Use `TryParse` when you want to avoid try/catch blocks — for example, in form validation or batch processing:
+Use `TryParse` whenever the input comes from a user, a form, or any external source. No exceptions to catch, no try/catch blocks needed.
 
 ```csharp
 if (CodiceFiscaleParser.TryParse("RSSMRA85T10A562S", out CodiceFiscaleData? data))
@@ -42,7 +42,7 @@ else
 
 ---
 
-## Return type: `CodiceFiscaleData`
+## What you get back: `CodiceFiscaleData`
 
 ```csharp
 public record CodiceFiscaleData(
@@ -51,54 +51,44 @@ public record CodiceFiscaleData(
     string   BelfioreCode);
 ```
 
-| Property | Type | Description | Example |
-|---|---|---|---|
-| `Gender` | `Gender` | `Male` or `Female` | `Gender.Male` |
-| `DateOfBirth` | `DateOnly` | Full date of birth | `new DateOnly(1985, 12, 10)` |
-| `BelfioreCode` | `string` | 4-char Belfiore code of place of birth | `"A562"` |
+| Property | Type | Example |
+|---|---|---|
+| `Gender` | `Gender` | `Gender.Male` |
+| `DateOfBirth` | `DateOnly` | `new DateOnly(1985, 12, 10)` |
+| `BelfioreCode` | `string` | `"A562"` |
 
-### Gender
+**Gender** is inferred from the day field: days 1–31 are male, 41–71 are female (the actual day is `encoded − 40`).
 
-Gender is inferred from the day field:
-- Day **1–31** → `Gender.Male`
-- Day **41–71** → `Gender.Female` (actual day = encoded day − 40)
+**Date of birth** — the year is reconstructed from its last two digits. If those two digits are ≤ the last two digits of the current year, the year is assumed to be in the 2000s; otherwise it''s 1900s. For example, `01` → 2001, `85` → 1985.
 
-### Date of birth
-
-The year is reconstructed from the 2-digit year using the current year as cutoff:
-- If the 2-digit year ≤ current year's last 2 digits → 2000s (e.g. `01` → 2001)
-- Otherwise → 1900s (e.g. `85` → 1985)
-
-### Belfiore code
-
-The raw 4-character code is returned as-is. Italian municipality codes start with a letter (other than Z); foreign country codes start with `Z`.
+**Belfiore code** — the raw 4-character code as it appears in the CF. Italian codes start with a consonant; foreign country codes start with `Z`. You can resolve it to a full municipality name using `MunicipalityExtensions`.
 
 ---
 
-## Exception: `InvalidCodiceFiscaleException`
+## The exception: `InvalidCodiceFiscaleException`
 
-`Parse` runs `CodiceFiscaleValidator.IsValid` internally. If the input is not valid, it throws:
+`Parse` runs `CodiceFiscaleValidator.IsValid` internally before decoding. If validation fails, you get:
 
 ```csharp
-throw new InvalidCodiceFiscaleException($"The provided Codice Fiscale '{cf}' is not valid");
+throw new InvalidCodiceFiscaleException($"The provided Codice Fiscale ''{cf}'' is not valid");
 ```
 
-Always validate before parsing, use `TryParse`, or handle the exception:
+Three patterns to deal with this:
 
 ```csharp
-// Option 1 — TryParse (recommended)
+// Option 1 — TryParse (recommended for user input)
 if (CodiceFiscaleParser.TryParse(input, out var data))
 {
     // use data
 }
 
-// Option 2 — validate first
+// Option 2 — validate first, then parse
 if (CodiceFiscaleValidator.IsValid(input))
 {
     CodiceFiscaleData data = CodiceFiscaleParser.Parse(input);
 }
 
-// Option 3 — try/catch
+// Option 3 — try/catch (when you need the exception message)
 try
 {
     CodiceFiscaleData data = CodiceFiscaleParser.Parse(input);
@@ -126,7 +116,7 @@ CodiceFiscaleData gabriella = CodiceFiscaleParser.Parse("MRNGRL01P55Z614K");
 // DateOfBirth:  2001-09-15
 // BelfioreCode: Z614  (Venezuela)
 
-// TryParse on invalid input
+// TryParse with invalid input
 bool ok = CodiceFiscaleParser.TryParse("INVALID", out CodiceFiscaleData? result);
 // ok:     false
 // result: null
