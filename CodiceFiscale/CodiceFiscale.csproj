@@ -5,7 +5,7 @@
      <ImplicitUsings>enable</ImplicitUsings>
 
      <!-- NuGet metadata -->
-     <PackageId>CodiceFiscale</PackageId>
+     <PackageId>DennisTurco.CodiceFiscale</PackageId>
      <Version>1.0.0</Version>
      <Authors>DennisTurco</Authors>
      <Description>Italian fiscal code (Codice Fiscale), VAT (Partita IVA) and IBAN validation and parsing for .NET 9. All validation runs locally — no HTTP calls, no external services.</Description>

@@ -11,6 +11,10 @@ All validation logic runs **locally**. No HTTP calls, no external services, no d
 [![NuGet](https://img.shields.io/nuget/v/CodiceFiscale.svg)](https://www.nuget.org/packages/CodiceFiscale)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## FULL DOCUMENTATION
+
+[https://dennisturco.github.io/CodiceFiscale/](https://dennisturco.github.io/CodiceFiscale/)
+
 ## Installation
 
 ```bash
@@ -144,7 +148,7 @@ please open an issue with:
 
 [https://comuni-ita.readme.io/reference/getcomuni](https://comuni-ita.readme.io/reference/getcomuni)
 
-## Build
+## Build locally
 
 ```powershell
 dotnet build
