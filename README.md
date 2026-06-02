@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/icon.svg" alt="CodiceFiscale icon" width="96" />
+</p>
+
 # Codice Fiscale
 
 A lightweight, dependency-free .NET library for Italian fiscal code (codice fiscale), VAT number (partita IVA) and IBAN validation.
@@ -32,35 +36,34 @@ All validation logic runs **locally**. No HTTP calls, no external services, no d
     using CodiceFiscale;
 
     bool isValid = CodiceFiscaleValidator.IsValid("RSSMRA80A01H501U"); // true
-
-    Generate a fiscal code
-
-    var data = new PersonalData
-    {
-        FirstName       = "Mario",
-        LastName        = "Rossi",
-        Gender          = Gender.Male,
-        DateOfBirth     = new DateOnly(1980, 1, 1),
-        CityOfBirth     = "Roma"
-    };
-
-    string cf = CodiceFiscaleGenerator.Generate(data); // "RSSMRA80A01H501U"
     ```
 
-2. Cross-check fiscal code against personal data
+2. Generate a fiscal code
+
+    ```cs
+    string cf = CodiceFiscaleGenerator.Generate(
+        name:        "Mario",
+        surname:     "Rossi",
+        dateOfBirth: new DateOnly(1980, 1, 1),
+        gender:      Gender.Male,
+        belfioreCode: "H501"   // Roma — use MunicipalityExtensions to look up the code
+    ); // "RSSMRA80A01H501U"
+    ```
+
+3. Cross-check fiscal code against personal data
 
     ```cs
     bool matches = CodiceFiscaleMatcher.Matches(
-        fiscalCode: "RSSMRA80A01H501U",
-        firstName:  "Mario",
-        lastName:   "Rossi",
-        gender:     Gender.Male,
-        dateOfBirth: new DateOnly(1980, 1, 1),
-        cityOfBirth: "Roma"
+        cf:           "RSSMRA80A01H501U",
+        name:         "Mario",
+        surname:      "Rossi",
+        dateOfBirth:  new DateOnly(1980, 1, 1),
+        gender:       Gender.Male,
+        belfioreCode: "H501"
     ); // true
     ```
 
-3. Parse a fiscal code
+4. Parse a fiscal code
 
     ```cs
     CodiceFiscaleData parsed = CodiceFiscaleParser.Parse("RSSMRA80A01H501U");
@@ -68,16 +71,33 @@ All validation logic runs **locally**. No HTTP calls, no external services, no d
     parsed.Gender       // Male
     parsed.DateOfBirth  // 1980-01-01
     parsed.BelfioreCode // "H501"
-    parsed.CityOfBirth  // "Roma"
     ```
 
-4. Validate an Italian VAT number
+5. Age helpers (extension methods on `CodiceFiscaleData`)
 
     ```cs
-    bool isValid = ItalianVatCodeValidator.IsValid("12345670017"); // true
+    int age     = parsed.GetAge();    // e.g. 45
+    bool adult  = parsed.IsAdult();   // true if age >= 18
     ```
 
-5. Validate an IBAN
+6. Look up a municipality
+
+    ```cs
+    Municipality? comune = "H501".GetMunicipalityByBelfiore(); // Roma
+    Municipality? byName = "Milano".GetMunicipalityByName();
+    Municipality? byCAP  = "00186".GetMunicipalityByCAP();
+
+    IEnumerable<Municipality>? inRoma = "Roma".GetAllByProvince(); // 121 comuni
+    IEnumerable<Municipality>  all    = MunicipalityExtensions.GetAll(); // ~7 896
+    ```
+
+7. Validate an Italian VAT number
+
+    ```cs
+    bool isValid = ItalianVatCodeValidator.IsValid("00484960588", isConsumer: false, isFiscal: false); // true
+    ```
+
+8. Validate an IBAN
 
     ```cs
     bool isValid = IBANValidator.IsValid("IT60X0542811101000000123456"); // true
