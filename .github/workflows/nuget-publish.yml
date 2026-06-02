@@ -47,6 +47,13 @@ jobs:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
 
       - name: Push to GitHub Packages
-        run: dotnet nuget push ./nupkg/*.nupkg --api-key "$GITHUB_TOKEN" --source https://nuget.pkg.github.com/DennisTurco/index.json --skip-duplicate
+        run: |
+          dotnet nuget add source \
+            --username DennisTurco \
+            --password "$GITHUB_TOKEN" \
+            --store-password-in-clear-text \
+            --name github \
+            "https://nuget.pkg.github.com/DennisTurco/index.json"
+          dotnet nuget push ./nupkg/*.nupkg --source github --skip-duplicate
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
