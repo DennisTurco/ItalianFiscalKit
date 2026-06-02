@@ -4,9 +4,7 @@ _layout: landing
 
 # CodiceFiscale
 
-A lightweight .NET 9 library for Italian fiscal codes (*Codice Fiscale*), VAT numbers (*Partita IVA*), and IBAN validation.
-
-All validation runs **locally** — no HTTP calls, no external services, no personal data leaves your application.
+A lightweight .NET library for Italian fiscal compliance: validate, parse and generate **Codice Fiscale**, validate **Partita IVA** and **IBAN**, and query a built-in database of Italian municipalities and foreign countries (Belfiore codes). Everything runs locally, no HTTP calls, no data leaves your app.
 
 [![NuGet](https://img.shields.io/nuget/v/CodiceFiscale.svg)](https://www.nuget.org/packages/CodiceFiscale)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

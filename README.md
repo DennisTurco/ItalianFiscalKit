@@ -6,7 +6,7 @@
 
 **FULL DOCUMENTATION**: [https://dennisturco.github.io/CodiceFiscale/](https://dennisturco.github.io/CodiceFiscale/)
 
-A lightweight .NET library for Italian fiscal compliance: validate, parse and generate **Codice Fiscale**, validate **Partita IVA** and **IBAN**, and query a built-in database of Italian municipalities and foreign countries (Belfiore codes). Everything runs locally — no HTTP calls, no external services, no data leaves your app.
+A lightweight .NET library for Italian fiscal compliance: validate, parse and generate **Codice Fiscale**, validate **Partita IVA** and **IBAN**, and query a built-in database of Italian municipalities and foreign countries (Belfiore codes). Everything runs locally, no HTTP calls, no data leaves your app.
 
 All validation logic runs **locally**. No HTTP calls, no data ever leaves your application.
 
@@ -144,16 +144,3 @@ please open an issue with:
 ## Municipalities data
 
 [https://comuni-ita.readme.io/reference/getcomuni](https://comuni-ita.readme.io/reference/getcomuni)
-
-## Build locally
-
-```powershell
-dotnet build
-dotnet test
-```
-
-## Launch DocFX locally
-
-```powershell
-docfx .\docfx.json --serve
-```
