@@ -10,7 +10,7 @@ A lightweight .NET library for Italian fiscal compliance: validate, parse and ge
 
 All validation logic runs **locally**. No HTTP calls, no data ever leaves your application.
 
-[![NuGet](https://img.shields.io/nuget/v/CodiceFiscale.svg)](https://www.nuget.org/packages/CodiceFiscale)
+[![NuGet](https://img.shields.io/nuget/v/DennisTurco.CodiceFiscale.svg)](https://www.nuget.org/packages/DennisTurco.CodiceFiscale)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Installation
