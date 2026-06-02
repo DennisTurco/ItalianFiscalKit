@@ -4,16 +4,14 @@
 
 # Codice Fiscale
 
-A lightweight, dependency-free .NET library for Italian fiscal code (codice fiscale), VAT number (partita IVA) and IBAN validation.
+**FULL DOCUMENTATION**: [https://dennisturco.github.io/CodiceFiscale/](https://dennisturco.github.io/CodiceFiscale/)
 
-All validation logic runs **locally**. No HTTP calls, no external services, no data ever leaves your application.
+A lightweight .NET library for Italian fiscal compliance: validate, parse and generate **Codice Fiscale**, validate **Partita IVA** and **IBAN**, and query a built-in database of Italian municipalities and foreign countries (Belfiore codes). Everything runs locally — no HTTP calls, no external services, no data leaves your app.
+
+All validation logic runs **locally**. No HTTP calls, no data ever leaves your application.
 
 [![NuGet](https://img.shields.io/nuget/v/CodiceFiscale.svg)](https://www.nuget.org/packages/CodiceFiscale)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-## FULL DOCUMENTATION
-
-[https://dennisturco.github.io/CodiceFiscale/](https://dennisturco.github.io/CodiceFiscale/)
 
 ## Installation
 
@@ -29,7 +27,6 @@ All validation logic runs **locally**. No HTTP calls, no external services, no d
 - Italian VAT number validation (standard, public entity, foreign)
 - IBAN validation (mod97, all countries)
 - Comuni and codici Belfiore embedded dataset (no external files needed)
-- Zero dependencies
 - Fully tested
 
 ## Usage

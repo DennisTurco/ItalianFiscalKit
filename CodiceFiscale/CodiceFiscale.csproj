@@ -6,10 +6,10 @@
 
      <!-- NuGet metadata -->
      <PackageId>DennisTurco.CodiceFiscale</PackageId>
-     <Version>1.0.0</Version>
+     <Version>1.0.1</Version>
      <Authors>DennisTurco</Authors>
-     <Description>Italian fiscal code (Codice Fiscale), VAT (Partita IVA) and IBAN validation and parsing for .NET 9. All validation runs locally — no HTTP calls, no external services.</Description>
-     <PackageTags>italy;codicefiscale;fiscalcode;iban;partitaiva;validation;parsing</PackageTags>
+     <Description>A .NET library for Italian fiscal compliance: validate, parse and generate Codice Fiscale; validate Partita IVA and IBAN; query a built-in database of Italian municipalities and foreign countries (Belfiore codes). All logic runs locally — no HTTP calls, no external services.</Description>
+     <PackageTags>italy;codicefiscale;fiscalcode;iban;partitaiva;validation;parsing;generation;municipalities;belfiore</PackageTags>
      <PackageLicenseExpression>MIT</PackageLicenseExpression>
      <PackageProjectUrl>https://github.com/DennisTurco/CodiceFiscale</PackageProjectUrl>
      <RepositoryUrl>https://github.com/DennisTurco/CodiceFiscale</RepositoryUrl>
