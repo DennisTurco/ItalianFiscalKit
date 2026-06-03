@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 namespace ItalianFiscalKit.Entities;
 
 /// <summary>
-/// Represents a foreign country as encoded in the Italian Codice Fiscale dataset.
+/// Represents a foreign country as encoded in the Italian Fiscal Code dataset.
 /// </summary>
 /// <param name="CatastalCode">
 /// The Belfiore catastal code assigned to the country (e.g. <c>Z614</c> for Venezuela).

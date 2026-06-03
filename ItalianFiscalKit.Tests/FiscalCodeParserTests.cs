@@ -26,7 +26,7 @@ public class FiscalCodeParserTests
     public void ParseValidFemaleCF_ShouldReturnCorrectData()
     {
         FiscalCodeData result = FiscalCodeParser.Parse("MRNGRL01P55Z614X");
-        Assert.Equal(new (Gender.Female, new DateOnly(2001, 9, 15), "Z614"), result);
+        Assert.Equal(new(Gender.Female, new DateOnly(2001, 9, 15), "Z614"), result);
     }
 
     [Fact]
@@ -35,7 +35,7 @@ public class FiscalCodeParserTests
         bool success = FiscalCodeParser.TryParse("MRNGRL01P55Z614X", out FiscalCodeData? result);
         Assert.True(success);
         Assert.NotNull(result);
-        Assert.Equal(new (Gender.Female, new DateOnly(2001, 9, 15), "Z614"), result);
+        Assert.Equal(new(Gender.Female, new DateOnly(2001, 9, 15), "Z614"), result);
     }
 
     [Fact]
@@ -73,8 +73,8 @@ public class FiscalCodeParserTests
 
     [Theory]
     [InlineData("RSSMRA85T10A562S", 1985, 12, 10, Gender.Male)]
-    [InlineData("VRDLGU70E30F839C", 1970,  5, 30, Gender.Male)]
-    [InlineData("MRNGRL01P55Z614X", 2001,  9, 15, Gender.Female)]
+    [InlineData("VRDLGU70E30F839C", 1970, 5, 30, Gender.Male)]
+    [InlineData("MRNGRL01P55Z614X", 2001, 9, 15, Gender.Female)]
     public void ParseValidCF_ShouldReturnCorrectDateAndGender(string cf, int year, int month, int day, Gender gender)
     {
         FiscalCodeData result = FiscalCodeParser.Parse(cf);
@@ -84,8 +84,8 @@ public class FiscalCodeParserTests
 
     [Theory]
     [InlineData("RSSMRA85T10A562S", 1985, 12, 10, Gender.Male)]
-    [InlineData("VRDLGU70E30F839C", 1970,  5, 30, Gender.Male)]
-    [InlineData("MRNGRL01P55Z614X", 2001,  9, 15, Gender.Female)]
+    [InlineData("VRDLGU70E30F839C", 1970, 5, 30, Gender.Male)]
+    [InlineData("MRNGRL01P55Z614X", 2001, 9, 15, Gender.Female)]
     public void TryParseValidCF_ShouldReturnCorrectDateAndGender(string cf, int year, int month, int day, Gender gender)
     {
         bool success = FiscalCodeParser.TryParse(cf, out FiscalCodeData? result);

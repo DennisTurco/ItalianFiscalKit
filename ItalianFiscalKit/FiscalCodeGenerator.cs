@@ -5,19 +5,19 @@ using ItalianFiscalKit.Utils;
 namespace ItalianFiscalKit;
 
 /// <summary>
-/// Provides methods to generate an Italian Codice Fiscale.
+/// Provides methods to generate an Italian Fiscal Code.
 /// </summary>
 public class FiscalCodeGenerator
 {
     /// <summary>
-    /// Generates a Codice Fiscale based on the provided personal information.
+    /// Generates a Fiscal Code based on the provided personal information.
     /// </summary>
     /// <param name="name">The person's first name.</param>
     /// <param name="surname">The person's surname.</param>
     /// <param name="dateOfBirth">The person's date of birth.</param>
     /// <param name="gender">The person's gender.</param>
     /// <param name="belfioreCode">The Belfiore (cadastral) code of the person's place of birth.</param>
-    /// <returns>The generated 16-character Codice Fiscale string.</returns>
+    /// <returns>The generated 16-character Fiscal Code string.</returns>
     /// <exception cref="InvalidFiscalCodeDataException">
     /// Thrown when <paramref name="name"/>, <paramref name="surname"/>, or <paramref name="belfioreCode"/> is not valid.
     /// </exception>
@@ -57,7 +57,7 @@ public class FiscalCodeGenerator
     {
         string vowels = "AEIOU";
         var consonants = word.Where(c => char.IsLetter(c) && !vowels.Contains(c)).ToList();
-        var vowelList  = word.Where(c => vowels.Contains(c)).ToList();
+        var vowelList = word.Where(c => vowels.Contains(c)).ToList();
 
         List<char> result;
 
@@ -91,18 +91,18 @@ public class FiscalCodeGenerator
     private static char ConvertToCharMonth(int month)
         => month switch
         {
-            1  => 'A',
-            2  => 'B',
-            3  => 'C',
-            4  => 'D',
-            5  => 'E',
-            6  => 'H',
-            7  => 'L',
-            8  => 'M',
-            9  => 'P',
+            1 => 'A',
+            2 => 'B',
+            3 => 'C',
+            4 => 'D',
+            5 => 'E',
+            6 => 'H',
+            7 => 'L',
+            8 => 'M',
+            9 => 'P',
             10 => 'R',
             11 => 'S',
             12 => 'T',
-            _  => throw new InvalidFiscalCodeDataException($"The provided Month '{month}' is not valid"),
+            _ => throw new InvalidFiscalCodeDataException($"The provided Month '{month}' is not valid"),
         };
 }

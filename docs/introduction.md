@@ -1,33 +1,33 @@
 # Introduction
 
-**CodiceFiscale** is a .NET 9 library that makes working with Italian personal identifiers straightforward — no HTTP calls, no external services, no configuration files. Everything runs locally inside your app.
+**ItalianFiscalKit** is a .NET 9 library that makes working with Italian personal identifiers straightforward, no HTTP calls, no configuration files. Everything runs locally inside your app.
 
-## What you can do with it
+## 1. What you can do with it
 
-| What | Class | |
-|---|---|---|
-| Validate a Codice Fiscale | `FiscalCodeValidator` | ✅ |
-| Decode a CF into gender, date of birth and birthplace | `FiscalCodeParser` | ✅ |
-| Parse without try/catch | `FiscalCodeParser.TryParse` | ✅ |
-| Generate a CF from personal data | `FiscalCodeGenerator` | ✅ |
-| Check whether a CF matches a person | `FiscalCodeMatcher` | ✅ |
-| Get age and adult-status from parsed data | `FiscalCodeExtensions` | ✅ |
-| Search municipalities by name, CAP, Belfiore code or province | `MunicipalityExtensions` | ✅ |
-| Validate an IBAN (all SEPA countries) | `IBANValidator` | ✅ |
-| Validate an Italian VAT number (Partita IVA) | `ItalianVatCodeValidator` | ✅ |
+| What | Class |
+|---|---|
+| Validate a Fiscal Code (CF) | `FiscalCodeValidator` |
+| Decode a CF into gender, date of birth and birthplace | `FiscalCodeParser` |
+| Parse without try/catch | `FiscalCodeParser.TryParse` |
+| Generate a CF from personal data | `FiscalCodeGenerator` |
+| Check whether a CF matches a person | `FiscalCodeMatcher` |
+| Get age and adult-status from parsed data | `FiscalCodeExtensions` |
+| Search municipalities by name, CAP, Belfiore code or province | `MunicipalityExtensions` |
+| Validate an IBAN (all SEPA countries) | `IBANValidator` |
+| Validate an Italian VAT number (Partita IVA) | `ItalianVatCodeValidator` |
 
-## How it''s designed
+## 2. How it's designed
 
-- **Everything stays local** — validation runs entirely in-process. Fiscal codes and VAT numbers are personal data; they never leave your application.
-- **No files to ship** — the municipality/Belfiore dataset (~7 800 comuni) and 261 foreign country codes are baked directly into the DLL as embedded resources.
-- **Fast after the first call** — datasets are loaded once on first use and kept in memory. Subsequent calls are just in-memory lookups.
-- **Results are immutable** — all output types are C# `record`s, so you can safely pass them around without defensive copies.
-- **`IsValid` never throws** — validation always returns a `bool`. Only `Parse` throws; if you''d rather avoid exceptions, `TryParse` has you covered.
+- **Everything stays local**: validation runs entirely in-process. Fiscal codes and VAT numbers are personal data; they never leave your application.
+- **No files to ship**: the municipality/Belfiore dataset (~7 800 municipalities) and 261 foreign country codes are baked directly into the DLL as embedded resources.
+- **Fast after the first call**: datasets are loaded once on first use and kept in memory. Subsequent calls are just in-memory lookups.
+- **Results are immutable**: all output types are C# `record`s, so you can safely pass them around without defensive copies.
+- **`IsValid` never throws**: validation always returns a `bool`. Only `Parse` throws; if you'd rather avoid exceptions, `TryParse` has you covered.
 
-## Requirements
+## 3. Requirements
 
 .NET 9.0 or later.
 
-## License
+## 4. License
 
-MIT — see the [repository](https://github.com/DennisTurco/CodiceFiscale) for details.
+MIT, see the [repository](https://github.com/DennisTurco/ItalianFiscalKit) for details.

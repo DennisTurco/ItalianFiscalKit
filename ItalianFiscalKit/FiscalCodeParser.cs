@@ -6,25 +6,25 @@ using ItalianFiscalKit.Utils;
 namespace ItalianFiscalKit;
 
 /// <summary>
-/// Provides methods to parse an Italian Codice Fiscale into its constituent data.
+/// Provides methods to parse an Italian Fiscal Code into its constituent data.
 /// </summary>
 public class FiscalCodeParser
 {
     /// <summary>
-    /// Parses the specified Codice Fiscale and returns the decoded personal data.
+    /// Parses the specified Fiscal Code and returns the decoded personal data.
     /// </summary>
-    /// <param name="cf">The Codice Fiscale string to parse. Case-insensitive.</param>
+    /// <param name="cf">The Fiscal Code string to parse. Case-insensitive.</param>
     /// <returns>
     /// A <see cref="FiscalCodeData"/> instance containing the gender, date of birth,
-    /// and Belfiore code extracted from the Codice Fiscale.
+    /// and Belfiore code extracted from the Fiscal Code.
     /// </returns>
     /// <exception cref="InvalidFiscalCodeException">
-    /// Thrown when <paramref name="cf"/> is not a valid Codice Fiscale.
+    /// Thrown when <paramref name="cf"/> is not a valid Fiscal Code.
     /// </exception>
     public static FiscalCodeData Parse(string cf)
     {
         if (!FiscalCodeValidator.IsValid(cf))
-            throw new InvalidFiscalCodeException($"The provided Codice Fiscale '{cf}' is not valid");
+            throw new InvalidFiscalCodeException($"The provided Fiscal Code '{cf}' is not valid");
 
         FiscalCodeTokenizer cfHelper = new(cf);
         DateOnly date = new(cfHelper.GetYear(), cfHelper.GetMonth(), cfHelper.GetStandardDay());
@@ -35,12 +35,12 @@ public class FiscalCodeParser
     }
 
     /// <summary>
-    /// Attempts to parse the specified Codice Fiscale without throwing an exception.
+    /// Attempts to parse the specified Fiscal Code without throwing an exception.
     /// </summary>
-    /// <param name="cf">The Codice Fiscale string to parse. Case-insensitive.</param>
+    /// <param name="cf">The Fiscal Code string to parse. Case-insensitive.</param>
     /// <param name="data">
     /// When this method returns <see langword="true"/>, contains a <see cref="FiscalCodeData"/>
-    /// instance with the gender, date of birth, and Belfiore code extracted from the Codice Fiscale;
+    /// instance with the gender, date of birth, and Belfiore code extracted from the Fiscal Code;
     /// otherwise, <see langword="null"/>.
     /// </param>
     /// <returns>

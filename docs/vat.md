@@ -1,6 +1,6 @@
 # VAT Validation (Partita IVA)
 
-`ItalianVatCodeValidator.IsValid` validates Italian VAT codes (*Partita IVA*) according to the rules published by the Agenzia delle Entrate. It handles standard company VATs, natural-person VATs, and optionally accepts a Codice Fiscale as a valid fiscal identifier.
+`ItalianVatCodeValidator.IsValid` validates Italian VAT codes (*Partita IVA*) according to the rules published by the Agenzia delle Entrate. It handles standard company VATs, natural-person VATs, and optionally accepts a Fiscal Code as a valid fiscal identifier.
 
 ```csharp
 using ItalianFiscalKit;
@@ -11,43 +11,35 @@ bool valid = ItalianVatCodeValidator.IsValid("00484960588", isConsumer: false, i
 
 The method is static, thread-safe, and never throws.
 
----
-
-## Parameters
+## 1. Parameters
 
 | Parameter | What it does |
 |---|---|
 | `vat` | The string to validate — an 11-digit Partita IVA, or a 16-character CF if `isFiscal` is `true` |
 | `isConsumer` | Set to `true` for natural persons: enforces that the first digit is `8` or `9` |
-| `isFiscal` | Set to `true` to also accept a valid 16-character Codice Fiscale |
+| `isFiscal` | Set to `true` to also accept a valid 16-character Fiscal Code |
 
----
-
-## The checksum algorithm
+## 2. The checksum algorithm
 
 A standard 11-digit Partita IVA is validated in three steps:
 
-1. **Length** — must be exactly 11 digits, all numeric
-2. **Consumer flag** — if `isConsumer: true`, the first digit must be `8` or `9`; otherwise it must be `0`–`7`
+1. **Length**: must be exactly 11 digits, all numeric
+2. **Consumer flag**: if `isConsumer: true`, the first digit must be `8` or `9`; otherwise it must be `0`–`7`
 3. **Luhn-like checksum** (Agenzia delle Entrate algorithm):
    - Sum digits at **odd positions** (1, 3, 5, 7, 9) directly
    - Double digits at **even positions** (2, 4, 6, 8, 10); subtract 9 if the result is ≥ 10
    - The 11th digit must equal `(10 − (sum % 10)) % 10`
 
----
+## 3. Combining the flags
 
-## Combining the flags
-
-| `isConsumer` | `isFiscal` | What''s accepted |
+| `isConsumer` | `isFiscal` | What's accepted |
 |---|---|---|
 | `false` | `false` | 11-digit VAT, first digit 0–7 |
 | `true` | `false` | 11-digit VAT, first digit 8–9 |
-| `false` | `true` | 11-digit VAT (any) **or** valid 16-char Codice Fiscale |
-| `true` | `true` | Consumer VAT (first digit 8–9) **or** valid Codice Fiscale |
+| `false` | `true` | 11-digit VAT (any) **or** valid 16-char Fiscal Code |
+| `true` | `true` | Consumer VAT (first digit 8–9) **or** valid Fiscal Code |
 
----
-
-## Examples
+## 4. Examples
 
 ```csharp
 // Standard company VAT
@@ -58,7 +50,7 @@ ItalianVatCodeValidator.IsValid("10433218194", false, false); // true
 ItalianVatCodeValidator.IsValid("85423511618", true, false);  // true
 ItalianVatCodeValidator.IsValid("91849593107", true, false);  // true
 
-// Codice Fiscale accepted as fiscal identifier
+// Fiscal Code accepted as fiscal identifier
 ItalianVatCodeValidator.IsValid("RSSMRA85T10A562S", false, true); // true
 ItalianVatCodeValidator.IsValid("00484960588",      false, true); // true — VAT also accepted
 

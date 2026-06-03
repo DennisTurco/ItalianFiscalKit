@@ -4,7 +4,7 @@
 
 ```csharp
 using ItalianFiscalKit;
-using CodiceFiscale.Enums;
+using ItalianFiscalKit.Enums;
 
 bool match = FiscalCodeMatcher.Matches(
     cf:           "VRDLGU70E30F839C",
@@ -19,9 +19,7 @@ bool match = FiscalCodeMatcher.Matches(
 
 The comparison is case-insensitive and ignores surrounding whitespace in the CF. The method never throws — any invalid or null input returns `false`.
 
----
-
-## Parameters
+## 1. Parameters
 
 ```csharp
 public static bool Matches(
@@ -36,25 +34,21 @@ public static bool Matches(
 
 | Parameter | Notes |
 |---|---|
-| `cf` | The Codice Fiscale to verify |
+| `cf` | The Fiscal Code to verify |
 | `name` | First name (at least 3 characters) |
 | `surname` | Surname (at least 3 characters) |
 | `dateOfBirth` | Date of birth |
 | `gender` | `Gender.Male` or `Gender.Female` |
 | `belfioreCode` | 4-character Belfiore code of the birthplace |
 
----
-
-## How it works
+## 2. How it works
 
 1. If `cf` is null or empty, returns `false` immediately.
 2. Calls `FiscalCodeGenerator.Generate(...)` with the provided personal data to build the expected CF.
 3. Compares the two strings, case-insensitively.
 4. If `Generate` throws (e.g. invalid Belfiore code), the exception is caught internally and `false` is returned.
 
----
-
-## Return value
+## 3. Return value
 
 | Situation | Returns |
 |---|---|
@@ -64,13 +58,11 @@ public static bool Matches(
 | `belfioreCode` not found in the dataset | `false` |
 | Any field doesn''t match | `false` |
 
----
-
-## Examples
+## 4. Examples
 
 ```csharp
 using ItalianFiscalKit;
-using CodiceFiscale.Enums;
+using ItalianFiscalKit.Enums;
 
 // ✅ Correct data
 FiscalCodeMatcher.Matches("VRDLGU70E30F839C", "Luigi", "Verdi",

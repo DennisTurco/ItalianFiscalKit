@@ -1,29 +1,25 @@
 # Parsing
 
-Once you have a valid Codice Fiscale, you can decode it into its three pieces of personal data: gender, date of birth, and birthplace code. `FiscalCodeParser` gives you two ways to do that depending on how you want to handle invalid input.
+Once you have a valid Fiscal Code, you can decode it into its three pieces of personal data: gender, date of birth, and birthplace code. `FiscalCodeParser` gives you two ways to do that depending on how you want to handle invalid input.
 
 | Method | What happens with invalid input | Returns |
 |---|---|---|
 | `Parse(string cf)` | Throws `InvalidFiscalCodeException` | `FiscalCodeData` |
 | `TryParse(string cf, out FiscalCodeData? data)` | Returns `false`, sets `data` to `null` | `bool` |
 
----
-
-## Parse
+## 1. `Parse`
 
 ```csharp
 using ItalianFiscalKit;
-using CodiceFiscale.Entities;
-using CodiceFiscale.Enums;
+using ItalianFiscalKit.Entities;
+using ItalianFiscalKit.Enums;
 
 FiscalCodeData data = FiscalCodeParser.Parse("RSSMRA85T10A562S");
 ```
 
 Use `Parse` when you''re confident the input is already valid — for example, after running `IsValid` yourself — and you prefer a direct return value over an out parameter.
 
----
-
-## TryParse
+## 2. `TryParse`
 
 Use `TryParse` whenever the input comes from a user, a form, or any external source. No exceptions to catch, no try/catch blocks needed.
 
@@ -40,9 +36,7 @@ else
 }
 ```
 
----
-
-## What you get back: `FiscalCodeData`
+## 3. What you get back: `FiscalCodeData`
 
 ```csharp
 public record FiscalCodeData(
@@ -59,18 +53,16 @@ public record FiscalCodeData(
 
 **Gender** is inferred from the day field: days 1–31 are male, 41–71 are female (the actual day is `encoded − 40`).
 
-**Date of birth** — the year is reconstructed from its last two digits. If those two digits are ≤ the last two digits of the current year, the year is assumed to be in the 2000s; otherwise it''s 1900s. For example, `01` → 2001, `85` → 1985.
+**Date of birth**: the year is reconstructed from its last two digits. If those two digits are ≤ the last two digits of the current year, the year is assumed to be in the 2000s; otherwise it''s 1900s. For example, `01` → 2001, `85` → 1985.
 
-**Belfiore code** — the raw 4-character code as it appears in the CF. Italian codes start with a consonant; foreign country codes start with `Z`. You can resolve it to a full municipality name using `MunicipalityExtensions`.
+**Belfiore code**: the raw 4-character code as it appears in the CF. Italian codes start with a consonant; foreign country codes start with `Z`. You can resolve it to a full municipality name using `MunicipalityExtensions`.
 
----
-
-## The exception: `InvalidFiscalCodeException`
+## 4. The exception: `InvalidFiscalCodeException`
 
 `Parse` runs `FiscalCodeValidator.IsValid` internally before decoding. If validation fails, you get:
 
 ```csharp
-throw new InvalidFiscalCodeException($"The provided Codice Fiscale ''{cf}'' is not valid");
+throw new InvalidFiscalCodeException($"The provided Fiscal Code ''{cf}'' is not valid");
 ```
 
 Three patterns to deal with this:
@@ -99,9 +91,7 @@ catch (InvalidFiscalCodeException ex)
 }
 ```
 
----
-
-## Examples
+## 5. Examples
 
 ```csharp
 // Male, born in Italy

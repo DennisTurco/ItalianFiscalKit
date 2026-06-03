@@ -2,3 +2,11 @@
   href: docs/
 - name: API
   href: api/
+- name: Coverage
+  href: coverage-report.md
+- name: "GitHub"
+  href: https://github.com/DennisTurco/CodiceFiscale
+- name: "NuGet"
+  href: https://www.nuget.org/packages/ItalianFiscalKit
+- name: "❤️ Sponsor"
+  href: https://github.com/sponsors/DennisTurco

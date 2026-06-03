@@ -23,7 +23,7 @@ public class ItalianVatCodeValidatorTests
     [Theory]
     [InlineData("RSSMRA85T10A562S", false, true)]
     [InlineData("BNCSFN91P65F205Z", false, true)]
-    [InlineData("00484960588",      false, true)]
+    [InlineData("00484960588", false, true)]
     public void CheckVAT_ShouldReturnTrue_ForFiscalFlag(string vat, bool isConsumer, bool isFiscal)
     {
         Assert.True(ItalianVatCodeValidator.IsValid(vat, isConsumer, isFiscal));
@@ -36,7 +36,7 @@ public class ItalianVatCodeValidatorTests
     }
 
     [Theory]
-    [InlineData("",   false, false)]
+    [InlineData("", false, false)]
     [InlineData("  ", false, false)]
     public void CheckVAT_ShouldReturnFalse_ForEmpty(string vat, bool isConsumer, bool isFiscal)
     {
@@ -44,18 +44,18 @@ public class ItalianVatCodeValidatorTests
     }
 
     [Theory]
-    [InlineData("0218208039",    false, false)]
-    [InlineData("021820803900",  false, false)]
-    [InlineData("00484960588 ",  false, false)]
+    [InlineData("0218208039", false, false)]
+    [InlineData("021820803900", false, false)]
+    [InlineData("00484960588 ", false, false)]
     public void CheckVAT_ShouldReturnFalse_ForWrongLength(string vat, bool isConsumer, bool isFiscal)
     {
         Assert.False(ItalianVatCodeValidator.IsValid(vat, isConsumer, isFiscal));
     }
 
     [Theory]
-    [InlineData("ABC12345678",  false, false)]
-    [InlineData("0048496058A",  false, false)]
-    [InlineData("00484 96058",  false, false)]
+    [InlineData("ABC12345678", false, false)]
+    [InlineData("0048496058A", false, false)]
+    [InlineData("00484 96058", false, false)]
     public void CheckVAT_ShouldReturnFalse_ForNonNumeric(string vat, bool isConsumer, bool isFiscal)
     {
         Assert.False(ItalianVatCodeValidator.IsValid(vat, isConsumer, isFiscal));
@@ -79,8 +79,8 @@ public class ItalianVatCodeValidatorTests
     [Theory]
     [InlineData("84321000584", false, false)]
     [InlineData("91234560158", false, false)]
-    [InlineData("71234560580", true,  false)]
-    [InlineData("00484960588", true,  false)]
+    [InlineData("71234560580", true, false)]
+    [InlineData("00484960588", true, false)]
     public void CheckVAT_ShouldReturnFalse_ForConsumerMismatch(string vat, bool isConsumer, bool isFiscal)
     {
         Assert.False(ItalianVatCodeValidator.IsValid(vat, isConsumer, isFiscal));

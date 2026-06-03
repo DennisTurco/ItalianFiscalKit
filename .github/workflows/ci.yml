@@ -29,3 +29,13 @@ jobs:
 
       - name: Test
         run: dotnet test --no-build -c Release --verbosity normal
+
+      - name: Check vulnerabilities
+        run: |
+          dotnet list package --vulnerable 2>&1 | tee vulnerable.txt
+          if grep -q "has the following vulnerable packages" vulnerable.txt; then
+            echo "❌ Vulnerable packages found!"
+            cat vulnerable.txt
+            exit 1
+          fi
+

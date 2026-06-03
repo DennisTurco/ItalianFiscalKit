@@ -1,10 +1,10 @@
 # Generation
 
-`FiscalCodeGenerator.Generate` builds a fully valid 16-character Codice Fiscale from personal data. The check character is always computed automatically, so what you get back will always pass `FiscalCodeValidator.IsValid`.
+`FiscalCodeGenerator.Generate` builds a fully valid 16-character Fiscal Code from personal data. The check character is always computed automatically, so what you get back will always pass `FiscalCodeValidator.IsValid`.
 
 ```csharp
 using ItalianFiscalKit;
-using CodiceFiscale.Enums;
+using ItalianFiscalKit.Enums;
 
 string cf = FiscalCodeGenerator.Generate(
     name:         "Luigi",
@@ -16,9 +16,7 @@ string cf = FiscalCodeGenerator.Generate(
 // "VRDLGU70E30F839C"
 ```
 
----
-
-## Parameters
+## 1. Parameters
 
 ```csharp
 public static string Generate(
@@ -40,11 +38,9 @@ public static string Generate(
 
 Don''t know the Belfiore code? Use `MunicipalityExtensions` to look it up by name or CAP.
 
----
+## 2. How the CF is assembled
 
-## How the CF is assembled
-
-### 1 — Surname (positions 1–3)
+### 2.1 Surname (positions 1-3)
 
 Consonants first, then vowels. Padded with `X` if the name is too short.
 
@@ -54,7 +50,7 @@ Consonants first, then vowels. Padded with `X` if the name is too short.
 | Fo | **FOX** |
 | Li | **LIX** |
 
-### 2 — Name (positions 4–6)
+### 2.2 Name (positions 4-6)
 
 - **4 or more consonants** → take the 1st, 3rd, and 4th consonant.
 - **Fewer than 4** → same rule as the surname.
@@ -65,32 +61,30 @@ Consonants first, then vowels. Padded with `X` if the name is too short.
 | Giovanni | G, V, N, N | **GNN** (1st/3rd/4th) |
 | Maria | M, R | **MRA** |
 
-### 3 — Year (positions 7–8)
+### 2.3 Year (positions 7-8)
 
 Last two digits of the birth year. `1985` → `85`.
 
-### 4 — Month (position 9)
+### 2.4 Month (position 9)
 
 | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | A | B | C | D | E | H | L | M | P | R | S | T |
 
-### 5 — Day (positions 10–11)
+### 2.5 Day (positions 10-11)
 
 - Male → actual day, zero-padded (`05`, `30`)
 - Female → day + 40 (`15` → `55`, `01` → `41`)
 
-### 6 — Belfiore code (positions 12–15)
+### 2.6 Belfiore code (positions 12-15)
 
 The 4-character code, uppercased. Italian municipality codes start with a consonant; foreign country codes (for people born abroad) start with `Z`.
 
-### 7 — Check character (position 16)
+### 2.7 Check character (position 16)
 
 Computed automatically from the first 15 characters using the official weighted-sum algorithm.
 
----
-
-## When it throws
+## 3. When it throws
 
 `InvalidFiscalCodeDataException` is raised when:
 
@@ -100,13 +94,11 @@ Computed automatically from the first 15 characters using the official weighted-
 | `surname` is null, empty, or shorter than 3 characters | `The provided Surname '...' is not valid` |
 | `belfioreCode` is not 4 characters or not in the dataset | `The provided Belfiore code '...' is not valid` |
 
----
-
-## Examples
+## 4. Examples
 
 ```csharp
 using ItalianFiscalKit;
-using CodiceFiscale.Enums;
+using ItalianFiscalKit.Enums;
 
 // Male — Italian municipality
 string cf1 = FiscalCodeGenerator.Generate("Luigi", "Verdi", new DateOnly(1970, 5, 30), Gender.Male, "F839");

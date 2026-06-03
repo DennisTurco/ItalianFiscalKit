@@ -2,7 +2,7 @@ using ItalianFiscalKit.Enums;
 
 namespace ItalianFiscalKit.Entities;
 
-/// <summary> Represents the personal data extracted from or used to generate an Italian Codice Fiscale.
+/// <summary> Represents the personal data extracted from or used to generate an Italian Fiscal Code.
 /// </summary>
 /// <param name="Gender">The gender of the individual.</param>
 /// <param name="DateOfBirth">The date of birth of the individual.</param>
