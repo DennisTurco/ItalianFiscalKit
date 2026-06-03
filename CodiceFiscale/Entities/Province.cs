@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace CodiceFiscale.Entities;
+namespace ItalianFiscalKit.Entities;
 
 /// <summary>
 /// Represents an Italian province with its name, acronym, code, and region.

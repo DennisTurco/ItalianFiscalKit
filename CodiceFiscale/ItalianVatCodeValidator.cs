@@ -1,8 +1,8 @@
 using System.Text;
 using System.Text.RegularExpressions;
-using CodiceFiscale.Utils;
+using ItalianFiscalKit.Utils;
 
-namespace CodiceFiscale;
+namespace ItalianFiscalKit;
 
 /// <summary>
 /// Provides validation for Italian VAT codes (Partita IVA) and fiscal codes used in a VAT context.

@@ -5,7 +5,7 @@
      <ImplicitUsings>enable</ImplicitUsings>
 
      <!-- NuGet metadata -->
-     <PackageId>DennisTurco.CodiceFiscale</PackageId>
+     <PackageId>ItalianFiscalKit</PackageId>
      <Version>1.0.1</Version>
      <Authors>DennisTurco</Authors>
      <Description>A .NET library for Italian fiscal compliance: validate, parse and generate Codice Fiscale; validate Partita IVA and IBAN; query a built-in database of Italian municipalities and foreign countries (Belfiore codes). All logic runs locally, no HTTP calls.</Description>

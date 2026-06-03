@@ -1,8 +1,8 @@
 using System.Reflection;
-using CodiceFiscale.Entities;
+using ItalianFiscalKit.Entities;
 using Newtonsoft.Json;
 
-namespace CodiceFiscale.Utils;
+namespace ItalianFiscalKit.Utils;
 
 internal class JsonParser
 {

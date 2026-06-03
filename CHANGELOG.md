@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Project renamed from `CodiceFiscale` / `DennisTurco.CodiceFiscale` to **`ItalianFiscalKit`**
+- Namespace changed from `CodiceFiscale` to `ItalianFiscalKit` (breaking change — update `using` statements)
+- NuGet package ID changed to `ItalianFiscalKit`
+
 ## [1.0.1] - 2026-06-02
 
 ### Added

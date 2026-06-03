@@ -1,4 +1,4 @@
-namespace CodiceFiscale.Enums;
+namespace ItalianFiscalKit.Enums;
 
 /// <summary>
 /// Specifies the biological gender of an individual, as encoded in the Italian Codice Fiscale.

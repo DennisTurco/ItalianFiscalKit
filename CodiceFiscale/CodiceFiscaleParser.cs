@@ -1,9 +1,9 @@
-using CodiceFiscale.Entities;
-using CodiceFiscale.Enums;
-using CodiceFiscale.Exceptions;
-using CodiceFiscale.Utils;
+using ItalianFiscalKit.Entities;
+using ItalianFiscalKit.Enums;
+using ItalianFiscalKit.Exceptions;
+using ItalianFiscalKit.Utils;
 
-namespace CodiceFiscale;
+namespace ItalianFiscalKit;
 
 /// <summary>
 /// Provides methods to parse an Italian Codice Fiscale into its constituent data.

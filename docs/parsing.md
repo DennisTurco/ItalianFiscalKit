@@ -12,7 +12,7 @@ Once you have a valid Codice Fiscale, you can decode it into its three pieces of
 ## Parse
 
 ```csharp
-using CodiceFiscale;
+using ItalianFiscalKit;
 using CodiceFiscale.Entities;
 using CodiceFiscale.Enums;
 

@@ -1,4 +1,4 @@
-namespace CodiceFiscale.Entities;
+namespace ItalianFiscalKit.Entities;
 
 using Newtonsoft.Json;
 

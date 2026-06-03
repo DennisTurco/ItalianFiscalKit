@@ -1,7 +1,7 @@
-namespace CodiceFiscale;
+namespace ItalianFiscalKit;
 
 using System.Text.RegularExpressions;
-using CodiceFiscale.Utils;
+using ItalianFiscalKit.Utils;
 
 /// <summary>
 /// Provides methods to validate Italian Codice Fiscale codes.

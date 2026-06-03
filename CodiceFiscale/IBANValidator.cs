@@ -2,7 +2,7 @@ using System.Numerics;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace CodiceFiscale;
+namespace ItalianFiscalKit;
 
 /// <summary>
 /// Provides methods to validate IBAN (International Bank Account Number) strings.

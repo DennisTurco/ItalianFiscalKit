@@ -1,6 +1,6 @@
-using CodiceFiscale.Entities;
+using ItalianFiscalKit.Entities;
 
-namespace CodiceFiscale;
+namespace ItalianFiscalKit;
 
 /// <summary>
 /// Provides extension methods for working with Italian Codice Fiscale strings and data objects.

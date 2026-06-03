@@ -3,7 +3,7 @@
 `IBANValidator.IsValid` tells you whether a string is a valid International Bank Account Number. It implements the ISO 13616 standard using the mod-97 algorithm — the same one banks use.
 
 ```csharp
-using CodiceFiscale;
+using ItalianFiscalKit;
 
 bool valid = IBANValidator.IsValid("IT60X0542811101000000123456"); // true
 ```

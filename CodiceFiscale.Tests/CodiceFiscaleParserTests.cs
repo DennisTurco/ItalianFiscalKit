@@ -1,8 +1,8 @@
-using CodiceFiscale.Entities;
-using CodiceFiscale.Enums;
-using CodiceFiscale.Exceptions;
+using ItalianFiscalKit.Entities;
+using ItalianFiscalKit.Enums;
+using ItalianFiscalKit.Exceptions;
 
-namespace CodiceFiscale.Tests;
+namespace ItalianFiscalKit.Tests;
 
 public class CodiceFiscaleParserTests
 {

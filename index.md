@@ -2,11 +2,11 @@
 _layout: landing
 ---
 
-# CodiceFiscale
+# ItalianFiscalKit
 
 A lightweight .NET library for Italian fiscal compliance: validate, parse and generate **Codice Fiscale**, validate **Partita IVA** and **IBAN**, and query a built-in database of Italian municipalities and foreign countries (Belfiore codes). Everything runs locally, no HTTP calls, no data leaves your app.
 
-[![NuGet](https://img.shields.io/nuget/v/CodiceFiscale.svg)](https://www.nuget.org/packages/CodiceFiscale)
+[![NuGet](https://img.shields.io/nuget/v/ItalianFiscalKit.svg)](https://www.nuget.org/packages/ItalianFiscalKit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Quick Start
@@ -14,11 +14,11 @@ A lightweight .NET library for Italian fiscal compliance: validate, parse and ge
 Install via NuGet:
 
 ```bash
-dotnet add package CodiceFiscale
+dotnet add package ItalianFiscalKit
 ```
 
 ```csharp
-using CodiceFiscale;
+using ItalianFiscalKit;
 
 // Validate
 bool valid = CodiceFiscaleValidator.IsValid("RSSMRA85T10A562S"); // true

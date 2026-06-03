@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CodiceFiscale.Tests/ItalianFiscalKit.Tests.csproj" />
+  <Project Path="CodiceFiscale/ItalianFiscalKit.csproj" />
+</Solution>

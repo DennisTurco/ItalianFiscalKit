@@ -1,4 +1,4 @@
-namespace CodiceFiscale.Tests;
+namespace ItalianFiscalKit.Tests;
 
 public class IBANValidatorTests
 {

@@ -3,7 +3,7 @@
 `CodiceFiscaleValidator.IsValid` is the simplest entry point in the library. Give it any string and it tells you, with a plain `bool`, whether it''s a valid Italian Codice Fiscale.
 
 ```csharp
-using CodiceFiscale;
+using ItalianFiscalKit;
 
 bool valid = CodiceFiscaleValidator.IsValid("RSSMRA85T10A562S"); // true
 ```

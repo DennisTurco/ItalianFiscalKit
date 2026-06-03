@@ -1,7 +1,7 @@
-using CodiceFiscale.Entities;
-using CodiceFiscale.Utils;
+using ItalianFiscalKit.Entities;
+using ItalianFiscalKit.Utils;
 
-namespace CodiceFiscale;
+namespace ItalianFiscalKit;
 
 /// <summary>
 /// Provides extension methods and helpers for querying the Italian municipality dataset.

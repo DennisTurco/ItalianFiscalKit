@@ -1,8 +1,8 @@
-using CodiceFiscale.Enums;
-using CodiceFiscale.Exceptions;
-using CodiceFiscale.Utils;
+using ItalianFiscalKit.Enums;
+using ItalianFiscalKit.Exceptions;
+using ItalianFiscalKit.Utils;
 
-namespace CodiceFiscale;
+namespace ItalianFiscalKit;
 
 /// <summary>
 /// Provides methods to generate an Italian Codice Fiscale.

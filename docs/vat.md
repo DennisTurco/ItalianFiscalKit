@@ -3,7 +3,7 @@
 `ItalianVatCodeValidator.IsValid` validates Italian VAT codes (*Partita IVA*) according to the rules published by the Agenzia delle Entrate. It handles standard company VATs, natural-person VATs, and optionally accepts a Codice Fiscale as a valid fiscal identifier.
 
 ```csharp
-using CodiceFiscale;
+using ItalianFiscalKit;
 
 bool valid = ItalianVatCodeValidator.IsValid("00484960588", isConsumer: false, isFiscal: false);
 // true

@@ -1,7 +1,7 @@
 using System.Text.RegularExpressions;
-using CodiceFiscale.Enums;
+using ItalianFiscalKit.Enums;
 
-namespace CodiceFiscale.Utils;
+namespace ItalianFiscalKit.Utils;
 
 internal class CodiceFiscaleTokenizer
 {

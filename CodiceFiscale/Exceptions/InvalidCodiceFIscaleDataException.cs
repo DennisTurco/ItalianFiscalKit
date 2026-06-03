@@ -1,4 +1,4 @@
-namespace CodiceFiscale.Exceptions;
+namespace ItalianFiscalKit.Exceptions;
 
 /// <summary>
 /// The exception that is thrown when some of the data that compones the Italian Codice Fiscale string are not valid.

@@ -1,7 +1,7 @@
-using CodiceFiscale.Entities;
-using CodiceFiscale.Enums;
+using ItalianFiscalKit.Entities;
+using ItalianFiscalKit.Enums;
 
-namespace CodiceFiscale.Tests;
+namespace ItalianFiscalKit.Tests;
 
 public class CodiceFiscaleExtensionsTests
 {

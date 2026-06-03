@@ -1,6 +1,6 @@
-using CodiceFiscale.Enums;
+using ItalianFiscalKit.Enums;
 
-namespace CodiceFiscale;
+namespace ItalianFiscalKit;
 
 /// <summary>
 /// Provides methods to match and compare Italian Codice Fiscale strings against personal data.

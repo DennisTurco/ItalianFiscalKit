@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace CodiceFiscale.Entities;
+namespace ItalianFiscalKit.Entities;
 
 /// <summary>
 /// Represents a foreign country as encoded in the Italian Codice Fiscale dataset.

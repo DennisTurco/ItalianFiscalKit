@@ -1,6 +1,6 @@
-using CodiceFiscale.Entities;
+using ItalianFiscalKit.Entities;
 
-namespace CodiceFiscale.Utils;
+namespace ItalianFiscalKit.Utils;
 
 internal static class DataStore
 {

@@ -1,6 +1,6 @@
-using CodiceFiscale.Enums;
+using ItalianFiscalKit.Enums;
 
-namespace CodiceFiscale.Entities;
+namespace ItalianFiscalKit.Entities;
 
 /// <summary> Represents the personal data extracted from or used to generate an Italian Codice Fiscale.
 /// </summary>

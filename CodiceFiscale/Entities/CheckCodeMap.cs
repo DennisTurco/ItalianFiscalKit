@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace CodiceFiscale.Entities;
+namespace ItalianFiscalKit.Entities;
 
 internal record CheckCodeMap(
     [property: JsonProperty("chars")] List<string> Chars,

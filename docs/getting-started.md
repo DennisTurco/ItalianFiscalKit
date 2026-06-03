@@ -15,7 +15,7 @@ Or search for **CodiceFiscale** in the NuGet Package Manager inside Visual Studi
 Pass any string — valid or not — and get back a plain `bool`. The method accepts lowercase input, handles all edge cases, and never throws.
 
 ```csharp
-using CodiceFiscale;
+using ItalianFiscalKit;
 
 bool valid = CodiceFiscaleValidator.IsValid("RSSMRA85T10A562S");
 // true
@@ -42,7 +42,7 @@ bool invalid = CodiceFiscaleValidator.IsValid("RSSMRA85T10A562X");
 Use `TryParse` whenever the input comes from outside your app — it''s the safest option because it never throws.
 
 ```csharp
-using CodiceFiscale;
+using ItalianFiscalKit;
 using CodiceFiscale.Entities;
 using CodiceFiscale.Enums;
 
@@ -71,7 +71,7 @@ if (CodiceFiscaleParser.TryParse(userInput, out CodiceFiscaleData? data))
 Provide the personal data and the Belfiore code of the birthplace, and you get back a fully valid CF.
 
 ```csharp
-using CodiceFiscale;
+using ItalianFiscalKit;
 using CodiceFiscale.Enums;
 
 string cf = CodiceFiscaleGenerator.Generate(
@@ -93,7 +93,7 @@ string cf = CodiceFiscaleGenerator.Generate(
 Spaces in the input are ignored, so both compact and formatted IBANs work.
 
 ```csharp
-using CodiceFiscale;
+using ItalianFiscalKit;
 
 bool valid        = IBANValidator.IsValid("IT60X0542811101000000123456");          // true
 bool validSpaced  = IBANValidator.IsValid("IT60 X054 2811 1010 0000 0123 456");    // true
@@ -105,7 +105,7 @@ bool invalid      = IBANValidator.IsValid("IT00X0542811101000000123456");       
 ## Validate a Partita IVA
 
 ```csharp
-using CodiceFiscale;
+using ItalianFiscalKit;
 
 // standard company VAT
 bool valid    = ItalianVatCodeValidator.IsValid("00484960588", isConsumer: false, isFiscal: false); // true

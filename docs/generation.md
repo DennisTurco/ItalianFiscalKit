@@ -3,7 +3,7 @@
 `CodiceFiscaleGenerator.Generate` builds a fully valid 16-character Codice Fiscale from personal data. The check character is always computed automatically, so what you get back will always pass `CodiceFiscaleValidator.IsValid`.
 
 ```csharp
-using CodiceFiscale;
+using ItalianFiscalKit;
 using CodiceFiscale.Enums;
 
 string cf = CodiceFiscaleGenerator.Generate(
@@ -105,7 +105,7 @@ Computed automatically from the first 15 characters using the official weighted-
 ## Examples
 
 ```csharp
-using CodiceFiscale;
+using ItalianFiscalKit;
 using CodiceFiscale.Enums;
 
 // Male — Italian municipality

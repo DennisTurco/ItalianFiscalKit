@@ -3,7 +3,7 @@
 `CodiceFiscaleMatcher.Matches` answers a very practical question: *does this CF actually belong to this person?* It generates the expected CF from the provided data and compares it to the one you supply — returning `true` only when they match.
 
 ```csharp
-using CodiceFiscale;
+using ItalianFiscalKit;
 using CodiceFiscale.Enums;
 
 bool match = CodiceFiscaleMatcher.Matches(
@@ -69,7 +69,7 @@ public static bool Matches(
 ## Examples
 
 ```csharp
-using CodiceFiscale;
+using ItalianFiscalKit;
 using CodiceFiscale.Enums;
 
 // ✅ Correct data
