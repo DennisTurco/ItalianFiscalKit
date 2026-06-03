@@ -7,12 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.0.0] - 2026-06-03
 
-### Changed
+### Breaking Changes
 
 - Project renamed from `CodiceFiscale` / `DennisTurco.CodiceFiscale` to **`ItalianFiscalKit`**
-- Namespace changed from `CodiceFiscale` to `ItalianFiscalKit` (breaking change — update `using` statements)
+- Namespace changed from `CodiceFiscale` to `ItalianFiscalKit` (update `using` statements)
 - NuGet package ID changed to `ItalianFiscalKit`
-- DocFX documentation update
+- All public class names renamed from Italian to English:
+  - `CodiceFiscaleValidator` → `FiscalCodeValidator`
+  - `CodiceFiscaleParser` → `FiscalCodeParser`
+  - `CodiceFiscaleGenerator` → `FiscalCodeGenerator`
+  - `CodiceFiscaleMatcher` → `FiscalCodeMatcher`
+  - `CodiceFiscaleExtensions` → `FiscalCodeExtensions`
+  - `CodiceFiscaleData` → `FiscalCodeData`
+  - `InvalidCodiceFIscaleException` → `InvalidFiscalCodeException`
+  - `InvalidCodiceFIscaleDataException` → `InvalidFiscalCodeDataException`
+
+### Added
+
+- DocFX documentation site: landing page with feature cards, coverage report (iframe), Contributing guide, Roadmap page
+- Test coverage generation via `coverlet` + `reportgenerator` integrated in GitHub Pages workflow
 
 ## [1.0.1] - 2026-06-02
 
@@ -87,6 +100,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - No HTTP calls, no external services — all validation runs locally in-process
 - Targets **.NET 9.0**
 
-[2.0.0]: https://github.com/DennisTurco/ItalianFiscalKit/releases/tag/v2.0.0
-[1.0.1]: https://github.com/DennisTurco/ItalianFiscalKit/releases/tag/v1.0.1
-[1.0.0]: https://github.com/DennisTurco/ItalianFiscalKit/releases/tag/v1.0.0
+[2.0.0]: https://github.com/DennisTurco/CodiceFiscale/releases/tag/v2.0.0
+[1.0.1]: https://github.com/DennisTurco/CodiceFiscale/releases/tag/v1.0.1
+[1.0.0]: https://github.com/DennisTurco/CodiceFiscale/releases/tag/v1.0.0
