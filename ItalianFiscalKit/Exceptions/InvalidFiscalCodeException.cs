@@ -1,7 +1,7 @@
 namespace ItalianFiscalKit.Exceptions;
 
 /// <summary>
-/// The exception that is thrown when an Italian Codice Fiscale string fails validation.
+/// The exception that is thrown when an Italian Fiscal Code string fails validation.
 /// </summary>
 [Serializable]
 public class InvalidFiscalCodeException : Exception

@@ -4,15 +4,15 @@ using System.Text.RegularExpressions;
 using ItalianFiscalKit.Utils;
 
 /// <summary>
-/// Provides methods to validate Italian Codice Fiscale codes.
+/// Provides methods to validate Italian Fiscal Code codes.
 /// </summary>
 public class FiscalCodeValidator
 {
     /// <summary>
-    /// Determines whether the specified Codice Fiscale is valid.
+    /// Determines whether the specified Fiscal Code is valid.
     /// </summary>
-    /// <param name="cf">The Codice Fiscale string to validate.</param>
-    /// <returns><c>true</c> if the Codice Fiscale is valid; otherwise, <c>false</c>.</returns>
+    /// <param name="cf">The Fiscal Code string to validate.</param>
+    /// <returns><c>true</c> if the Fiscal Code is valid; otherwise, <c>false</c>.</returns>
     public static bool IsValid(string cf)
     {
         if (string.IsNullOrEmpty(cf) || cf.Length != 16 || cf.Contains(' '))

@@ -5,13 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.2] - 2026-06-03
 
 ### Changed
 
 - Project renamed from `CodiceFiscale` / `DennisTurco.CodiceFiscale` to **`ItalianFiscalKit`**
 - Namespace changed from `CodiceFiscale` to `ItalianFiscalKit` (breaking change — update `using` statements)
 - NuGet package ID changed to `ItalianFiscalKit`
+- DocFX documentation update
 
 ## [1.0.1] - 2026-06-02
 
@@ -24,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-#### Codice Fiscale
+#### Fiscal Code
 
 - `FiscalCodeValidator.IsValid(string cf)` — full 5-step validation pipeline: regex format, birth date, Belfiore code, check digit
 - `FiscalCodeParser.Parse(string cf)` — decodes a CF into `FiscalCodeData` (gender, date of birth, Belfiore code)
@@ -86,5 +87,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - No HTTP calls, no external services — all validation runs locally in-process
 - Targets **.NET 9.0**
 
-[1.0.1]: https://github.com/DennisTurco/CodiceFiscale/releases/tag/v1.0.1
-[1.0.0]: https://github.com/DennisTurco/CodiceFiscale/releases/tag/v1.0.0
+[1.0.2]: https://github.com/DennisTurco/ItalianFiscalKit/releases/tag/v1.0.2
+[1.0.1]: https://github.com/DennisTurco/ItalianFiscalKit/releases/tag/v1.0.1
+[1.0.0]: https://github.com/DennisTurco/ItalianFiscalKit/releases/tag/v1.0.0

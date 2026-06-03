@@ -1,50 +1,42 @@
 # Getting Started
 
-## Installation
+## 1. Installation
 
 ```bash
-dotnet add package CodiceFiscale
+dotnet add package ItalianFiscalKit
 ```
 
-Or search for **CodiceFiscale** in the NuGet Package Manager inside Visual Studio.
+Or search for **ItalianFiscalKit** in the NuGet Package Manager inside Visual Studio.
 
----
-
-## Validate a Codice Fiscale
+## 2. Validate a Fiscal Code
 
 Pass any string — valid or not — and get back a plain `bool`. The method accepts lowercase input, handles all edge cases, and never throws.
 
 ```csharp
 using ItalianFiscalKit;
 
-bool valid = FiscalCodeValidator.IsValid("RSSMRA85T10A562S");
-// true
+bool valid = FiscalCodeValidator.IsValid("RSSMRA85T10A562S"); // true
 
 // lowercase is fine
-bool valid2 = FiscalCodeValidator.IsValid("rssmra85t10a562s");
-// true
+bool valid2 = FiscalCodeValidator.IsValid("rssmra85t10a562s"); // true
 
 // foreign birthplace (Z-code)
-bool validForeign = FiscalCodeValidator.IsValid("MRNGRL01P55Z614X");
-// true
+bool validForeign = FiscalCodeValidator.IsValid("MRNGRL01P55Z614X"); // true
 
 // wrong check digit
-bool invalid = FiscalCodeValidator.IsValid("RSSMRA85T10A562X");
-// false
+bool invalid = FiscalCodeValidator.IsValid("RSSMRA85T10A562X"); // false
 ```
 
 `IsValid` returns `false` for anything invalid: `null`, wrong length, bad characters, impossible date, unknown Belfiore code, wrong check digit.
 
----
-
-## Parse a Codice Fiscale
+## 3. Parse a Fiscal Code
 
 Use `TryParse` whenever the input comes from outside your app — it''s the safest option because it never throws.
 
 ```csharp
 using ItalianFiscalKit;
-using CodiceFiscale.Entities;
-using CodiceFiscale.Enums;
+using ItalianFiscalKit.Entities;
+using ItalianFiscalKit.Enums;
 
 FiscalCodeData data = FiscalCodeParser.Parse("RSSMRA85T10A562S");
 
@@ -64,15 +56,13 @@ if (FiscalCodeParser.TryParse(userInput, out FiscalCodeData? data))
 }
 ```
 
----
-
-## Generate a Codice Fiscale
+## 4. Generate a Fiscal Code
 
 Provide the personal data and the Belfiore code of the birthplace, and you get back a fully valid CF.
 
 ```csharp
 using ItalianFiscalKit;
-using CodiceFiscale.Enums;
+using ItalianFiscalKit.Enums;
 
 string cf = FiscalCodeGenerator.Generate(
     name:         "Luigi",
@@ -86,9 +76,7 @@ string cf = FiscalCodeGenerator.Generate(
 
 `Generate` throws `InvalidFiscalCodeDataException` if the name or surname is shorter than 3 characters, or if the Belfiore code doesn''t exist in the embedded dataset. The generated CF always passes `FiscalCodeValidator.IsValid`.
 
----
-
-## Validate an IBAN
+## 5. Validate an IBAN
 
 Spaces in the input are ignored, so both compact and formatted IBANs work.
 
@@ -97,12 +85,10 @@ using ItalianFiscalKit;
 
 bool valid        = IBANValidator.IsValid("IT60X0542811101000000123456");          // true
 bool validSpaced  = IBANValidator.IsValid("IT60 X054 2811 1010 0000 0123 456");    // true
-bool invalid      = IBANValidator.IsValid("IT00X0542811101000000123456");           // false
+bool invalid      = IBANValidator.IsValid("IT00X0542811101000000123456");          // false
 ```
 
----
-
-## Validate a Partita IVA
+## 6. Validate a Partita IVA
 
 ```csharp
 using ItalianFiscalKit;
@@ -113,6 +99,6 @@ bool valid    = ItalianVatCodeValidator.IsValid("00484960588", isConsumer: false
 // natural person (first digit must be 8 or 9)
 bool consumer = ItalianVatCodeValidator.IsValid("85423511618", isConsumer: true,  isFiscal: false); // true
 
-// also accept a Codice Fiscale as fiscal identifier
+// also accept a Fiscal Code as fiscal identifier
 bool fiscal   = ItalianVatCodeValidator.IsValid("RSSMRA85T10A562S", isConsumer: false, isFiscal: true); // true
 ```

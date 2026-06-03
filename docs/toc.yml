@@ -2,8 +2,8 @@
   href: introduction.md
 - name: Getting Started
   href: getting-started.md
-- name: Codice Fiscale Structure
-  href: codice-fiscale-structure.md
+- name: Fiscal Code Structure
+  href: fiscal-code-structure.md
 - name: Validation
   href: validation.md
 - name: Parsing
@@ -20,3 +20,7 @@
   href: vat.md
 - name: Changelog
   href: ../CHANGELOG.md
+- name: Contributing
+  href: contributing.md
+- name: Roadmap
+  href: roadmap.md

@@ -1,6 +1,6 @@
 # Validation
 
-`FiscalCodeValidator.IsValid` is the simplest entry point in the library. Give it any string and it tells you, with a plain `bool`, whether it''s a valid Italian Codice Fiscale.
+`FiscalCodeValidator.IsValid` is the simplest entry point in the library. Give it any string and it tells you, with a plain `bool`, whether it''s a valid Italian Fiscal Code.
 
 ```csharp
 using ItalianFiscalKit;
@@ -10,13 +10,11 @@ bool valid = FiscalCodeValidator.IsValid("RSSMRA85T10A562S"); // true
 
 The method is static, thread-safe, and never throws — you can call it from anywhere without wrapping it in try/catch.
 
----
+## 1. What it checks
 
-## What it checks
+The validator runs five checks in sequence and stops at the first failure, so it's also fast for invalid input.
 
-The validator runs five checks in sequence and stops at the first failure, so it''s also fast for invalid input.
-
-### Step 1 — Basic sanity
+### 1.1 Basic sanity
 
 - Not null or empty
 - Exactly **16 characters**
@@ -27,7 +25,7 @@ FiscalCodeValidator.IsValid("RSSMRA85T10A562S ");  // false — trailing space
 FiscalCodeValidator.IsValid("RSSMRA85T10A562");    // false — 15 chars
 ```
 
-### Step 2 — Structure (regex)
+### 1.2 Structure (regex)
 
 The input is uppercased and matched against the expected pattern: three letters for the surname, three for the name, two digits for the year, one month letter, two digits for the day, four characters for the Belfiore code, one final letter for the check character.
 
@@ -37,7 +35,7 @@ FiscalCodeValidator.IsValid("RSS1RA85T10A562S");  // false — digit where a let
 FiscalCodeValidator.IsValid("RSSMRA85110A562S");  // false — digit in month position
 ```
 
-### Step 3 — Calendar coherence
+### 1.3 Calendar coherence
 
 The day and month are checked against a real calendar — including leap years for February.
 
@@ -50,7 +48,7 @@ FiscalCodeValidator.IsValid("RSSMRA85D31A562?");  // false — April only has 30
 FiscalCodeValidator.IsValid("RSSMRA85B29A562?");  // false — 1985 is not a leap year
 ```
 
-### Step 4 — Belfiore code lookup
+### 1.4 Belfiore code lookup
 
 The 4-character birthplace code is looked up in the embedded datasets:
 
@@ -62,7 +60,7 @@ FiscalCodeValidator.IsValid("RSSMRA85T10Z999S");  // false — Z999 doesn''t exi
 FiscalCodeValidator.IsValid("MRNGRL01P55Z614X");  // true  — Z614 is Venezuela
 ```
 
-### Step 5 — Check character
+### 1.5 Check character
 
 The 16th character is recomputed from the first 15 and compared to the actual value. A single wrong character anywhere in the CF will change the expected check digit and make validation fail.
 
@@ -71,9 +69,7 @@ FiscalCodeValidator.IsValid("RSSMRA85T10A562S");  // true  — S is correct
 FiscalCodeValidator.IsValid("RSSMRA85T10A562X");  // false — X is wrong
 ```
 
----
-
-## Quick reference
+## 2. Quick reference
 
 | Input | Returns |
 |---|---|

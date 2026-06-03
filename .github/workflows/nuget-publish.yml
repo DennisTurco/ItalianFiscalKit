@@ -33,7 +33,7 @@ jobs:
         run: dotnet test --no-build -c Release --verbosity normal
 
       - name: Pack
-        run: dotnet pack CodiceFiscale/CodiceFiscale.csproj --no-build -c Release -o ./nupkg
+        run: dotnet pack ItalianFiscalKit/ItalianFiscalKit.csproj --no-build -c Release -o ./nupkg
 
       - name: Check NuGet API key
         run: |
