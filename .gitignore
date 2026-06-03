@@ -405,3 +405,5 @@ FodyWeavers.xsd
 /_site/
 api/
 xrefmap.yml
+coverage/
+coverage-result/

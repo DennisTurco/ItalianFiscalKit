@@ -82,7 +82,7 @@ public class FiscalCodeValidator
 
     private static bool IsCheckCodeValid(string cf, char checkCode)
     {
-        string partialCF = cf[..(cf.Length-1)];
+        string partialCF = cf[..(cf.Length - 1)];
         return FiscalCodeTokenizer.CalculateCheckCharacter(partialCF) == checkCode;
     }
 }

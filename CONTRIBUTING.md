@@ -19,6 +19,12 @@ If you believe a Fiscal Code, Partita IVA, IBAN, municipality, or Belfiore code 
 
 ## 3. Development Setup
 
+Setup the pre-cheeck:
+
+```powershell
+.\setup.ps1
+```
+
 Clone the repository and build locally:
 
 ```powershell

@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+if git diff --cached --name-only | grep -q "\.cs$"; then
+  echo "Checking C# formatting..."
+  dotnet format --verify-no-changes --verbosity diagnostic
+  if [ $? -ne 0 ]; then
+    echo "Formatting issues found. Run 'dotnet format' to fix them."
+    exit 1
+  fi
+  echo "Formatting OK"
+fi

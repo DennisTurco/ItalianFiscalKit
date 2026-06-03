@@ -53,7 +53,7 @@ public class ItalianVatCodeValidator
 
         return
             IsPostalCodeValid(postalCode) &&
-            LuhnAlgorithm(serialNumber+postalCode) == int.Parse(checkCode);
+            LuhnAlgorithm(serialNumber + postalCode) == int.Parse(checkCode);
     }
 
     private static bool IsPostalCodeValid(string postalCode)

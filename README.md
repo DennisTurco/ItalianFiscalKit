@@ -6,6 +6,7 @@
 
 ![Build](https://github.com/DennisTurco/ItalianFiscalKit/actions/workflows/build.yml/badge.svg)
 ![Coverage](https://codecov.io/gh/DennisTurco/ItalianFiscalKit/badge.svg)
+![Downloads](https://img.shields.io/nuget/dt/ItalianFiscalKit)
 
 **FULL DOCUMENTATION**: [https://dennisturco.github.io/ItalianFiscalKit/](https://dennisturco.github.io/ItalianFiscalKit/)
 
