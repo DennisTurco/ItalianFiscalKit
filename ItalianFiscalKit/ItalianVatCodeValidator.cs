@@ -30,7 +30,7 @@ public class ItalianVatCodeValidator
             return false;
 
         if (isFiscal && vat.Length == 16)
-            return CodiceFiscaleValidator.IsValid(vat);
+            return FiscalCodeValidator.IsValid(vat);
 
         if (vat.Length != 11)
             return false;

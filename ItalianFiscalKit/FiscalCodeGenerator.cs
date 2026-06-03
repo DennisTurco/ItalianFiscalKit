@@ -7,7 +7,7 @@ namespace ItalianFiscalKit;
 /// <summary>
 /// Provides methods to generate an Italian Codice Fiscale.
 /// </summary>
-public class CodiceFiscaleGenerator
+public class FiscalCodeGenerator
 {
     /// <summary>
     /// Generates a Codice Fiscale based on the provided personal information.
@@ -18,17 +18,17 @@ public class CodiceFiscaleGenerator
     /// <param name="gender">The person's gender.</param>
     /// <param name="belfioreCode">The Belfiore (cadastral) code of the person's place of birth.</param>
     /// <returns>The generated 16-character Codice Fiscale string.</returns>
-    /// <exception cref="InvalidCodiceFiscaleDataException">
+    /// <exception cref="InvalidFiscalCodeDataException">
     /// Thrown when <paramref name="name"/>, <paramref name="surname"/>, or <paramref name="belfioreCode"/> is not valid.
     /// </exception>
     public static string Generate(string name, string surname, DateOnly dateOfBirth, Gender gender, string belfioreCode)
     {
         if (string.IsNullOrEmpty(name) || name.Length < 3)
-            throw new InvalidCodiceFiscaleDataException($"The provided Name '{name}' is not valid");
+            throw new InvalidFiscalCodeDataException($"The provided Name '{name}' is not valid");
         if (string.IsNullOrEmpty(surname) || surname.Length < 3)
-            throw new InvalidCodiceFiscaleDataException($"The provided Surname '{surname}' is not valid");
+            throw new InvalidFiscalCodeDataException($"The provided Surname '{surname}' is not valid");
         if (string.IsNullOrEmpty(belfioreCode) || belfioreCode.Length != 4 || !IsBelfioreValid(belfioreCode))
-            throw new InvalidCodiceFiscaleDataException($"The provided Belfiore code '{belfioreCode}' is not valid");
+            throw new InvalidFiscalCodeDataException($"The provided Belfiore code '{belfioreCode}' is not valid");
 
         int genderDay = CalculateDayValueByGender(dateOfBirth.Day, gender);
         string stringDay = genderDay.ToString("D2");
@@ -41,7 +41,7 @@ public class CodiceFiscaleGenerator
             stringDay +
             belfioreCode.ToUpperInvariant();
 
-        return partialCf + CodiceFiscaleTokenizer.CalculateCheckCharacter(partialCf);
+        return partialCf + FiscalCodeTokenizer.CalculateCheckCharacter(partialCf);
     }
 
     private static int CalculateDayValueByGender(int day, Gender gender)
@@ -103,6 +103,6 @@ public class CodiceFiscaleGenerator
             10 => 'R',
             11 => 'S',
             12 => 'T',
-            _  => throw new InvalidCodiceFiscaleDataException($"The provided Month '{month}' is not valid"),
+            _  => throw new InvalidFiscalCodeDataException($"The provided Month '{month}' is not valid"),
         };
 }

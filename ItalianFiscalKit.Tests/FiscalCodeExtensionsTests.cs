@@ -3,14 +3,14 @@ using ItalianFiscalKit.Enums;
 
 namespace ItalianFiscalKit.Tests;
 
-public class CodiceFiscaleExtensionsTests
+public class FiscalCodeExtensionsTests
 {
     [Fact]
     public void GetAge_BirthdayAlreadyPassedThisYear_ShouldReturnCorrectAge()
     {
         DateOnly today = DateOnly.FromDateTime(DateTime.Today);
         DateOnly dob = today.AddYears(-20).AddMonths(-1);
-        var data = new CodiceFiscaleData(Gender.Male, dob, "H501");
+        var data = new FiscalCodeData(Gender.Male, dob, "H501");
         Assert.Equal(20, data.GetAge());
     }
 
@@ -19,7 +19,7 @@ public class CodiceFiscaleExtensionsTests
     {
         DateOnly today = DateOnly.FromDateTime(DateTime.Today);
         DateOnly dob = today.AddYears(-20).AddMonths(1);
-        var data = new CodiceFiscaleData(Gender.Male, dob, "H501");
+        var data = new FiscalCodeData(Gender.Male, dob, "H501");
         Assert.Equal(19, data.GetAge());
     }
 
@@ -28,7 +28,7 @@ public class CodiceFiscaleExtensionsTests
     {
         DateOnly today = DateOnly.FromDateTime(DateTime.Today);
         DateOnly dob = today.AddYears(-25);
-        var data = new CodiceFiscaleData(Gender.Female, dob, "H501");
+        var data = new FiscalCodeData(Gender.Female, dob, "H501");
         Assert.Equal(25, data.GetAge());
     }
 
@@ -37,7 +37,7 @@ public class CodiceFiscaleExtensionsTests
     {
         DateOnly today = DateOnly.FromDateTime(DateTime.Today);
         DateOnly dob = today.AddYears(-30).AddMonths(-1);
-        var data = new CodiceFiscaleData(Gender.Male, dob, "H501");
+        var data = new FiscalCodeData(Gender.Male, dob, "H501");
         Assert.True(data.IsAdult());
     }
 
@@ -46,7 +46,7 @@ public class CodiceFiscaleExtensionsTests
     {
         DateOnly today = DateOnly.FromDateTime(DateTime.Today);
         DateOnly dob = today.AddYears(-10).AddMonths(-1);
-        var data = new CodiceFiscaleData(Gender.Female, dob, "H501");
+        var data = new FiscalCodeData(Gender.Female, dob, "H501");
         Assert.False(data.IsAdult());
     }
 
@@ -55,7 +55,7 @@ public class CodiceFiscaleExtensionsTests
     {
         DateOnly today = DateOnly.FromDateTime(DateTime.Today);
         DateOnly dob = today.AddYears(-18).AddMonths(-1);
-        var data = new CodiceFiscaleData(Gender.Male, dob, "H501");
+        var data = new FiscalCodeData(Gender.Male, dob, "H501");
         Assert.True(data.IsAdult());
     }
 
@@ -64,7 +64,7 @@ public class CodiceFiscaleExtensionsTests
     {
         DateOnly today = DateOnly.FromDateTime(DateTime.Today);
         DateOnly dob = today.AddYears(-18).AddMonths(1); // birthday next month → still 17
-        var data = new CodiceFiscaleData(Gender.Female, dob, "H501");
+        var data = new FiscalCodeData(Gender.Female, dob, "H501");
         Assert.False(data.IsAdult());
     }
 
@@ -73,7 +73,7 @@ public class CodiceFiscaleExtensionsTests
     {
         DateOnly today = DateOnly.FromDateTime(DateTime.Today);
         DateOnly dob = today.AddYears(-20).AddMonths(-1);
-        var data = new CodiceFiscaleData(Gender.Male, dob, "H501");
+        var data = new FiscalCodeData(Gender.Male, dob, "H501");
         Assert.Equal(data.GetAge() >= 18, data.IsAdult());
     }
 }

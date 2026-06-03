@@ -1,12 +1,12 @@
 # Generation
 
-`CodiceFiscaleGenerator.Generate` builds a fully valid 16-character Codice Fiscale from personal data. The check character is always computed automatically, so what you get back will always pass `CodiceFiscaleValidator.IsValid`.
+`FiscalCodeGenerator.Generate` builds a fully valid 16-character Codice Fiscale from personal data. The check character is always computed automatically, so what you get back will always pass `FiscalCodeValidator.IsValid`.
 
 ```csharp
 using ItalianFiscalKit;
 using CodiceFiscale.Enums;
 
-string cf = CodiceFiscaleGenerator.Generate(
+string cf = FiscalCodeGenerator.Generate(
     name:         "Luigi",
     surname:      "Verdi",
     dateOfBirth:  new DateOnly(1970, 5, 30),
@@ -92,7 +92,7 @@ Computed automatically from the first 15 characters using the official weighted-
 
 ## When it throws
 
-`InvalidCodiceFiscaleDataException` is raised when:
+`InvalidFiscalCodeDataException` is raised when:
 
 | Condition | Message |
 |---|---|
@@ -109,15 +109,15 @@ using ItalianFiscalKit;
 using CodiceFiscale.Enums;
 
 // Male — Italian municipality
-string cf1 = CodiceFiscaleGenerator.Generate("Luigi", "Verdi", new DateOnly(1970, 5, 30), Gender.Male, "F839");
+string cf1 = FiscalCodeGenerator.Generate("Luigi", "Verdi", new DateOnly(1970, 5, 30), Gender.Male, "F839");
 // "VRDLGU70E30F839C"
 
 // Female — Italian municipality (Roma = H501)
-string cf2 = CodiceFiscaleGenerator.Generate("Maria", "Rossi", new DateOnly(1985, 3, 15), Gender.Female, "H501");
+string cf2 = FiscalCodeGenerator.Generate("Maria", "Rossi", new DateOnly(1985, 3, 15), Gender.Female, "H501");
 // "RSSMRA85C55H501V"
 
 // Round-trip: generate then parse back
-bool ok = CodiceFiscaleParser.TryParse(cf1, out CodiceFiscaleData? data);
+bool ok = FiscalCodeParser.TryParse(cf1, out FiscalCodeData? data);
 // ok:                true
 // data.Gender:       Gender.Male
 // data.DateOfBirth:  new DateOnly(1970, 5, 30)
@@ -126,4 +126,4 @@ bool ok = CodiceFiscaleParser.TryParse(cf1, out CodiceFiscaleData? data);
 
 > [!NOTE]
 > The Belfiore code must exist in the embedded dataset.
-> Passing an invented or retired code will throw `InvalidCodiceFiscaleDataException`.
+> Passing an invented or retired code will throw `InvalidFiscalCodeDataException`.

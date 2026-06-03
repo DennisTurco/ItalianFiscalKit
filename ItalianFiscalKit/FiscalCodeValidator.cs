@@ -6,7 +6,7 @@ using ItalianFiscalKit.Utils;
 /// <summary>
 /// Provides methods to validate Italian Codice Fiscale codes.
 /// </summary>
-public class CodiceFiscaleValidator
+public class FiscalCodeValidator
 {
     /// <summary>
     /// Determines whether the specified Codice Fiscale is valid.
@@ -18,10 +18,10 @@ public class CodiceFiscaleValidator
         if (string.IsNullOrEmpty(cf) || cf.Length != 16 || cf.Contains(' '))
             return false;
 
-        if (!Regex.IsMatch(cf.ToUpper(), CodiceFiscaleTokenizer.RegexPattern))
+        if (!Regex.IsMatch(cf.ToUpper(), FiscalCodeTokenizer.RegexPattern))
             return false;
 
-        CodiceFiscaleTokenizer cfHelper = new(cf);
+        FiscalCodeTokenizer cfHelper = new(cf);
         int year = cfHelper.GetYear();
         char month = cfHelper.GetMonthChar();
         int day = cfHelper.GetDay();
@@ -83,6 +83,6 @@ public class CodiceFiscaleValidator
     private static bool IsCheckCodeValid(string cf, char checkCode)
     {
         string partialCF = cf[..(cf.Length-1)];
-        return CodiceFiscaleTokenizer.CalculateCheckCharacter(partialCF) == checkCode;
+        return FiscalCodeTokenizer.CalculateCheckCharacter(partialCF) == checkCode;
     }
 }

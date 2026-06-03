@@ -5,7 +5,7 @@ namespace ItalianFiscalKit;
 /// <summary>
 /// Provides methods to match and compare Italian Codice Fiscale strings against personal data.
 /// </summary>
-public class CodiceFiscaleMatcher
+public class FiscalCodeMatcher
 {
     /// <summary>
     /// Determines whether the specified Codice Fiscale matches the provided personal data.
@@ -29,7 +29,7 @@ public class CodiceFiscaleMatcher
 
         try
         {
-            string expected = CodiceFiscaleGenerator.Generate(name, surname, dateOfBirth, gender, belfioreCode);
+            string expected = FiscalCodeGenerator.Generate(name, surname, dateOfBirth, gender, belfioreCode);
             return string.Equals(cf.Trim().Replace(" ", ""), expected, StringComparison.OrdinalIgnoreCase);
         }
         catch

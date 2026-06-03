@@ -1,11 +1,11 @@
 # Parsing
 
-Once you have a valid Codice Fiscale, you can decode it into its three pieces of personal data: gender, date of birth, and birthplace code. `CodiceFiscaleParser` gives you two ways to do that depending on how you want to handle invalid input.
+Once you have a valid Codice Fiscale, you can decode it into its three pieces of personal data: gender, date of birth, and birthplace code. `FiscalCodeParser` gives you two ways to do that depending on how you want to handle invalid input.
 
 | Method | What happens with invalid input | Returns |
 |---|---|---|
-| `Parse(string cf)` | Throws `InvalidCodiceFiscaleException` | `CodiceFiscaleData` |
-| `TryParse(string cf, out CodiceFiscaleData? data)` | Returns `false`, sets `data` to `null` | `bool` |
+| `Parse(string cf)` | Throws `InvalidFiscalCodeException` | `FiscalCodeData` |
+| `TryParse(string cf, out FiscalCodeData? data)` | Returns `false`, sets `data` to `null` | `bool` |
 
 ---
 
@@ -16,7 +16,7 @@ using ItalianFiscalKit;
 using CodiceFiscale.Entities;
 using CodiceFiscale.Enums;
 
-CodiceFiscaleData data = CodiceFiscaleParser.Parse("RSSMRA85T10A562S");
+FiscalCodeData data = FiscalCodeParser.Parse("RSSMRA85T10A562S");
 ```
 
 Use `Parse` when you''re confident the input is already valid — for example, after running `IsValid` yourself — and you prefer a direct return value over an out parameter.
@@ -28,7 +28,7 @@ Use `Parse` when you''re confident the input is already valid — for example, a
 Use `TryParse` whenever the input comes from a user, a form, or any external source. No exceptions to catch, no try/catch blocks needed.
 
 ```csharp
-if (CodiceFiscaleParser.TryParse("RSSMRA85T10A562S", out CodiceFiscaleData? data))
+if (FiscalCodeParser.TryParse("RSSMRA85T10A562S", out FiscalCodeData? data))
 {
     Console.WriteLine($"Gender:      {data.Gender}");       // Male
     Console.WriteLine($"DateOfBirth: {data.DateOfBirth}");  // 1985-12-10
@@ -42,10 +42,10 @@ else
 
 ---
 
-## What you get back: `CodiceFiscaleData`
+## What you get back: `FiscalCodeData`
 
 ```csharp
-public record CodiceFiscaleData(
+public record FiscalCodeData(
     Gender   Gender,
     DateOnly DateOfBirth,
     string   BelfioreCode);
@@ -65,35 +65,35 @@ public record CodiceFiscaleData(
 
 ---
 
-## The exception: `InvalidCodiceFiscaleException`
+## The exception: `InvalidFiscalCodeException`
 
-`Parse` runs `CodiceFiscaleValidator.IsValid` internally before decoding. If validation fails, you get:
+`Parse` runs `FiscalCodeValidator.IsValid` internally before decoding. If validation fails, you get:
 
 ```csharp
-throw new InvalidCodiceFiscaleException($"The provided Codice Fiscale ''{cf}'' is not valid");
+throw new InvalidFiscalCodeException($"The provided Codice Fiscale ''{cf}'' is not valid");
 ```
 
 Three patterns to deal with this:
 
 ```csharp
 // Option 1 — TryParse (recommended for user input)
-if (CodiceFiscaleParser.TryParse(input, out var data))
+if (FiscalCodeParser.TryParse(input, out var data))
 {
     // use data
 }
 
 // Option 2 — validate first, then parse
-if (CodiceFiscaleValidator.IsValid(input))
+if (FiscalCodeValidator.IsValid(input))
 {
-    CodiceFiscaleData data = CodiceFiscaleParser.Parse(input);
+    FiscalCodeData data = FiscalCodeParser.Parse(input);
 }
 
 // Option 3 — try/catch (when you need the exception message)
 try
 {
-    CodiceFiscaleData data = CodiceFiscaleParser.Parse(input);
+    FiscalCodeData data = FiscalCodeParser.Parse(input);
 }
-catch (InvalidCodiceFiscaleException ex)
+catch (InvalidFiscalCodeException ex)
 {
     // handle invalid input
 }
@@ -105,19 +105,19 @@ catch (InvalidCodiceFiscaleException ex)
 
 ```csharp
 // Male, born in Italy
-CodiceFiscaleData mario = CodiceFiscaleParser.Parse("RSSMRA85T10A562S");
+FiscalCodeData mario = FiscalCodeParser.Parse("RSSMRA85T10A562S");
 // Gender:       Male
 // DateOfBirth:  1985-12-10
 // BelfioreCode: A562  (Rome)
 
 // Female, born abroad (Venezuela)
-CodiceFiscaleData gabriella = CodiceFiscaleParser.Parse("MRNGRL01P55Z614K");
+FiscalCodeData gabriella = FiscalCodeParser.Parse("MRNGRL01P55Z614K");
 // Gender:       Female  (55 - 40 = day 15)
 // DateOfBirth:  2001-09-15
 // BelfioreCode: Z614  (Venezuela)
 
 // TryParse with invalid input
-bool ok = CodiceFiscaleParser.TryParse("INVALID", out CodiceFiscaleData? result);
+bool ok = FiscalCodeParser.TryParse("INVALID", out FiscalCodeData? result);
 // ok:     false
 // result: null
 ```

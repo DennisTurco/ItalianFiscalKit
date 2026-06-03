@@ -1,12 +1,12 @@
 # Matching
 
-`CodiceFiscaleMatcher.Matches` answers a very practical question: *does this CF actually belong to this person?* It generates the expected CF from the provided data and compares it to the one you supply — returning `true` only when they match.
+`FiscalCodeMatcher.Matches` answers a very practical question: *does this CF actually belong to this person?* It generates the expected CF from the provided data and compares it to the one you supply — returning `true` only when they match.
 
 ```csharp
 using ItalianFiscalKit;
 using CodiceFiscale.Enums;
 
-bool match = CodiceFiscaleMatcher.Matches(
+bool match = FiscalCodeMatcher.Matches(
     cf:           "VRDLGU70E30F839C",
     name:         "Luigi",
     surname:      "Verdi",
@@ -48,7 +48,7 @@ public static bool Matches(
 ## How it works
 
 1. If `cf` is null or empty, returns `false` immediately.
-2. Calls `CodiceFiscaleGenerator.Generate(...)` with the provided personal data to build the expected CF.
+2. Calls `FiscalCodeGenerator.Generate(...)` with the provided personal data to build the expected CF.
 3. Compares the two strings, case-insensitively.
 4. If `Generate` throws (e.g. invalid Belfiore code), the exception is caught internally and `false` is returned.
 
@@ -73,27 +73,27 @@ using ItalianFiscalKit;
 using CodiceFiscale.Enums;
 
 // ✅ Correct data
-CodiceFiscaleMatcher.Matches("VRDLGU70E30F839C", "Luigi", "Verdi",
+FiscalCodeMatcher.Matches("VRDLGU70E30F839C", "Luigi", "Verdi",
     new DateOnly(1970, 5, 30), Gender.Male, "F839");
 // true
 
 // ✅ Case-insensitive
-CodiceFiscaleMatcher.Matches("vrdlgu70e30f839c", "Luigi", "Verdi",
+FiscalCodeMatcher.Matches("vrdlgu70e30f839c", "Luigi", "Verdi",
     new DateOnly(1970, 5, 30), Gender.Male, "F839");
 // true
 
 // ❌ Wrong date of birth
-CodiceFiscaleMatcher.Matches("VRDLGU70E30F839C", "Luigi", "Verdi",
+FiscalCodeMatcher.Matches("VRDLGU70E30F839C", "Luigi", "Verdi",
     new DateOnly(1971, 5, 30), Gender.Male, "F839");
 // false
 
 // ❌ Wrong gender
-CodiceFiscaleMatcher.Matches("VRDLGU70E30F839C", "Luigi", "Verdi",
+FiscalCodeMatcher.Matches("VRDLGU70E30F839C", "Luigi", "Verdi",
     new DateOnly(1970, 5, 30), Gender.Female, "F839");
 // false
 
 // ❌ Null CF
-CodiceFiscaleMatcher.Matches(null!, "Luigi", "Verdi",
+FiscalCodeMatcher.Matches(null!, "Luigi", "Verdi",
     new DateOnly(1970, 5, 30), Gender.Male, "F839");
 // false
 ```

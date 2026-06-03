@@ -21,10 +21,10 @@ dotnet add package ItalianFiscalKit
 using ItalianFiscalKit;
 
 // Validate
-bool valid = CodiceFiscaleValidator.IsValid("RSSMRA85T10A562S"); // true
+bool valid = FiscalCodeValidator.IsValid("RSSMRA85T10A562S"); // true
 
 // Parse
-CodiceFiscaleData data = CodiceFiscaleParser.Parse("RSSMRA85T10A562S");
+FiscalCodeData data = FiscalCodeParser.Parse("RSSMRA85T10A562S");
 Console.WriteLine(data.Gender);       // Male
 Console.WriteLine(data.DateOfBirth);  // 10/12/1985
 Console.WriteLine(data.BelfioreCode); // A562

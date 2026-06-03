@@ -8,30 +8,30 @@ namespace ItalianFiscalKit;
 /// <summary>
 /// Provides methods to parse an Italian Codice Fiscale into its constituent data.
 /// </summary>
-public class CodiceFiscaleParser
+public class FiscalCodeParser
 {
     /// <summary>
     /// Parses the specified Codice Fiscale and returns the decoded personal data.
     /// </summary>
     /// <param name="cf">The Codice Fiscale string to parse. Case-insensitive.</param>
     /// <returns>
-    /// A <see cref="CodiceFiscaleData"/> instance containing the gender, date of birth,
+    /// A <see cref="FiscalCodeData"/> instance containing the gender, date of birth,
     /// and Belfiore code extracted from the Codice Fiscale.
     /// </returns>
-    /// <exception cref="InvalidCodiceFiscaleException">
+    /// <exception cref="InvalidFiscalCodeException">
     /// Thrown when <paramref name="cf"/> is not a valid Codice Fiscale.
     /// </exception>
-    public static CodiceFiscaleData Parse(string cf)
+    public static FiscalCodeData Parse(string cf)
     {
-        if (!CodiceFiscaleValidator.IsValid(cf))
-            throw new InvalidCodiceFiscaleException($"The provided Codice Fiscale '{cf}' is not valid");
+        if (!FiscalCodeValidator.IsValid(cf))
+            throw new InvalidFiscalCodeException($"The provided Codice Fiscale '{cf}' is not valid");
 
-        CodiceFiscaleTokenizer cfHelper = new(cf);
+        FiscalCodeTokenizer cfHelper = new(cf);
         DateOnly date = new(cfHelper.GetYear(), cfHelper.GetMonth(), cfHelper.GetStandardDay());
         string catastalCode = cfHelper.GetBelfiore();
-        Gender gender = CodiceFiscaleTokenizer.GetGenderFromBirthDay(cfHelper.GetDay());
+        Gender gender = FiscalCodeTokenizer.GetGenderFromBirthDay(cfHelper.GetDay());
 
-        return new CodiceFiscaleData(gender, date, catastalCode);
+        return new FiscalCodeData(gender, date, catastalCode);
     }
 
     /// <summary>
@@ -39,7 +39,7 @@ public class CodiceFiscaleParser
     /// </summary>
     /// <param name="cf">The Codice Fiscale string to parse. Case-insensitive.</param>
     /// <param name="data">
-    /// When this method returns <see langword="true"/>, contains a <see cref="CodiceFiscaleData"/>
+    /// When this method returns <see langword="true"/>, contains a <see cref="FiscalCodeData"/>
     /// instance with the gender, date of birth, and Belfiore code extracted from the Codice Fiscale;
     /// otherwise, <see langword="null"/>.
     /// </param>
@@ -49,26 +49,26 @@ public class CodiceFiscaleParser
     /// </returns>
     /// <example>
     /// <code>
-    /// if (CodiceFiscaleParser.TryParse("RSSMRA85T10A562S", out CodiceFiscaleData? data))
+    /// if (FiscalCodeParser.TryParse("RSSMRA85T10A562S", out FiscalCodeData? data))
     /// {
     ///     Console.WriteLine($"Gender: {data.Gender}, Born: {data.DateOfBirth}");
     /// }
     /// </code>
     /// </example>
-    public static bool TryParse(string cf, out CodiceFiscaleData? data)
+    public static bool TryParse(string cf, out FiscalCodeData? data)
     {
-        if (!CodiceFiscaleValidator.IsValid(cf))
+        if (!FiscalCodeValidator.IsValid(cf))
         {
             data = default;
             return false;
         }
 
-        CodiceFiscaleTokenizer cfHelper = new(cf);
+        FiscalCodeTokenizer cfHelper = new(cf);
         DateOnly date = new(cfHelper.GetYear(), cfHelper.GetMonth(), cfHelper.GetStandardDay());
         string catastalCode = cfHelper.GetBelfiore();
-        Gender gender = CodiceFiscaleTokenizer.GetGenderFromBirthDay(cfHelper.GetDay());
+        Gender gender = FiscalCodeTokenizer.GetGenderFromBirthDay(cfHelper.GetDay());
 
-        data = new CodiceFiscaleData(gender, date, catastalCode);
+        data = new FiscalCodeData(gender, date, catastalCode);
         return true;
     }
 }

@@ -1,4 +1,4 @@
 <Solution>
-  <Project Path="CodiceFiscale.Tests/ItalianFiscalKit.Tests.csproj" />
-  <Project Path="CodiceFiscale/ItalianFiscalKit.csproj" />
+  <Project Path="ItalianFiscalKit.Tests/ItalianFiscalKit.Tests.csproj" />
+  <Project Path="ItalianFiscalKit/ItalianFiscalKit.csproj" />
 </Solution>

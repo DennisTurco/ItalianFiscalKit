@@ -34,13 +34,13 @@ dotnet add package ItalianFiscalKit
     ```cs
     using ItalianFiscalKit;
 
-    bool isValid = CodiceFiscaleValidator.IsValid("RSSMRA80A01H501U"); // true
+    bool isValid = FiscalCodeValidator.IsValid("RSSMRA80A01H501U"); // true
     ```
 
 2. Generate a fiscal code
 
     ```cs
-    string cf = CodiceFiscaleGenerator.Generate(
+    string cf = FiscalCodeGenerator.Generate(
         name:        "Mario",
         surname:     "Rossi",
         dateOfBirth: new DateOnly(1980, 1, 1),
@@ -52,7 +52,7 @@ dotnet add package ItalianFiscalKit
 3. Cross-check fiscal code against personal data
 
     ```cs
-    bool matches = CodiceFiscaleMatcher.Matches(
+    bool matches = FiscalCodeMatcher.Matches(
         cf:           "RSSMRA80A01H501U",
         name:         "Mario",
         surname:      "Rossi",
@@ -65,14 +65,14 @@ dotnet add package ItalianFiscalKit
 4. Parse a fiscal code
 
     ```cs
-    CodiceFiscaleData parsed = CodiceFiscaleParser.Parse("RSSMRA80A01H501U");
+    FiscalCodeData parsed = FiscalCodeParser.Parse("RSSMRA80A01H501U");
 
     parsed.Gender       // Male
     parsed.DateOfBirth  // 1980-01-01
     parsed.BelfioreCode // "H501"
     ```
 
-5. Age helpers (extension methods on `CodiceFiscaleData`)
+5. Age helpers (extension methods on `FiscalCodeData`)
 
     ```cs
     int age     = parsed.GetAge();    // e.g. 45
@@ -160,13 +160,13 @@ please open an issue with:
     ```cs
     using CodiceFiscale;
 
-    bool isValid = CodiceFiscaleValidator.IsValid("RSSMRA80A01H501U"); // true
+    bool isValid = FiscalCodeValidator.IsValid("RSSMRA80A01H501U"); // true
     ```
 
 2. Generate a fiscal code
 
     ```cs
-    string cf = CodiceFiscaleGenerator.Generate(
+    string cf = FiscalCodeGenerator.Generate(
         name:        "Mario",
         surname:     "Rossi",
         dateOfBirth: new DateOnly(1980, 1, 1),
@@ -178,7 +178,7 @@ please open an issue with:
 3. Cross-check fiscal code against personal data
 
     ```cs
-    bool matches = CodiceFiscaleMatcher.Matches(
+    bool matches = FiscalCodeMatcher.Matches(
         cf:           "RSSMRA80A01H501U",
         name:         "Mario",
         surname:      "Rossi",
@@ -191,14 +191,14 @@ please open an issue with:
 4. Parse a fiscal code
 
     ```cs
-    CodiceFiscaleData parsed = CodiceFiscaleParser.Parse("RSSMRA80A01H501U");
+    FiscalCodeData parsed = FiscalCodeParser.Parse("RSSMRA80A01H501U");
 
     parsed.Gender       // Male
     parsed.DateOfBirth  // 1980-01-01
     parsed.BelfioreCode // "H501"
     ```
 
-5. Age helpers (extension methods on `CodiceFiscaleData`)
+5. Age helpers (extension methods on `FiscalCodeData`)
 
     ```cs
     int age     = parsed.GetAge();    // e.g. 45

@@ -6,12 +6,12 @@
 
 | What | Class | |
 |---|---|---|
-| Validate a Codice Fiscale | `CodiceFiscaleValidator` | ✅ |
-| Decode a CF into gender, date of birth and birthplace | `CodiceFiscaleParser` | ✅ |
-| Parse without try/catch | `CodiceFiscaleParser.TryParse` | ✅ |
-| Generate a CF from personal data | `CodiceFiscaleGenerator` | ✅ |
-| Check whether a CF matches a person | `CodiceFiscaleMatcher` | ✅ |
-| Get age and adult-status from parsed data | `CodiceFiscaleExtensions` | ✅ |
+| Validate a Codice Fiscale | `FiscalCodeValidator` | ✅ |
+| Decode a CF into gender, date of birth and birthplace | `FiscalCodeParser` | ✅ |
+| Parse without try/catch | `FiscalCodeParser.TryParse` | ✅ |
+| Generate a CF from personal data | `FiscalCodeGenerator` | ✅ |
+| Check whether a CF matches a person | `FiscalCodeMatcher` | ✅ |
+| Get age and adult-status from parsed data | `FiscalCodeExtensions` | ✅ |
 | Search municipalities by name, CAP, Belfiore code or province | `MunicipalityExtensions` | ✅ |
 | Validate an IBAN (all SEPA countries) | `IBANValidator` | ✅ |
 | Validate an Italian VAT number (Partita IVA) | `ItalianVatCodeValidator` | ✅ |

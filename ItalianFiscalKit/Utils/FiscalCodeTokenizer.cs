@@ -3,14 +3,14 @@ using ItalianFiscalKit.Enums;
 
 namespace ItalianFiscalKit.Utils;
 
-internal class CodiceFiscaleTokenizer
+internal class FiscalCodeTokenizer
 {
     // 3char -> name; 3char -> surname; 2int -> year; 1char -> month; 2int -> day; 4char -> belfiore (catastal code); 1char -> check code
     internal const string RegexPattern = @"([A-Z]{3})([A-Z]{3})([0-9]{2})([ABCDEHILMPRST]{1})([0-9]{2})(\S{4})([A-Z]{1})";
     private readonly string _cf;
     private readonly Match _match;
 
-    internal CodiceFiscaleTokenizer(string cf)
+    internal FiscalCodeTokenizer(string cf)
     {
         _cf = cf.ToUpper();
         _match = Regex.Match(_cf, RegexPattern);

@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CodiceFiscale\ItalianFiscalKit.csproj" />
+    <ProjectReference Include="..\ItalianFiscalKit\ItalianFiscalKit.csproj" />
   </ItemGroup>
 
 </Project>

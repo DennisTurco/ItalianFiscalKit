@@ -97,7 +97,7 @@ The final character is a checksum computed from the first 15 characters:
 2. Characters at **even positions** (2, 4, 6, …) use their ordinal value (0–25 for letters, 0–9 for digits)
 3. Sum all values, take modulo 26, and convert to a letter (`A` = 0, `B` = 1, …)
 
-`CodiceFiscaleValidator.IsValid` always verifies this character automatically — you don''t need to compute it yourself.
+`FiscalCodeValidator.IsValid` always verifies this character automatically — you don''t need to compute it yourself.
 
 ---
 

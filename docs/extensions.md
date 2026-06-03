@@ -4,16 +4,16 @@ The library ships two sets of extension methods for the most common follow-up op
 
 ---
 
-## CodiceFiscaleExtensions
+## FiscalCodeExtensions
 
-These are extension methods on `CodiceFiscaleData`, so you can call them directly on whatever `Parse` or `TryParse` returns.
+These are extension methods on `FiscalCodeData`, so you can call them directly on whatever `Parse` or `TryParse` returns.
 
 ### GetAge
 
 Returns how old the person is today, in full years.
 
 ```csharp
-CodiceFiscaleData data = CodiceFiscaleParser.Parse("RSSMRA80A01H501U");
+FiscalCodeData data = FiscalCodeParser.Parse("RSSMRA80A01H501U");
 int age = data.GetAge(); // e.g. 45
 ```
 
@@ -88,7 +88,7 @@ IEnumerable<Municipality> all = MunicipalityExtensions.GetAll(); // ~7 896
 A typical pattern: parse a CF and look up where the person was born.
 
 ```csharp
-CodiceFiscaleData data  = CodiceFiscaleParser.Parse("RSSMRA80A01H501U");
+FiscalCodeData data  = FiscalCodeParser.Parse("RSSMRA80A01H501U");
 Municipality?     place = data.BelfioreCode.GetMunicipalityByBelfiore();
 
 Console.WriteLine($"Born in: {place?.Name}, {place?.Province.Name}");

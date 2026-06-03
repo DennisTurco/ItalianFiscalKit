@@ -26,15 +26,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### Codice Fiscale
 
-- `CodiceFiscaleValidator.IsValid(string cf)` — full 5-step validation pipeline: regex format, birth date, Belfiore code, check digit
-- `CodiceFiscaleParser.Parse(string cf)` — decodes a CF into `CodiceFiscaleData` (gender, date of birth, Belfiore code)
-- `CodiceFiscaleParser.TryParse(string cf, out CodiceFiscaleData? data)` — non-throwing alternative to `Parse`
-- `InvalidCodiceFiscaleException` — dedicated exception type for invalid CF inputs
+- `FiscalCodeValidator.IsValid(string cf)` — full 5-step validation pipeline: regex format, birth date, Belfiore code, check digit
+- `FiscalCodeParser.Parse(string cf)` — decodes a CF into `FiscalCodeData` (gender, date of birth, Belfiore code)
+- `FiscalCodeParser.TryParse(string cf, out FiscalCodeData? data)` — non-throwing alternative to `Parse`
+- `InvalidFiscalCodeException` — dedicated exception type for invalid CF inputs
 - **Foreign-born support** — Belfiore codes starting with `Z` (e.g. `Z614` = Venezuela) are validated against a dataset of 261 foreign countries (active + historical/soppresso)
-- `CodiceFiscaleData` — immutable `record` with `Gender`, `DateOfBirth`, `BelfioreCode`
+- `FiscalCodeData` — immutable `record` with `Gender`, `DateOfBirth`, `BelfioreCode`
 - `Gender` enum with `Male` and `Female` values
-- `CodiceFiscaleMatcher.Matches(string cf, string name, string surname, DateOnly dateOfBirth, Gender gender, string belfioreCode)` — verifies whether a CF corresponds to the given personal data by generating the expected CF and comparing case-insensitively
-- `CodiceFiscaleGenerator.Generate(string name, string surname, DateOnly dateOfBirth, Gender gender, string belfioreCode)` — generates a valid 16-character Codice Fiscale from personal data, including foreign-born individuals (Belfiore code `Z…`)
+- `FiscalCodeMatcher.Matches(string cf, string name, string surname, DateOnly dateOfBirth, Gender gender, string belfioreCode)` — verifies whether a CF corresponds to the given personal data by generating the expected CF and comparing case-insensitively
+- `FiscalCodeGenerator.Generate(string name, string surname, DateOnly dateOfBirth, Gender gender, string belfioreCode)` — generates a valid 16-character Codice Fiscale from personal data, including foreign-born individuals (Belfiore code `Z…`)
 
 #### IBAN
 
@@ -57,7 +57,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### Extension Methods
 
-- `CodiceFiscaleExtensions` — extension methods on `CodiceFiscaleData`:
+- `FiscalCodeExtensions` — extension methods on `FiscalCodeData`:
   - `GetAge()` — returns the current age in full years
   - `IsAdult()` — returns `true` if the person is 18 or older
 - `MunicipalityExtensions` — query helpers over the embedded municipality dataset:
@@ -72,7 +72,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `DataStore` — internal `Lazy<T>` singleton cache; all three datasets are deserialized once on first use and cached for the lifetime of the process (thread-safe, no locks required)
 - `Config` — centralized embedded resource name constants
-- `CodiceFiscaleTokenizer` — internal regex-based CF tokenizer used by Validator and Parser
+- `FiscalCodeTokenizer` — internal regex-based CF tokenizer used by Validator and Parser
 
 #### Documentation
 

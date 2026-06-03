@@ -1,6 +1,6 @@
 namespace ItalianFiscalKit.Tests;
 
-public class CodiceFiscaleValidatorTests
+public class FiscalCodeValidatorTests
 {
     [Theory]
     [InlineData("RSSMRA85T10A562S")] // Mario Rossi, male
@@ -10,7 +10,7 @@ public class CodiceFiscaleValidatorTests
     [InlineData("GLLMTT99C06G479M")] // Matteo Galli, male
     public void CheckValidCF_ShouldBeTrue(string cf)
     {
-        Assert.True(CodiceFiscaleValidator.IsValid(cf));
+        Assert.True(FiscalCodeValidator.IsValid(cf));
     }
 
     [Theory]
@@ -21,7 +21,7 @@ public class CodiceFiscaleValidatorTests
     [InlineData("RSSMRA85T10Z999S")] // Non-existent municipality code
     public void CheckInvalidCF_ShouldBeFalse(string cf)
     {
-        Assert.False(CodiceFiscaleValidator.IsValid(cf));
+        Assert.False(FiscalCodeValidator.IsValid(cf));
     }
 
     [Theory]
@@ -31,7 +31,7 @@ public class CodiceFiscaleValidatorTests
     [InlineData("AAAAAA00A00A000A")] // All placeholder characters
     public void CheckNullOrMalformedCF_ShouldBeFalse(string cf)
     {
-        Assert.False(CodiceFiscaleValidator.IsValid(cf));
+        Assert.False(FiscalCodeValidator.IsValid(cf));
     }
 
     [Theory]
@@ -39,7 +39,7 @@ public class CodiceFiscaleValidatorTests
     [InlineData("RsSmRa85T10a562S")] // Mixed case valid CF
     public void CheckValidCF_CaseInsensitive_ShouldBeTrue(string cf)
     {
-        Assert.True(CodiceFiscaleValidator.IsValid(cf));
+        Assert.True(FiscalCodeValidator.IsValid(cf));
     }
 
     [Theory]
@@ -47,7 +47,7 @@ public class CodiceFiscaleValidatorTests
     [InlineData("BNCGNN90A41H501Z")] // Female day: 41 (40+01, valid for January)
     public void CheckFemaleCF_ShouldBeTrue(string cf)
     {
-        Assert.True(CodiceFiscaleValidator.IsValid(cf));
+        Assert.True(FiscalCodeValidator.IsValid(cf));
     }
 
     [Theory]
@@ -62,7 +62,7 @@ public class CodiceFiscaleValidatorTests
     [InlineData("RSSMRA85T40A562X")] // Day 40, neither male nor female (gap between 31 and 41)
     public void CheckInvalidDay_ShouldBeFalse(string cf)
     {
-        Assert.False(CodiceFiscaleValidator.IsValid(cf));
+        Assert.False(FiscalCodeValidator.IsValid(cf));
     }
 
     [Theory]
@@ -73,7 +73,7 @@ public class CodiceFiscaleValidatorTests
     [InlineData("RSSMRA85T10A562 S")]
     public void CheckCFWithWhitespace_ShouldBeFalse(string cf)
     {
-        Assert.False(CodiceFiscaleValidator.IsValid(cf));
+        Assert.False(FiscalCodeValidator.IsValid(cf));
     }
 
     [Theory]
@@ -84,14 +84,14 @@ public class CodiceFiscaleValidatorTests
     [InlineData("RSSMRA85TAA562S1")]
     public void CheckCFWithWrongCharacterTypes_ShouldBeFalse(string cf)
     {
-        Assert.False(CodiceFiscaleValidator.IsValid(cf));
+        Assert.False(FiscalCodeValidator.IsValid(cf));
     }
 
     [Theory]
     [InlineData("RSSMRA85T10A562S")] // check for side effects
     public void CheckValidCF_CalledTwice_ShouldBeConsistent(string cf)
     {
-        Assert.True(CodiceFiscaleValidator.IsValid(cf));
-        Assert.True(CodiceFiscaleValidator.IsValid(cf));
+        Assert.True(FiscalCodeValidator.IsValid(cf));
+        Assert.True(FiscalCodeValidator.IsValid(cf));
     }
 }

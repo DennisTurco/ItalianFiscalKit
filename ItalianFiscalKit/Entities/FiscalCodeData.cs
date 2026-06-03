@@ -7,7 +7,7 @@ namespace ItalianFiscalKit.Entities;
 /// <param name="Gender">The gender of the individual.</param>
 /// <param name="DateOfBirth">The date of birth of the individual.</param>
 /// <param name="BelfioreCode">The 4-character Belfiore (cadastral) code representing the place of birth.</param>
-public record CodiceFiscaleData(
+public record FiscalCodeData(
     Gender Gender,
     DateOnly DateOfBirth,
     string BelfioreCode);
