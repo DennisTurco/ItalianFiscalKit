@@ -100,6 +100,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - No HTTP calls, no external services — all validation runs locally in-process
 - Targets **.NET 9.0**
 
-[2.0.0]: https://github.com/DennisTurco/CodiceFiscale/releases/tag/v2.0.0
-[1.0.1]: https://github.com/DennisTurco/CodiceFiscale/releases/tag/v1.0.1
-[1.0.0]: https://github.com/DennisTurco/CodiceFiscale/releases/tag/v1.0.0
+[2.0.0]: https://github.com/DennisTurco/ItalianFiscalKit/releases/tag/v2.0.0
+[1.0.1]: https://github.com/DennisTurco/ItalianFiscalKit/releases/tag/v1.0.1
+[1.0.0]: https://github.com/DennisTurco/ItalianFiscalKit/releases/tag/v1.0.0

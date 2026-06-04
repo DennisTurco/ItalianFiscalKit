@@ -50,10 +50,10 @@
       "_enableSearch": true,
       "pdf": true,
       "_gitContribute": {
-        "repo": "https://github.com/DennisTurco/CodiceFiscale",
+        "repo": "https://github.com/DennisTurco/ItalianFiscalKit",
         "branch": "master"
       },
-      "_appFooter": "<span>Built with <a href='https://dotnet.github.io/docfx' target='_blank'>DocFX</a> · <a href='https://github.com/DennisTurco/CodiceFiscale' target='_blank'>GitHub</a> · <a href='https://www.nuget.org/packages/ItalianFiscalKit' target='_blank'>NuGet</a> · <a href='https://github.com/sponsors/DennisTurco' target='_blank'>❤️ Sponsor</a></span>"
+      "_appFooter": "<span>Built with <a href='https://dotnet.github.io/docfx' target='_blank'>DocFX</a> · <a href='https://github.com/DennisTurco/ItalianFiscalKit' target='_blank'>GitHub</a> · <a href='https://www.nuget.org/packages/ItalianFiscalKit' target='_blank'>NuGet</a> · <a href='https://github.com/sponsors/DennisTurco' target='_blank'>❤️ Sponsor</a></span>"
     }
   }
 }

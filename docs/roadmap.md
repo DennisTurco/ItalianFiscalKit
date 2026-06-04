@@ -5,7 +5,7 @@ title: Roadmap
 # Roadmap
 
 This page tracks planned features and improvements for ItalianFiscalKit.
-For the full list of open issues and discussions, see the [GitHub Issues](https://github.com/DennisTurco/CodiceFiscale/issues) page.
+For the full list of open issues and discussions, see the [GitHub Issues](https://github.com/DennisTurco/ItalianFiscalKit/issues) page.
 
 ## 1. Planned Features
 
@@ -22,4 +22,4 @@ See the [Changelog](../CHANGELOG.md) for what has already shipped.
 
 ## 3. Suggest a Feature
 
-Open a [GitHub Issue](https://github.com/DennisTurco/CodiceFiscale/issues/new) to propose new features or report bugs.
+Open a [GitHub Issue](https://github.com/DennisTurco/ItalianFiscalKit/issues/new) to propose new features or report bugs.

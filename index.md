@@ -38,9 +38,9 @@ A lightweight .NET library for Italian fiscal compliance: validate, parse and ge
 
 [![NuGet](https://img.shields.io/nuget/v/ItalianFiscalKit.svg)](https://www.nuget.org/packages/ItalianFiscalKit)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/ItalianFiscalKit.svg)](https://www.nuget.org/packages/ItalianFiscalKit)
-[![CI](https://github.com/DennisTurco/CodiceFiscale/actions/workflows/ci.yml/badge.svg)](https://github.com/DennisTurco/CodiceFiscale/actions/workflows/ci.yml)
+[![CI](https://github.com/DennisTurco/ItalianFiscalKit/actions/workflows/ci.yml/badge.svg)](https://github.com/DennisTurco/ItalianFiscalKit/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub Stars](https://img.shields.io/github/stars/DennisTurco/CodiceFiscale?style=social)](https://github.com/DennisTurco/CodiceFiscale/stargazers)
+[![GitHub Stars](https://img.shields.io/github/stars/DennisTurco/ItalianFiscalKit?style=social)](https://github.com/DennisTurco/ItalianFiscalKit/stargazers)
 
 ## 1. Quick Start
 

@@ -5,7 +5,7 @@
 - name: Coverage
   href: coverage-report.md
 - name: "GitHub"
-  href: https://github.com/DennisTurco/CodiceFiscale
+  href: https://github.com/DennisTurco/ItalianFiscalKit
 - name: "NuGet"
   href: https://www.nuget.org/packages/ItalianFiscalKit
 - name: "❤️ Sponsor"
