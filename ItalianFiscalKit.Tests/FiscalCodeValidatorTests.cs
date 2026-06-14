@@ -94,4 +94,31 @@ public class FiscalCodeValidatorTests
         Assert.True(FiscalCodeValidator.IsValid(cf));
         Assert.True(FiscalCodeValidator.IsValid(cf));
     }
+
+    [Theory]
+    [InlineData("RSSMRA85T10A000A")]
+    [InlineData("RSSMRA85T10Z000A")]
+    [InlineData("RSSMRA85T10I123A")]
+    public void CheckInvalidMunicipalityCode_ShouldBeFalse(string cf)
+    {
+        Assert.False(FiscalCodeValidator.IsValid(cf));
+    }
+
+    [Theory]
+    [InlineData("RSSMRA85T101562S")]
+    [InlineData("RSSMRA85T10AA62S")]
+    [InlineData("RSSMRA85T10A56AS")]
+    public void CheckMalformedMunicipalityCode_ShouldBeFalse(string cf)
+    {
+        Assert.False(FiscalCodeValidator.IsValid(cf));
+    }
+
+    [Theory]
+    [InlineData("RSSMRA85Z10A562X")]
+    [InlineData("RSSMRA85K10A562X")]
+    [InlineData("RSSMRA85Y10A562X")]
+    public void CheckInvalidMonthLetter_ShouldBeFalse(string cf)
+    {
+        Assert.False(FiscalCodeValidator.IsValid(cf));
+    }
 }
